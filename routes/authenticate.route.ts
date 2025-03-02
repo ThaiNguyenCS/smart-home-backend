@@ -1,15 +1,9 @@
 import express from "express";
+import AuthController from "../controller/auth.controller";
 
 const router = express.Router();
 
-router.get("/test", async (req, res) => {
-    res.status(200).send({ message: "test successfully" });
-});
-
-router.post("/login", async (req, res) => {
-    res.status(200).send({ message: "login successfully" });
-});
-
+router.post("/login", AuthController.loginByUsernameAndPass);
 
 router.post("/register", async (req, res) => {
     res.status(200).send({ message: "login successfully" });
