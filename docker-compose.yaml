@@ -1,0 +1,15 @@
+services:
+    postgres-database:
+        image: postgres:17
+        restart: always
+        container_name: smart_home_db_container
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=123456
+            - POSTGRES_DB=smart-home
+        ports:
+            - 5435:5432
+        volumes:
+            - postgres:/var/lib/postgresql/data
+volumes:
+    postgres:

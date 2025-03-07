@@ -11,6 +11,14 @@ export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 export const PORT = process.env.PORT;
 
+const AIO_USERNAME = process.env.AIO_USERNAME;
+const AIO_KEY = process.env.AIO_KEY;
+
+export const AIO_CONFIG = {
+    MQTT_URL: `mqtts://${AIO_USERNAME}:${AIO_KEY}@io.adafruit.com`,
+    AIO_USERNAME,
+    AIO_KEY,
+};
 
 export const DB_CONFIG = {
     username: process.env.DB_USERNAME,
@@ -18,4 +26,4 @@ export const DB_CONFIG = {
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     port: process.env.DB_PORT,
-}
+};

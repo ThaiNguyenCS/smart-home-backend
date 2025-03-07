@@ -20,8 +20,11 @@ client.on("connect", () => {
     });
 });
 
-client.on("message", (topic, message) => {
-    console.log(`Received data: ${message.toString()}`);
+client.on("message", (topic,payload, packet) => {
+    // console.log(topic)
+    // console.log(payload)
+    // console.log(packet)
+    console.log(`Received data: ${payload.toString()}`);
 });
 
 client.on("error", (err) => {
@@ -39,3 +42,4 @@ setInterval(() => {
     console.log("Updating:", value);
     client.publish(`${AIO_USERNAME}/feeds/${AIO_FEED_ID}`, value.toString());
 }, 1000);
+
