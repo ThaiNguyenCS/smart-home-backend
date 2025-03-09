@@ -5,6 +5,17 @@ import createHttpError from "http-errors";
 class DeviceController {
     static deviceService = new DeviceService();
 
+    static async reloadDevices(req: Request, res: Response) {
+        try {
+            // const user = req.user
+            const result = await DeviceController.deviceService.reloadDevices();
+            res.status(201).send({ message: "Successful", data: result });
+        } catch (error: any) {
+            console.log(error);
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    }
+
     static async getAllDevices(req: Request, res: Response) {
         try {
             // const user = req.user; //TODO: check authorization
@@ -56,10 +67,9 @@ class DeviceController {
 
     static async getDevice(req: Request, res: Response) {
         try {
-            const data : any = {id: req.params.id, options: {}}
-            if(req.query.includeAttr && req.query.includeAttr === "true")
-            {
-                data.options.attribute = {required: false}
+            const data: any = { id: req.params.id, options: {} };
+            if (req.query.includeAttr && req.query.includeAttr === "true") {
+                data.options.attribute = { required: false };
             }
             const result = await DeviceController.deviceService.getDeviceById(data);
             res.status(200).send({ message: "Successful", data: result });

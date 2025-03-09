@@ -5,21 +5,46 @@ interface DeviceAttributeAttrs {
     id: string;
     deviceId: string;
     key: string;
-    value: number;
-    status: boolean;
-    valueType: string;
+    feed: string;
+    value?: number;
+    status?: "on" | "off";
+    valueType: "status" | "value";
 }
 
 interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value" | "status"> {}
 
-interface DeviceAttributeInstance extends Model<DeviceAttributeAttrs, DeviceCreationAttrs>, DeviceAttributeAttrs {}
+class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> implements DeviceAttributeAttrs {
+    public id!: string;
+    public deviceId!: string;
+    public key!: string;
+    public value?: number;
+    public feed!: string;
+    public status?: "on" | "off";
+    public valueType!: "status" | "value";
 
-const DeviceAttribute = sequelize.define<DeviceAttributeInstance>(
-    "DeviceAttribute",
+    // Example method for updating an attribute value
+    public async updateStatus(newValue: string): Promise<void> {
+        //TODO: check system rules to find if this device controls any others
+        //TODO: check if newValue is valid
+        const update: any = {};
+        if (this.valueType === "status") update.status = newValue;
+        else if (this.valueType === "value") {
+            update.value = parseFloat(newValue);
+        }
+        await DeviceAttribute.update(update, { where: { feed: this.feed } });
+    }
+}
+
+DeviceAttribute.init(
     {
         id: {
-            primaryKey: true,
             type: DataTypes.STRING,
+            primaryKey: true,
+        },
+        feed: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
         },
         deviceId: {
             type: DataTypes.STRING,
@@ -46,10 +71,11 @@ const DeviceAttribute = sequelize.define<DeviceAttributeInstance>(
         },
     },
     {
+        sequelize,
+        modelName: "DeviceAttribute",
         indexes: [{ unique: true, fields: ["deviceId", "key"] }],
     }
 );
-
 // DeviceAttribute.sync({alter: true})
 
 export default DeviceAttribute;

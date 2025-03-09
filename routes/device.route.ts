@@ -6,6 +6,7 @@ const router = express.Router();
 // add device attribute
 router.post("/:id/attribute", DeviceController.addDeviceAttr);
 router.get("/all", DeviceController.getAllDevices);
+router.get("/reload", DeviceController.reloadDevices);
 router.get("/:id", DeviceController.getDevice)
 router.delete("/:id", DeviceController.removeDevice);
 

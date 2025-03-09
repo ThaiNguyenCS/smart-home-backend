@@ -7,9 +7,11 @@ class DeviceService {
     }
 
     async getAllDeviceFeeds() {
-        let devices = await this.deviceRepository.getDeviceByCondition({});
+        //TODO: add condition
+        let devices = await this.deviceRepository.getDeviceByCondition({ options: { attribute: { required: true } } });
         let result: any = [];
-        devices.forEach((dev) => result.push(dev.feed));
+        devices.forEach((dev) => dev.attributes?.forEach((attr) => result.push(attr.feed)));
+        console.log("device feeds:" + result);
         return result;
     }
 
@@ -43,6 +45,12 @@ class DeviceService {
     async createDeviceAttr(data: any) {
         const result = await this.deviceRepository.createDeviceAttr(data);
         return result;
+    }
+
+    async reloadDevices (data: any) {
+        const {userId} = data
+        
+
     }
 }
 

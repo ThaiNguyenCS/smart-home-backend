@@ -6,6 +6,10 @@ class Device {
         this.feed = feed;
         this.status = status;
     }
+
+    async updateDeviceStatus() {
+        
+    }
 }
 
 export default Device;

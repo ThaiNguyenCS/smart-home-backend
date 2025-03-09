@@ -12,7 +12,6 @@ class DeviceRepository {
         const { feed, name, roomId = null } = data;
         const device = await Device.create({
             id: generateUUID(),
-            feed: feed,
             name: name,
             roomId,
         });
@@ -51,6 +50,7 @@ class DeviceRepository {
         if (options.attribute) {
             includes.push({
                 model: DeviceAttribute,
+                as: "attributes",
                 required: false,
             });
         }
@@ -59,23 +59,34 @@ class DeviceRepository {
     }
 
     async getDeviceByCondition(data: any) {
-        const { name, feed } = data;
+        const { name, feed, options = {} } = data;
+
         const condition = Object.fromEntries(
             Object.entries({ feed, name }).filter(([_, value]) => value !== undefined)
         );
-        const devices = await Device.findAll({
-            where: condition,
-        });
+        const queryOptions: any = {};
+        const includes = [];
+
+        queryOptions.where = condition;
+        if (options.attribute) {
+            includes.push({
+                model: DeviceAttribute,
+                as: "attributes",
+                required: false,
+            });
+        }
+        if (includes.length > 0) queryOptions.include = includes;
+        const devices = await Device.findAll(queryOptions);
         return devices;
     }
 
     async createDeviceAttr(data: any) {
-        const { deviceId, key, valueType } = data;
-        if (!deviceId || !key || !valueType) throw createHttpError(400, "Missing fields");
+        const { deviceId, key, valueType, feed } = data;
+        if (!deviceId || !key || !valueType || !feed) throw createHttpError(400, "Missing fields");
         if (!validValueTypes.includes(valueType)) {
             throw createHttpError(400, "Invalid valueType");
         }
-        const newAttr: any = { id: generateUUID(), deviceId: deviceId, key: key, valueType: valueType };
+        const newAttr: any = { id: generateUUID(), deviceId: deviceId, key: key, valueType: valueType, feed: feed };
         if (valueType === "status") newAttr.status = "off";
         else if (valueType === "value") newAttr.value = 0;
         await DeviceAttribute.create(newAttr);
@@ -91,6 +102,12 @@ class DeviceRepository {
     }
 
     async getDeviceAttr(data: any) {
+        const { deviceId } = data;
+        const result = await DeviceAttribute.findAll({ where: { deviceId: deviceId } });
+        return result;
+    }
+
+    async getDeviceAttrById(data: any) {
         const { attrId } = data;
         const result = await DeviceAttribute.findByPk(attrId);
         return result;
@@ -98,7 +115,7 @@ class DeviceRepository {
 
     async updateDeviceAttr(data: any) {
         const { attrId, status, value } = data;
-        const attr = await this.getDeviceAttr({ attrId });
+        const attr = await this.getDeviceAttrById(attrId);
         if (attr) {
             const update: any = {};
             if (attr.valueType === "status") {
@@ -120,7 +137,7 @@ class DeviceRepository {
                 },
             });
         } else {
-            throw new Error("Not found");
+            throw new Error("attr not found");
         }
     }
 }

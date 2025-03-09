@@ -3,6 +3,5 @@ import DeviceAttribute from "./DeviceAttribute.model";
 
 Device.hasMany(DeviceAttribute, {
     foreignKey: "deviceId",
+    as: "attributes",
 });
-
-
