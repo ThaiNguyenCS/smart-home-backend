@@ -61,7 +61,8 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public name!: string;
     private deviceRepository = new DeviceRepository();
     public attributes: DeviceAttribute[] = [];
-    public async loadDeviceAttrs(data: any) {
+    
+    public async loadDeviceAttrs() {
         const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
         this.attributes = attrs;
     }
@@ -74,6 +75,9 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
         const { feed, value } = data;
         const attr = this.containsFeed(feed);
         if (attr) await attr.updateStatus(value);
+        else {
+            console.log(`Attr with feed ${feed} not found`);
+        }
     }
 }
 

@@ -3,6 +3,8 @@ import Device from "../model/Device.model";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import { generateUUID } from "../utils/idGenerator";
 import createHttpError from "http-errors";
+import { AddDeviceAttrQuery } from "../types/device";
+import UserError from "../errors/UserError";
 
 const validStatuses = ["on", "off"];
 const validValueTypes = ["value", "status"];
@@ -80,11 +82,11 @@ class DeviceRepository {
         return devices;
     }
 
-    async createDeviceAttr(data: any) {
+    async createDeviceAttr(data: AddDeviceAttrQuery) {
         const { deviceId, key, valueType, feed } = data;
-        if (!deviceId || !key || !valueType || !feed) throw createHttpError(400, "Missing fields");
+        if (!deviceId || !key || !valueType || !feed) throw new UserError("Missing fields");
         if (!validValueTypes.includes(valueType)) {
-            throw createHttpError(400, "Invalid valueType");
+            throw new UserError("Invalid valueType");
         }
         const newAttr: any = { id: generateUUID(), deviceId: deviceId, key: key, valueType: valueType, feed: feed };
         if (valueType === "status") newAttr.status = "off";
@@ -94,20 +96,22 @@ class DeviceRepository {
 
     async deleteDeviceAttr(data: any) {
         const { deviceId, key } = data;
-        if (!deviceId || !key) throw createHttpError(400, "Missing fields");
+        if (!deviceId || !key) throw new UserError("Missing fields");
         const result = await DeviceAttribute.destroy({
             where: { deviceId: deviceId, key: key },
         });
         return result;
     }
 
+    // get all attrs of a device
     async getDeviceAttr(data: any) {
         const { deviceId } = data;
         const result = await DeviceAttribute.findAll({ where: { deviceId: deviceId } });
         return result;
     }
 
-    async getDeviceAttrById(data: any) {
+    // get a specific attr of a device by id
+    async getDeviceAttrById(data: any): Promise<DeviceAttribute | null> {
         const { attrId } = data;
         const result = await DeviceAttribute.findByPk(attrId);
         return result;

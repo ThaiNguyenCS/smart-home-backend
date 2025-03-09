@@ -21,7 +21,7 @@ class DeviceManager {
     }
 
     async updateDeviceStatus(feed: string, value: string) {
-        const device = this.devices.find((dev) => dev.containsFeed(feed));
+        const device = this.devices.find((dev) => dev.containsFeed(feed)); // find the device that has the target feed
         if (!device) {
             throw new Error(`Cannot find device with feed ${feed}`);
         }

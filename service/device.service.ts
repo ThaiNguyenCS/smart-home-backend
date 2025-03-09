@@ -1,4 +1,7 @@
+import createHttpError from "http-errors";
 import DeviceRepository from "../repository/DeviceRepository";
+import { AddDeviceAttrQuery, RemoveDeviceAttrQuery } from "../types/device";
+import UserError from "../errors/UserError";
 
 class DeviceService {
     deviceRepository: DeviceRepository;
@@ -42,15 +45,33 @@ class DeviceService {
         const { name, feed } = data;
     }
 
-    async createDeviceAttr(data: any) {
-        const result = await this.deviceRepository.createDeviceAttr(data);
-        return result;
+    async createDeviceAttr(data: AddDeviceAttrQuery) {
+        try {
+            // add device attribute to database
+            const result = await this.deviceRepository.createDeviceAttr(data);
+            // notify the mqtt client to subscribe to the new feed
+            return result;
+        } catch (error: any) {
+            if (error instanceof UserError) {
+                throw createHttpError(400, error.message);
+            }
+            throw createHttpError(500, error.message);
+        }
     }
 
-    async reloadDevices (data: any) {
-        const {userId} = data
-        
+    async removeDeviceAttr(data: RemoveDeviceAttrQuery) {
+        // delete device attribute from database
+        const deletedAttr = await this.deviceRepository.getDeviceAttrById(data);
+        if (deletedAttr) {
+            const result = await this.deviceRepository.deleteDeviceAttr(data);
+        } else {
+            throw createHttpError(404, `Device attr ${data.attrId} not found`);
+        }
+        // notify the mqtt client to UNsubscribe to the deleted feed
+    }
 
+    async reloadDevices(data: any) {
+        const { userId } = data;
     }
 }
 

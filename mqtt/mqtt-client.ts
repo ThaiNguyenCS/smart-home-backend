@@ -26,7 +26,7 @@ const subscribeToFeeds = async () => {
 
 client.on("connect", async () => {
     console.log("Connected successfully...");
-    await subscribeToFeeds();
+    await subscribeToFeeds(); // only run when server starts up
 });
 
 client.on("message", async (topic, message) => {
@@ -45,5 +45,3 @@ client.on("close", () => {
 });
 
 export default client;
-// Publish random values every 30 seconds
-setInterval(() => {}, 1000);

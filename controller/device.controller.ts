@@ -8,7 +8,7 @@ class DeviceController {
     static async reloadDevices(req: Request, res: Response) {
         try {
             // const user = req.user
-            const result = await DeviceController.deviceService.reloadDevices();
+            const result = await DeviceController.deviceService.reloadDevices({}); //TODO: empty data
             res.status(201).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
