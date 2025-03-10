@@ -1,10 +1,11 @@
 // import Device from "./Device";
 import Device from "../model/Device.model";
+import DeviceAttribute from "../model/DeviceAttribute.model";
 import DeviceService from "../service/device.service";
 class DeviceManager {
     static instance: DeviceManager;
-    private deviceService = new DeviceService();
-    devices: Device[] = [];
+    private deviceService!: DeviceService;
+    private devices: Device[] = [];
     public static getInstance() {
         if (!DeviceManager.instance) {
             DeviceManager.instance = new DeviceManager();
@@ -12,16 +13,24 @@ class DeviceManager {
         return DeviceManager.instance;
     }
 
+    public setDeviceService(deviceService: DeviceService) {
+        this.deviceService = deviceService;
+    }
+
     async loadDevicesFromDB() {
         //TODO: load only necessary devices
-        const devices = await this.deviceService.getAllDevice({
-            options: { includes: { attribute: { required: true } } },
+        let devices = await this.deviceService.getAllDevice({
+            options: { attribute: { required: true } },
+        });
+        devices.forEach((dev) => {
+            const jsonDev = dev.toJSON();
+            dev.attributes = (jsonDev.attributes || []).map((attr) => Object.assign(new DeviceAttribute(), attr));
         });
         this.devices = devices;
     }
 
     async updateDeviceStatus(feed: string, value: string) {
-        const device = this.devices.find((dev) => dev.containsFeed(feed)); // find the device that has the target feed
+        const device = this.devices.find((dev) => dev.containsFeed(feed) !== null);
         if (!device) {
             throw new Error(`Cannot find device with feed ${feed}`);
         }

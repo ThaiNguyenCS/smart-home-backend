@@ -1,19 +1,30 @@
 import createHttpError from "http-errors";
 import DeviceRepository from "../repository/DeviceRepository";
-import { AddDeviceAttrQuery, RemoveDeviceAttrQuery } from "../types/device";
+import { AddDeviceAttrQuery, AddDeviceQuery, RemoveDeviceAttrQuery, UpdateDeviceQuery } from "../types/device";
 import UserError from "../errors/UserError";
+import MQTTService from "./mqtt.service";
+import DeviceAttribute from "../model/DeviceAttribute.model";
 
 class DeviceService {
     deviceRepository: DeviceRepository;
-    constructor() {
+    mqttService: MQTTService;
+    constructor(mqttService: MQTTService) {
         this.deviceRepository = new DeviceRepository();
+        this.mqttService = mqttService;
     }
 
     async getAllDeviceFeeds() {
         //TODO: add condition
         let devices = await this.deviceRepository.getDeviceByCondition({ options: { attribute: { required: true } } });
         let result: any = [];
-        devices.forEach((dev) => dev.attributes?.forEach((attr) => result.push(attr.feed)));
+        devices.forEach((dev) => {
+            let jsonDev = dev.toJSON();
+            // assign attributes to Device object
+            dev.attributes = (jsonDev.attributes || []).map((attr) => Object.assign(new DeviceAttribute(), attr));
+            dev.attributes.forEach((attr) => {
+                result.push(attr.feed);
+            });
+        });
         console.log("device feeds:" + result);
         return result;
     }
@@ -23,8 +34,10 @@ class DeviceService {
         return result;
     }
 
-    async addDevice(data: any) {
-        const result = await this.deviceRepository.addDevice(data);
+    async addDevice(data: AddDeviceQuery) {
+        const { userId, name, roomId } = data;
+        //TODO: Check if this device and roomId (if exists) belongs to this user
+        const result = await this.deviceRepository.addDevice({ name, roomId });
         return result;
     }
 
@@ -33,8 +46,10 @@ class DeviceService {
         return result;
     }
 
-    async updateDevice(data: any) {
-        const { id, feed, name } = data;
+    async updateDevice(data: UpdateDeviceQuery) {
+        const { deviceId, name, userId, roomId } = data;
+        //TODO: Check if this device belongs to this user
+        await this.deviceRepository.updateDevice({ deviceId, name, roomId });
     }
 
     async getDeviceById(data: any) {
@@ -50,6 +65,7 @@ class DeviceService {
             // add device attribute to database
             const result = await this.deviceRepository.createDeviceAttr(data);
             // notify the mqtt client to subscribe to the new feed
+            await this.mqttService.subscribeToFeed(data.feed);
             return result;
         } catch (error: any) {
             if (error instanceof UserError) {
@@ -60,14 +76,22 @@ class DeviceService {
     }
 
     async removeDeviceAttr(data: RemoveDeviceAttrQuery) {
+        //TODO: check if user has authorization
+        let device = await this.deviceRepository.getDeviceById({
+            id: data.deviceId,
+            options: { attribute: { required: false } },
+        });
+        if (!device) throw createHttpError(404, `Device ${data.deviceId} not found`);
+        device = device.toJSON();
         // delete device attribute from database
-        const deletedAttr = await this.deviceRepository.getDeviceAttrById(data);
+        const deletedAttr = device.attributes?.find((attr) => attr.id === data.attrId);
         if (deletedAttr) {
             const result = await this.deviceRepository.deleteDeviceAttr(data);
+            // notify the mqtt client to UNsubscribe to the deleted feed
+            await this.mqttService.unsubscribeFeed(deletedAttr.feed);
         } else {
-            throw createHttpError(404, `Device attr ${data.attrId} not found`);
+            throw createHttpError(404, `Device attr ${data.attrId} does not belong to this device`);
         }
-        // notify the mqtt client to UNsubscribe to the deleted feed
     }
 
     async reloadDevices(data: any) {

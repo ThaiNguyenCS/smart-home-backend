@@ -1,24 +1,26 @@
 import express from "express";
-import Device from "../temp_design_pattern/Device";
-import DeviceController from "../controller/device.controller";
+import { deviceController } from "../config/container";
 const router = express.Router();
 
+// delete a device attribute
+router.delete("/:id/attribute/:attrId", deviceController.deleteDeviceAttr);
 // add device attribute
-router.post("/:id/attribute", DeviceController.addDeviceAttr);
-router.get("/all", DeviceController.getAllDevices);
-router.get("/reload", DeviceController.reloadDevices);
-router.get("/:id", DeviceController.getDevice)
-router.delete("/:id", DeviceController.removeDevice);
+router.post("/:id/attribute", deviceController.addDeviceAttr);
+// get all devices (for 1 user)
+router.get("/all", deviceController.getAllDevices);
+// reload device (for 1 user)
+router.get("/reload", deviceController.reloadDevices);
+// get a specific device
+router.get("/:id", deviceController.getDevice);
+// update a device info
+router.patch("/:id", deviceController.updateDevice);
+
+// delete a specific device
+router.delete("/:id", deviceController.removeDevice);
 
 router.get("/:realEstateId");
 
-router.get("/:feed", async (req, res) => {});
-
-// post an action to a device
-router.post("/:feed");
-
 // add new device
-router.post("/", DeviceController.addDevice);
-// remove a device
+router.post("/", deviceController.addDevice);
 
 export default router;

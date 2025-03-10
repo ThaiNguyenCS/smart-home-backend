@@ -1,17 +1,22 @@
-import { where } from "sequelize";
 import Device from "../model/Device.model";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import { generateUUID } from "../utils/idGenerator";
-import createHttpError from "http-errors";
-import { AddDeviceAttrQuery } from "../types/device";
+import {
+    AddDeviceAttrData,
+    AddDeviceAttrQuery,
+    AddDeviceData,
+    RemoveDeviceData,
+    UpdateDeviceData,
+    UpdateDeviceQuery,
+} from "../types/device";
 import UserError from "../errors/UserError";
 
 const validStatuses = ["on", "off"];
 const validValueTypes = ["value", "status"];
 
 class DeviceRepository {
-    async addDevice(data: any) {
-        const { feed, name, roomId = null } = data;
+    async addDevice(data: AddDeviceData) {
+        const { name, roomId = null } = data;
         const device = await Device.create({
             id: generateUUID(),
             name: name,
@@ -20,26 +25,24 @@ class DeviceRepository {
         return device;
     }
 
-    async removeDevice(data: any) {
-        const { id } = data;
-        if (!id) {
+    async removeDevice(data: RemoveDeviceData) {
+        const { deviceId } = data;
+        if (!deviceId) {
             throw new Error("Device ID is required");
         }
         const deleteNum = await Device.destroy({
-            where: { id: id },
+            where: { id: deviceId },
         });
         return deleteNum;
     }
 
-    async updateDevice(data: any) {
-        const { id, feed, name, roomId } = data;
-        if (!id) {
+    async updateDevice(data: UpdateDeviceData) {
+        const { deviceId, name, roomId } = data;
+        if (!deviceId) {
             throw new Error("Device ID is required for updating.");
         }
-        const update = Object.fromEntries(
-            Object.entries({ feed, name, roomId }).filter(([_, value]) => value !== undefined)
-        );
-        const device = await Device.update(update, { where: { id: id } });
+        const update = Object.fromEntries(Object.entries({ name, roomId }).filter(([_, value]) => value !== undefined));
+        const device = await Device.update(update, { where: { id: deviceId } });
         return device;
     }
 
@@ -82,7 +85,7 @@ class DeviceRepository {
         return devices;
     }
 
-    async createDeviceAttr(data: AddDeviceAttrQuery) {
+    async createDeviceAttr(data: AddDeviceAttrData) {
         const { deviceId, key, valueType, feed } = data;
         if (!deviceId || !key || !valueType || !feed) throw new UserError("Missing fields");
         if (!validValueTypes.includes(valueType)) {
@@ -96,10 +99,16 @@ class DeviceRepository {
 
     async deleteDeviceAttr(data: any) {
         const { deviceId, key } = data;
-        if (!deviceId || !key) throw new UserError("Missing fields");
-        const result = await DeviceAttribute.destroy({
-            where: { deviceId: deviceId, key: key },
-        });
+        if (!deviceId && !key) throw new UserError("Missing fields");
+        const queryOption: any = {};
+        if (deviceId) {
+            queryOption.where = { deviceId: deviceId };
+        }
+
+        if (key) {
+            queryOption.where = { ...queryOption.where, key: key };
+        }
+        const result = await DeviceAttribute.destroy(queryOption);
         return result;
     }
 

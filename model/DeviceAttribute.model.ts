@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import InvalidInputError from "../errors/InvalidInputError";
 
 interface DeviceAttributeAttrs {
     id: string;
@@ -30,8 +31,12 @@ class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> i
         if (this.valueType === "status") update.status = newValue;
         else if (this.valueType === "value") {
             update.value = parseFloat(newValue);
+            if (isNaN(update.value)) {
+                throw new InvalidInputError(`${update.value} is not valid`);
+            }
         }
         await DeviceAttribute.update(update, { where: { feed: this.feed } });
+        console.log("Update status for device attr successfully");
     }
 }
 

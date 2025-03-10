@@ -61,22 +61,29 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public name!: string;
     private deviceRepository = new DeviceRepository();
     public attributes: DeviceAttribute[] = [];
-    
+
     public async loadDeviceAttrs() {
         const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
         this.attributes = attrs;
     }
 
     public containsFeed(feed: string) {
-        return this.attributes.find((attr) => attr.feed === feed);
+        // console.log(this.attributes);
+        if (this.attributes) return this.attributes.find((attr) => attr.feed === feed);
     }
 
     public async updateDeviceStatus(data: any) {
         const { feed, value } = data;
         const attr = this.containsFeed(feed);
-        if (attr) await attr.updateStatus(value);
-        else {
-            console.log(`Attr with feed ${feed} not found`);
+        try {
+            if (attr) {
+                await attr.updateStatus(value);
+                //TODO: find system rules that connected to this status
+            } else {
+                console.log(`Attr with feed ${feed} not found`);
+            }
+        } catch (error) {
+            console.error(error);
         }
     }
 }

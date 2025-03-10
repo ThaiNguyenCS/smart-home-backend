@@ -12,11 +12,13 @@ class MQTTService {
     static instance: MQTTService;
     private client: MqttClient;
     private subscribedFeeds: string[];
+    private deviceService!: DeviceService;
     private constructor() {
         this.subscribedFeeds = [];
         this.client = mqtt.connect(AIO_CONFIG.MQTT_URL);
-        this.client.on("connect", () => {
+        this.client.on("connect", async () => {
             console.log("MQTT client connected successfully...");
+            await this.subscribeToAllFeeds(); // subscribe to all existing feeds
         });
 
         this.client.on("message", async (topic, message) => {
@@ -42,22 +44,87 @@ class MQTTService {
         return this.instance;
     }
 
-    public async subscribeToFeeds() {
+    public setDeviceService(deviceService: DeviceService) {
+        this.deviceService = deviceService;
+    }
+
+    // subscribe to a new feed
+    public async subscribeToFeed(feed: string) {
         try {
-            const deviceService = new DeviceService();
-            const feeds = await deviceService.getAllDeviceFeeds(); // get all existing feeds from database
-            if (feeds.length > 0) {
-                for (const feed of feeds) {
-                    if (!this.subscribedFeeds.includes(feed)) {
-                        this.client.subscribe(feed);
-                        this.subscribedFeeds.push(feed);
-                        console.log(`Subscribed to new feed: ${feed}`);
-                    } else {
-                        console.log(`Already subscribed to feed: ${feed}`);
-                    }
+            if (this.client.connected) {
+                if (!this.subscribedFeeds.includes(feed)) {
+                    this.client.subscribe(feed, (err) => {
+                        if (!err) {
+                            this.subscribedFeeds.push(feed); // add new subcribed feed to list
+                            console.log(`Subscribed to new feed: ${feed}`);
+                        } else {
+                            console.error(`Error when subcribing to feed ${feed}`);
+                        }
+                    });
+                } else {
+                    console.log(`Already subscribed to feed: ${feed}`);
                 }
             } else {
-                console.log("No feeds found");
+                console.error("Client hasn't connected yet");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // unsubscribe to a feed
+    public async unsubscribeFeed(feed: string) {
+        try {
+            if (this.client.connected) {
+                if (this.subscribedFeeds.includes(feed)) {
+                    this.client.unsubscribe(feed, (err) => {
+                        if (!err) {
+                            this.subscribedFeeds = this.subscribedFeeds.filter((f) => f !== feed); // remove unsubcribed feed from list
+                            console.log(`Unsubscribe feed ${feed} successfully`);
+                        } else {
+                            console.error(`Error when unsubcribing feed ${feed}`);
+                        }
+                    });
+                } else {
+                    console.log(`Feed: ${feed} not found`);
+                }
+            } else {
+                console.error("Client hasn't connected yet");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // subscribe to all feeds fetch from database when start up
+    public async subscribeToAllFeeds() {
+        try {
+            if (this.client.connected) {
+                if (this.deviceService) {
+                    const feeds = await this.deviceService.getAllDeviceFeeds(); // get all existing feeds from database
+                    if (feeds.length > 0) {
+                        for (const feed of feeds) {
+                            if (!this.subscribedFeeds.includes(feed)) {
+                                this.client.subscribe(feed, (err) => {
+                                    if (!err) {
+                                        this.subscribedFeeds.push(feed); // add new subcribed feed to list
+                                    } else {
+                                        console.error(`Error when subcribing to feed ${feed}`);
+                                    }
+                                });
+                                console.log(`Subscribed to new feed: ${feed}`);
+                            } else {
+                                console.log(`Already subscribed to feed: ${feed}`);
+                            }
+                        }
+                    } else {
+                        console.log("No feeds found");
+                    }
+                } else {
+                    console.error("MQTTClient does not have deviceService");
+                }
+            } else {
+                console.error("Client hasn't connected yet");
             }
         } catch (error) {
             console.error("Error fetching feeds from database:", error);
