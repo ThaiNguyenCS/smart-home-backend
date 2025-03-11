@@ -6,10 +6,12 @@ import {
     AddDeviceAttrQuery,
     AddDeviceData,
     RemoveDeviceData,
+    UpdateDeviceAttrData,
     UpdateDeviceData,
     UpdateDeviceQuery,
 } from "../types/device";
 import UserError from "../errors/UserError";
+import InvalidInputError from "../errors/InvalidInputError";
 
 const validStatuses = ["on", "off"];
 const validValueTypes = ["value", "status"];
@@ -126,29 +128,17 @@ class DeviceRepository {
         return result;
     }
 
-    async updateDeviceAttr(data: any) {
-        const { attrId, status, value } = data;
-        const attr = await this.getDeviceAttrById(attrId);
+    async updateDeviceAttr(data: UpdateDeviceAttrData) {
+        const { attrId, key, valueType } = data;
+        const attr = await this.getDeviceAttrById({attrId});
         if (attr) {
-            const update: any = {};
-            if (attr.valueType === "status") {
-                if (status && validStatuses.includes(status)) {
-                    update.status = status;
-                } else {
-                    throw new Error("status is missing or invalid");
-                }
-            } else {
-                if (value) {
-                    update.value = value;
-                } else {
-                    throw new Error("value is missing");
-                }
+            if (valueType && !validValueTypes.includes(valueType)) {
+                throw new InvalidInputError("valueType is not valid");
             }
-            await DeviceAttribute.update(update, {
-                where: {
-                    id: attrId,
-                },
-            });
+            const update = Object.fromEntries(
+                Object.entries({ key, valueType }).filter(([_, value]) => value !== undefined)
+            );
+            await attr.update(update);
         } else {
             throw new Error("attr not found");
         }

@@ -28,12 +28,12 @@ client.on("connect", () => {
 });
 
 // When a message is received
-client.on("message", (topic,payload, packet) => {
+client.on("message", (topic, payload, packet) => {
     console.log(topic)
     console.log(payload)
     console.log(packet)
     // console.log(`Nhan du lieu: ${topic} ${message.toString()}`);
-    
+
 });
 
 
@@ -45,7 +45,8 @@ client.on("close", () => {
     console.log("Ngat ket noi ...");
     process.exit(1); // Exit program450
 });
- 
+
 // Keep the program running
 setInterval(() => {
 }, 1000);
+

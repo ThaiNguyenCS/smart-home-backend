@@ -2,6 +2,8 @@ import express from "express";
 import { deviceController } from "../config/container";
 const router = express.Router();
 
+// update a device attribute
+router.patch("/:id/attribute/:attrId", deviceController.updateDeviceAttr);
 // delete a device attribute
 router.delete("/:id/attribute/:attrId", deviceController.deleteDeviceAttr);
 // add device attribute

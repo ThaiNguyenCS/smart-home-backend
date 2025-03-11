@@ -1,9 +1,16 @@
 import createHttpError from "http-errors";
 import DeviceRepository from "../repository/DeviceRepository";
-import { AddDeviceAttrQuery, AddDeviceQuery, RemoveDeviceAttrQuery, UpdateDeviceQuery } from "../types/device";
+import {
+    AddDeviceAttrQuery,
+    AddDeviceQuery,
+    RemoveDeviceAttrQuery,
+    UpdateDeviceAttrQuery,
+    UpdateDeviceQuery,
+} from "../types/device";
 import UserError from "../errors/UserError";
 import MQTTService from "./mqtt.service";
 import DeviceAttribute from "../model/DeviceAttribute.model";
+import InvalidInputError from "../errors/InvalidInputError";
 
 class DeviceService {
     deviceRepository: DeviceRepository;
@@ -89,6 +96,31 @@ class DeviceService {
             const result = await this.deviceRepository.deleteDeviceAttr(data);
             // notify the mqtt client to UNsubscribe to the deleted feed
             await this.mqttService.unsubscribeFeed(deletedAttr.feed);
+        } else {
+            throw createHttpError(404, `Device attr ${data.attrId} does not belong to this device`);
+        }
+    }
+
+    async updateDeviceAttr(data: UpdateDeviceAttrQuery) {
+        //TODO: check if user has authorization
+        let device = await this.deviceRepository.getDeviceById({
+            id: data.deviceId,
+            options: { attribute: { required: false } },
+        });
+        if (!device) throw createHttpError(404, `Device ${data.deviceId} not found`);
+        device = device.toJSON();
+        // delete device attribute from database
+        const attr = device.attributes?.find((attr) => attr.id === data.attrId);
+        if (attr) {
+            try {
+                const result = await this.deviceRepository.updateDeviceAttr(data);
+            } catch (error: any) {
+                if (error instanceof InvalidInputError) {
+                    throw createHttpError(400, error.message);
+                }
+                throw createHttpError(500, error.message);
+            }
+            //TODO: if feed changed, take action
         } else {
             throw createHttpError(404, `Device attr ${data.attrId} does not belong to this device`);
         }

@@ -40,4 +40,14 @@ export interface UpdateDeviceQuery {
     [otherProp: string]: any;
 }
 
+export interface UpdateDeviceAttrQuery {
+    userId: string;
+    deviceId: string;
+    attrId: string;
+    key?: string;
+    valueType?: "value" | "status";
+}
+
+export type UpdateDeviceAttrData = Omit<UpdateDeviceAttrQuery, "userId" | "deviceId">;
+
 export type UpdateDeviceData = Omit<UpdateDeviceQuery, "userId">;
