@@ -3,11 +3,15 @@ import AuthController from "../controller/auth.controller";
 
 const router = express.Router();
 
-router.post("/login", AuthController.loginByUsernameAndPass);
+router.post("/login", (req, res) => AuthController.loginByUsernameAndPass(req, res));
+router.post("/register", (req, res) => AuthController.register(req, res));
+router.post("/forgetPassword", (req, res) => AuthController.forgotPassword(req, res));
+router.post("/resetPassword", (req, res) => AuthController.resetPassword(req, res));
+router.post("/updatePassword", (req, res) => AuthController.updatePassword(req, res));
 
-router.post("/register", async (req, res) => {
-    res.status(200).send({ message: "login successfully" });
-});
+
+
 
 
 export default router;
+
