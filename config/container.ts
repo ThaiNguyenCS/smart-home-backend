@@ -8,6 +8,7 @@ import SystemRuleController from "../controller/system-rule.controller";
 import SystemRuleService from "../service/system-rule.service";
 import DeviceRepository from "../repository/DeviceRepository";
 import SystemRuleRepository from "../repository/SystemRuleRepository";
+import ActionRepository from "../repository/ActionRepository";
 
 const mqttService = MQTTService.getInstance();
 const deviceService = new DeviceService(mqttService);
@@ -18,6 +19,7 @@ deviceManager.setDeviceService(deviceService);
 
 const deviceRepository = new DeviceRepository();
 const systemRuleRepository = new SystemRuleRepository();
-const systemRuleService = new SystemRuleService(deviceRepository, systemRuleRepository);
+const actionRepository = new ActionRepository();
+const systemRuleService = new SystemRuleService({ deviceRepository, systemRuleRepository, actionRepository });
 const systemRuleController = new SystemRuleController(systemRuleService);
 export { mqttService, deviceService, deviceController, deviceManager, systemRuleController };

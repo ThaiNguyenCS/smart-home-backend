@@ -1,4 +1,4 @@
-const { sequelize } = require("../models");
+import sequelize from "./database";
 
 async function runTransaction(callback: any) {
     const transaction = await sequelize.transaction();
@@ -12,4 +12,4 @@ async function runTransaction(callback: any) {
     }
 }
 
-module.exports = { runTransaction };
+export { runTransaction };

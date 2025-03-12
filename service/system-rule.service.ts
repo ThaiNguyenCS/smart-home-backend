@@ -3,6 +3,7 @@ import { SystemRuleAddQuery } from "../types/system-rule";
 import DeviceRepository from "../repository/DeviceRepository";
 import SystemRuleRepository from "../repository/SystemRuleRepository";
 import ActionRepository from "../repository/ActionRepository";
+import { runTransaction } from "../model/transactionManager";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
