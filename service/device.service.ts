@@ -11,6 +11,8 @@ import UserError from "../errors/UserError";
 import MQTTService from "./mqtt.service";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import InvalidInputError from "../errors/InvalidInputError";
+import { runTransaction } from "../model/transactionManager";
+import { generateUUID } from "../utils/idGenerator";
 
 class DeviceService {
     deviceRepository: DeviceRepository;
@@ -42,10 +44,24 @@ class DeviceService {
     }
 
     async addDevice(data: AddDeviceQuery) {
-        const { userId, name, roomId } = data;
+        const { userId, name, roomId, attrs } = data;
         //TODO: Check if this device and roomId (if exists) belongs to this user
-        const result = await this.deviceRepository.addDevice({ name, roomId });
-        return result;
+
+        await runTransaction(async (transaction: any) => {
+            const newDeviceId = generateUUID();
+            const result = await this.deviceRepository.addDevice({ id: newDeviceId, name, roomId }, transaction);
+            if (attrs) {
+                if (!Array.isArray(attrs)) throw createHttpError(400, "attrs must be an array of attr");
+                console.log(attrs);
+                const promises = [];
+                for (let i = 0; i < attrs.length; i++) {
+                    promises.push(
+                        this.deviceRepository.createDeviceAttr({ ...attrs[i], deviceId: newDeviceId }, transaction)
+                    );
+                }
+                await Promise.all(promises);
+            }
+        });
     }
 
     async removeDevice(data: any) {

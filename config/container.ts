@@ -22,4 +22,4 @@ const systemRuleRepository = new SystemRuleRepository();
 const actionRepository = new ActionRepository();
 const systemRuleService = new SystemRuleService({ deviceRepository, systemRuleRepository, actionRepository });
 const systemRuleController = new SystemRuleController(systemRuleService);
-export { mqttService, deviceService, deviceController, deviceManager, systemRuleController };
+export { mqttService, deviceService, deviceController, deviceManager, systemRuleController, systemRuleService };

@@ -1,34 +1,56 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import DeviceAttribute from "./DeviceAttribute.model";
 
 interface ActionAttrs {
     id: string;
     deviceAttrId: string;
-    value: string; //TODO: temp
+    value: number; //TODO: temp
+    ruleId: string;
 }
 
 // interface DeviceCreationAttrs extends Optional<DeviceAttrs, >;
 
-interface ActionInstance extends Model<ActionAttrs, ActionAttrs>, ActionAttrs {}
+class Action extends Model<ActionAttrs, ActionAttrs> implements ActionAttrs {
+    public id!: string;
+    public deviceAttrId!: string;
+    public value!: number; //TODO: temp
+    public ruleId!: string;
+    public deviceAttribute?: DeviceAttribute;
+}
 
-const Action = sequelize.define<ActionInstance>("Action", {
-    id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-    },
-    deviceAttrId: {
-        type: DataTypes.STRING,
-        references: {
-            key: "id",
-            model: "DeviceAttributes",
+Action.init(
+    {
+        id: {
+            primaryKey: true,
+            type: DataTypes.STRING,
         },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        ruleId: {
+            type: DataTypes.STRING,
+            references: {
+                key: "id",
+                model: "SystemRules",
+            },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        },
+        deviceAttrId: {
+            type: DataTypes.STRING,
+            references: {
+                key: "id",
+                model: "DeviceAttributes",
+            },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        },
+        value: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+        },
     },
-    value: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-    },
-});
+    { sequelize, modelName: "Actions", indexes: [{ fields: ["ruleId", "deviceAttrId"], unique: true }] }
+);
+
+// Action.sync({ alter: true });
 
 export default Action;

@@ -1,39 +1,74 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import Action from "./Action.model";
+import DeviceAttribute from "./DeviceAttribute.model";
 
-interface SystemRule {
+interface SystemRuleAttrs {
     id: string;
     deviceAttrId: string;
     value: string;
+    userId: string;
     compareType: string;
+    isActive: boolean;
 }
 
-// interface DeviceCreationAttrs extends Optional<DeviceAttrs, >;
+interface SystemRuleCreationAttrs extends Optional<SystemRuleAttrs, "isActive"> {}
 
-interface SystemRuleInstance extends Model<SystemRule, SystemRule>, SystemRule {}
+class SystemRule extends Model<SystemRuleAttrs, SystemRuleCreationAttrs> implements SystemRuleAttrs {
+    public id!: string;
+    public deviceAttrId!: string;
+    public value!: string;
+    public userId!: string;
+    public compareType!: string;
+    public isActive!: boolean;
+    public actions?: Action[];
+    public deviceAttribute?: DeviceAttribute;
+}
 
-const SystemRule = sequelize.define<SystemRuleInstance>("SystemRule", {
-    id: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-    },
-    deviceAttrId: {
-        type: DataTypes.STRING,
-        references: {
-            key: "id",
-            model: "DeviceAttributes",
+SystemRule.init(
+    {
+        id: {
+            primaryKey: true,
+            type: DataTypes.STRING,
         },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        userId: {
+            type: DataTypes.STRING,
+            references: {
+                key: "id",
+                model: "Users",
+            },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+        },
+        deviceAttrId: {
+            type: DataTypes.STRING,
+            references: {
+                key: "id",
+                model: "DeviceAttributes",
+            },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
+            allowNull: false,
+        },
+        value: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+        },
+        compareType: {
+            type: DataTypes.ENUM("gt", "lt", "eq", "lte", "gte"),
+            allowNull: false,
+        },
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
+        },
     },
-    value: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    compareType: {
-        type: DataTypes.ENUM("greater", "less", "equal"),
-        allowNull: false,
-    },
-});
+    {
+        sequelize,
+        modelName: "SystemRules",
+    }
+);
+
+// SystemRule.sync({ alter: true });
 
 export default SystemRule;

@@ -130,6 +130,12 @@ class MQTTService {
             console.error("Error fetching feeds from database:", error);
         }
     }
+
+    public async publishMessage(feed: string, value: number) {
+        console.log(typeof value);
+        console.log(`MQTT Client publishes to topic ${feed} with value: ${value}`);
+        await this.client.publishAsync(feed, value.toString());
+    }
 }
 
 export default MQTTService;

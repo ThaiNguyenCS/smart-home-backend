@@ -8,12 +8,14 @@ import sequelize from "./model/database";
 import "./model/association";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
+// import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
 // import RealEstate from "./model/RealEstate.model";
 // import DeviceAttribute from "./model/DeviceAttribute.model";
 // DeviceAttribute.sync()
 // RealEstate.sync()
+// Action.sync();
 // Floor.sync()
 // Room.sync()
 const app = express();

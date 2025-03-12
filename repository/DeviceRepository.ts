@@ -12,18 +12,26 @@ import {
 } from "../types/device";
 import UserError from "../errors/UserError";
 import InvalidInputError from "../errors/InvalidInputError";
+import { FindOptions } from "sequelize";
 
 const validStatuses = ["on", "off"];
 const validValueTypes = ["value", "status"];
 
 class DeviceRepository {
-    async addDevice(data: AddDeviceData) {
-        const { name, roomId = null } = data;
-        const device = await Device.create({
-            id: generateUUID(),
-            name: name,
-            roomId,
-        });
+    async addDevice(data: AddDeviceData, transaction = null) {
+        const { id, name, roomId = null } = data;
+        const queryOption: any = {};
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        const device = await Device.create(
+            {
+                id: id,
+                name: name,
+                roomId,
+            },
+            queryOption
+        );
         return device;
     }
 
@@ -71,7 +79,7 @@ class DeviceRepository {
         const condition = Object.fromEntries(
             Object.entries({ feed, name }).filter(([_, value]) => value !== undefined)
         );
-        const queryOptions: any = {};
+        const queryOptions: FindOptions = {};
         const includes = [];
 
         queryOptions.where = condition;
@@ -84,19 +92,24 @@ class DeviceRepository {
         }
         if (includes.length > 0) queryOptions.include = includes;
         const devices = await Device.findAll(queryOptions);
+        console.log(devices[0].attributes);
         return devices;
     }
 
-    async createDeviceAttr(data: AddDeviceAttrData) {
-        const { deviceId, key, valueType, feed } = data;
-        if (!deviceId || !key || !valueType || !feed) throw new UserError("Missing fields");
-        if (!validValueTypes.includes(valueType)) {
-            throw new UserError("Invalid valueType");
+    async createDeviceAttr(data: AddDeviceAttrData, transaction = null) {
+        const { deviceId, key, feed, isListener } = data;
+        const queryOption: any = {};
+        if (!deviceId || !key || !feed) throw new UserError("Missing fields");
+
+        if (transaction) {
+            queryOption.transaction = transaction;
         }
-        const newAttr: any = { id: generateUUID(), deviceId: deviceId, key: key, valueType: valueType, feed: feed };
-        if (valueType === "status") newAttr.status = "off";
-        else if (valueType === "value") newAttr.value = 0;
-        await DeviceAttribute.create(newAttr);
+        const newAttr: any = Object.entries({ id: generateUUID(), deviceId, key, isListener, feed }).filter(
+            ([_, value]) => value !== undefined
+        );
+
+        newAttr.value = 0;
+        await DeviceAttribute.create(newAttr, queryOption);
     }
 
     async deleteDeviceAttr(data: any) {
@@ -130,7 +143,7 @@ class DeviceRepository {
 
     async updateDeviceAttr(data: UpdateDeviceAttrData) {
         const { attrId, key, valueType } = data;
-        const attr = await this.getDeviceAttrById({attrId});
+        const attr = await this.getDeviceAttrById({ attrId });
         if (attr) {
             if (valueType && !validValueTypes.includes(valueType)) {
                 throw new InvalidInputError("valueType is not valid");

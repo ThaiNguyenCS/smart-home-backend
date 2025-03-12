@@ -1,52 +1,9 @@
-// import { DataTypes, Model, Optional } from "sequelize";
-// import sequelize from "./database";
-
-// interface DeviceAttrs {
-//     id: string;
-//     feed: string;
-//     roomId: string;
-//     name: string;
-// }
-
-// // interface DeviceCreationAttrs extends Optional<DeviceAttrs, >;
-
-// interface DeviceInstance extends Model<DeviceAttrs, DeviceAttrs>, DeviceAttrs {}
-
-// const Device = sequelize.define<DeviceInstance>(
-//     "Device",
-//     {
-//         id: {
-//             primaryKey: true,
-//             type: DataTypes.STRING,
-//         },
-//         feed: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//             unique: true,
-//         },
-//         name: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//         },
-//         roomId: {
-//             type: DataTypes.STRING,
-//             references: {
-//                 key: "id",
-//                 model: "Rooms",
-//             },
-//         },
-//     },
-//     { updatedAt: false }
-// );
-
-// // Device.sync({force: true})
-
-// export default Device;
-
 import { DataTypes, Model } from "sequelize";
 import sequelize from "./database";
 import DeviceRepository from "../repository/DeviceRepository";
 import DeviceAttribute from "./DeviceAttribute.model";
+import { mqttService, systemRuleService } from "../config/container";
+import { isRuleSatisfied } from "../utils/ruleValidate";
 
 interface DeviceAttrs {
     id: string;
@@ -59,13 +16,12 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public id!: string;
     public roomId!: string | null;
     public name!: string;
-    private deviceRepository = new DeviceRepository();
-    public attributes: DeviceAttribute[] = [];
+    public attributes?: DeviceAttribute[];
 
-    public async loadDeviceAttrs() {
-        const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
-        this.attributes = attrs;
-    }
+    // public async loadDeviceAttrs() {
+    //     const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
+    //     this.attributes = attrs;
+    // }
 
     public containsFeed(feed: string) {
         // console.log(this.attributes);
@@ -75,10 +31,34 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public async updateDeviceStatus(data: any) {
         const { feed, value } = data;
         const attr = this.containsFeed(feed);
+        // console.log(this.name);
+        // console.log(this.attributes);
         try {
             if (attr) {
                 await attr.updateStatus(value);
                 //TODO: find system rules that connected to this status
+                const rules = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id });
+                if (rules) {
+                    // console.log("rules", rules);
+                    let actions = rules.actions;
+                    if (actions) {
+                        const isSatisfied = isRuleSatisfied(rules, value);
+                        if (isSatisfied) {
+                            let promises = [];
+                            for (let i = 0; i < actions.length; i++) {
+                                // console.log(actions[i]);
+                                let deviceAttr = actions[i].deviceAttribute;
+
+                                if (deviceAttr) {
+                                    promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
+                                } else {
+                                    console.error("Action does not have corresponding deviceAttribute");
+                                }
+                            }
+                            await Promise.all(promises);
+                        }
+                    }
+                }
             } else {
                 console.log(`Attr with feed ${feed} not found`);
             }

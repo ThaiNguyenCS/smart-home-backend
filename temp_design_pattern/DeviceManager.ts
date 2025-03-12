@@ -22,15 +22,11 @@ class DeviceManager {
         let devices = await this.deviceService.getAllDevice({
             options: { attribute: { required: true } },
         });
-        devices.forEach((dev) => {
-            const jsonDev = dev.toJSON();
-            dev.attributes = (jsonDev.attributes || []).map((attr) => Object.assign(new DeviceAttribute(), attr));
-        });
         this.devices = devices;
     }
 
     async updateDeviceStatus(feed: string, value: string) {
-        const device = this.devices.find((dev) => dev.containsFeed(feed) !== null);
+        const device = this.devices.find((dev) => dev.containsFeed(feed) !== undefined);
         if (!device) {
             throw new Error(`Cannot find device with feed ${feed}`);
         }

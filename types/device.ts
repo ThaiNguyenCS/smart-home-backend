@@ -2,9 +2,12 @@ export interface AddDeviceQuery {
     userId: string;
     name: string;
     roomId?: string;
+    attrs?: AddDeviceAttrData[];
 }
 
-export type AddDeviceData = Omit<AddDeviceQuery, "userId">;
+export type AddDeviceData = Omit<AddDeviceQuery, "userId"> & {
+    id: string;
+};
 
 export interface RemoveDeviceQuery {
     userId: string;
@@ -26,8 +29,7 @@ export interface AddDeviceAttrQuery {
     deviceId: string;
     feed: string;
     key: string;
-    valueType: "value" | "status";
-    [otherProp: string]: any;
+    isListener: boolean;
 }
 
 export type AddDeviceAttrData = Omit<AddDeviceAttrQuery, "userId">;

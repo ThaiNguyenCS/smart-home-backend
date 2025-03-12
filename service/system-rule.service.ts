@@ -1,9 +1,11 @@
 import createHttpError from "http-errors";
-import { SystemRuleAddQuery } from "../types/system-rule";
+import { ActionAddData, SystemRuleAddQuery, SystemRuleViewQuery } from "../types/system-rule";
 import DeviceRepository from "../repository/DeviceRepository";
 import SystemRuleRepository from "../repository/SystemRuleRepository";
 import ActionRepository from "../repository/ActionRepository";
 import { runTransaction } from "../model/transactionManager";
+import { generateUUID } from "../utils/idGenerator";
+import SystemRule from "../model/SystemRule.model";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
@@ -37,10 +39,38 @@ class SystemRuleService {
         }
         await runTransaction(async (transaction: any) => {
             // create rule (transaction)
-            await this.systemRuleRepository.createRule({ compareType, value, deviceAttrId }, transaction);
+            const newRuleId = generateUUID();
+            await this.systemRuleRepository.createRule(
+                { id: newRuleId, compareType, value, deviceAttrId, userId },
+                transaction
+            );
             // create related actions (transaction)
-            await this.actionRepository.createActions(actions, transaction);
+            const addingActions: ActionAddData[] = actions.map((action) => ({ ...action, ruleId: newRuleId }));
+            await this.actionRepository.createActions(addingActions, transaction);
         });
+    };
+
+    findRuleOfAttr = async (data: any) => {
+        const { deviceAttrId } = data;
+        return await this.systemRuleRepository.getRuleByAttrId({ deviceAttrId: deviceAttrId });
+    };
+
+    addActionToRule = async (data: any) => {
+        //TODO: auth
+        const { ruleId, value, deviceAttrId } = data;
+        if (!ruleId || !value || !deviceAttrId) {
+            throw createHttpError(400, "Missing fields");
+        }
+        return await this.actionRepository.createActions([{ ruleId, value, deviceAttrId }]);
+    };
+
+    getAllRules = async (data: SystemRuleViewQuery) => {
+        const { userId } = data;
+        if (!userId) {
+            throw createHttpError(401, "Unauthorized");
+        }
+        const result = await this.systemRuleRepository.getRules({ userId });
+        return result;
     };
 }
 

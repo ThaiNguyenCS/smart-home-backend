@@ -7,33 +7,29 @@ interface DeviceAttributeAttrs {
     deviceId: string;
     key: string;
     feed: string;
-    value?: number;
-    status?: "on" | "off";
-    valueType: "status" | "value";
+    value: number;
+    isListener: boolean;
 }
 
-interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value" | "status"> {}
+interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value"> {}
 
 class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> implements DeviceAttributeAttrs {
     public id!: string;
     public deviceId!: string;
     public key!: string;
-    public value?: number;
+    public value!: number;
     public feed!: string;
-    public status?: "on" | "off";
-    public valueType!: "status" | "value";
+    public isListener!: boolean;
 
     // Example method for updating an attribute value
     public async updateStatus(newValue: string): Promise<void> {
         //TODO: check system rules to find if this device controls any others
         //TODO: check if newValue is valid
         const update: any = {};
-        if (this.valueType === "status") update.status = newValue;
-        else if (this.valueType === "value") {
-            update.value = parseFloat(newValue);
-            if (isNaN(update.value)) {
-                throw new InvalidInputError(`${update.value} is not valid`);
-            }
+
+        update.value = parseFloat(newValue);
+        if (isNaN(update.value)) {
+            throw new InvalidInputError(`${update.value} is not valid`);
         }
         await DeviceAttribute.update(update, { where: { feed: this.feed } });
         console.log("Update status for device attr successfully");
@@ -67,12 +63,9 @@ DeviceAttribute.init(
         value: {
             type: DataTypes.FLOAT,
         },
-        valueType: {
-            type: DataTypes.ENUM("status", "value"),
-            allowNull: false,
-        },
-        status: {
-            type: DataTypes.ENUM("on", "off"),
+        isListener: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         },
     },
     {
@@ -81,6 +74,6 @@ DeviceAttribute.init(
         indexes: [{ unique: true, fields: ["deviceId", "key"] }],
     }
 );
-// DeviceAttribute.sync({alter: true})
+// DeviceAttribute.sync({ alter: true });
 
 export default DeviceAttribute;

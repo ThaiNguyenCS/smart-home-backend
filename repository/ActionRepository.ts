@@ -1,9 +1,9 @@
 import Action from "../model/Action.model";
-import { ActionType } from "../types/system-rule";
+import { ActionAddData, ActionType } from "../types/system-rule";
 import { generateUUID } from "../utils/idGenerator";
 
 class ActionRepository {
-    createActions = async (actions: ActionType[], transaction = null) => {
+    createActions = async (actions: ActionAddData[], transaction = null) => {
         let createdActions = [];
         const queryOption: any = {};
         if (transaction) {
@@ -14,9 +14,10 @@ class ActionRepository {
                 id: generateUUID(),
                 deviceAttrId: actions[i].deviceAttrId,
                 value: actions[i].value,
+                ruleId: actions[i].ruleId,
             });
         }
-        await Action.bulkCreate(createdActions, queryOption);
+        return await Action.bulkCreate(createdActions, queryOption);
     };
 }
 
