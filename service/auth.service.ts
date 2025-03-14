@@ -9,6 +9,7 @@ import { comparePassword, hashPassword } from "../utils/validatePassword";
 import { RegisterForm } from "../types/registerForm";
 import { sendResetPasswordEmail } from "./email.service";
 import * as jwt from "jsonwebtoken";
+import { generateUUID } from "../utils/idGenerator";
 
 class AuthService {
     userRepo = UserRepository;
@@ -24,7 +25,7 @@ class AuthService {
             throw createError(404, "User not found");
         }
         console.log("here");
-        if (await comparePassword(password, user.password )) {
+        if (await comparePassword(password, user.password)) {
             return generateToken(user);
         }
         throw createError(401, "Invalid credentials");
@@ -41,7 +42,14 @@ class AuthService {
             throw createError(409, "Username already exists");
         }
         const hashedPassword = await hashPassword(password);
-        const newUser = await User.create({ username, password: hashedPassword, displayName, email, phoneNumber });
+        const newUser = await User.create({
+            id: generateUUID(),
+            username,
+            password: hashedPassword,
+            displayName,
+            email,
+            phoneNumber,
+        });
         return generateToken(newUser);
     }
 
@@ -51,7 +59,7 @@ class AuthService {
         if (!user) {
             throw createError(404, "User not found");
         }
-        console.log("User found:", user)
+        console.log("User found:", user);
 
         const resetToken = generateToken(user);
         await sendResetPasswordEmail(user.email, resetToken);
@@ -79,23 +87,22 @@ class AuthService {
     //change password
     async updateUserPassword(username: string, oldPassword: string, newPassword: string) {
         const user = await this.userRepo.findUserByUsername(username);
-    
+
         if (!user) {
             throw new Error("User not found");
         }
-    
+
         const checkPass = await comparePassword(oldPassword, user.password);
         if (!checkPass) {
-            return { message: "Password is not correct"}; 
+            return { message: "Password is not correct" };
         }
-    
+
         const hashedPassword = await hashPassword(newPassword);
         user.password = hashedPassword;
         await user.save();
-    
-        return { message: "Change password successful"};
+
+        return { message: "Change password successful" };
     }
-    
 }
 
 export const authService = new AuthService();
