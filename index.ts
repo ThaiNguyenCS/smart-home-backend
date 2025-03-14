@@ -1,5 +1,4 @@
-import dotenv from "dotenv";
-dotenv.config(); 
+import http from "http";
 import express from "express";
 import { DB_CONFIG, PORT } from "./config/config";
 import morgan from "morgan";
@@ -10,6 +9,7 @@ import sequelize from "./model/database";
 import "./model/association";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
+import { initWebSocket } from "./service/web-socket.service";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -35,7 +35,10 @@ app.use("/system-rules", systemRuleRouter);
         console.log("Database exists and connection successful");
         await deviceManager.loadDevicesFromDB(); // load devices from DB into RAM
         // const mqttService = MQTTService.getInstance();
-        app.listen(PORT, () => {
+        const server = http.createServer(app);
+        initWebSocket(server);
+
+        server.listen(PORT, () => {
             console.log(`Server's running at ${PORT}`);
         });
     } catch (error: any) {
