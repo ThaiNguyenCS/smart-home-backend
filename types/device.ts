@@ -5,7 +5,7 @@ export interface AddDeviceQuery {
     attrs?: AddDeviceAttrData[];
 }
 
-export type AddDeviceData = Omit<AddDeviceQuery, "userId"> & {
+export type AddDeviceData = AddDeviceQuery & {
     id: string;
 };
 

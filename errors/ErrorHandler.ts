@@ -5,5 +5,5 @@ export const handleError = (error: any) => {
         return { status: error.status, message: error.message };
     }
 
-    return { status: 500, message: error.message };
+    return { status: error.status || 500, message: error.message };
 };

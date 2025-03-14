@@ -2,7 +2,7 @@ import SystemRule from "../model/SystemRule.model";
 
 const isRuleSatisfied = (rule: SystemRule, cmpValue: string): boolean => {
     const fCmpValue = parseFloat(cmpValue);
-    const fRulevalue = parseFloat(rule.value);
+    const fRulevalue = rule.value;
     // console.log(fCmpValue + " vs " + fRulevalue);
 
     if (!rule.isActive) return false;

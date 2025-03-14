@@ -7,6 +7,7 @@ import { isRuleSatisfied } from "../utils/ruleValidate";
 
 interface DeviceAttrs {
     id: string;
+    userId: string;
     roomId?: string | null;
     name: string;
     attributes?: DeviceAttribute[];
@@ -17,6 +18,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public roomId!: string | null;
     public name!: string;
     public attributes?: DeviceAttribute[];
+    public userId!: string;
 
     // public async loadDeviceAttrs() {
     //     const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
@@ -84,6 +86,13 @@ Device.init(
             references: {
                 key: "id",
                 model: "Rooms",
+            },
+        },
+        userId: {
+            type: DataTypes.STRING,
+            references: {
+                key: "id",
+                model: "Users",
             },
         },
     },

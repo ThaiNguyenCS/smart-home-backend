@@ -45,11 +45,13 @@ class DeviceService {
 
     async addDevice(data: AddDeviceQuery) {
         const { userId, name, roomId, attrs } = data;
-        //TODO: Check if this device and roomId (if exists) belongs to this user
 
         await runTransaction(async (transaction: any) => {
             const newDeviceId = generateUUID();
-            const result = await this.deviceRepository.addDevice({ id: newDeviceId, name, roomId }, transaction);
+            const result = await this.deviceRepository.addDevice(
+                { id: newDeviceId, name, roomId, userId },
+                transaction
+            );
             if (attrs) {
                 if (!Array.isArray(attrs)) throw createHttpError(400, "attrs must be an array of attr");
                 console.log(attrs);

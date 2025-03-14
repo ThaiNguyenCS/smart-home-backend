@@ -3,23 +3,20 @@ import DeviceAttribute from "../model/DeviceAttribute.model";
 import { generateUUID } from "../utils/idGenerator";
 import {
     AddDeviceAttrData,
-    AddDeviceAttrQuery,
     AddDeviceData,
     RemoveDeviceData,
     UpdateDeviceAttrData,
     UpdateDeviceData,
-    UpdateDeviceQuery,
 } from "../types/device";
 import UserError from "../errors/UserError";
 import InvalidInputError from "../errors/InvalidInputError";
 import { FindOptions } from "sequelize";
 
-const validStatuses = ["on", "off"];
 const validValueTypes = ["value", "status"];
 
 class DeviceRepository {
     async addDevice(data: AddDeviceData, transaction = null) {
-        const { id, name, roomId = null } = data;
+        const { id, name, roomId = null, userId } = data;
         const queryOption: any = {};
         if (transaction) {
             queryOption.transaction = transaction;
@@ -29,6 +26,7 @@ class DeviceRepository {
                 id: id,
                 name: name,
                 roomId,
+                userId,
             },
             queryOption
         );

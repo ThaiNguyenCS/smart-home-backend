@@ -7,6 +7,16 @@ export interface SystemRuleAddQuery {
     actions: ActionType[];
 }
 
+export interface SystemRuleUpdateQuery {
+    userId: string;
+    ruleId: string;
+    deviceAttrId?: string;
+    isActive?: boolean;
+    value?: number;
+    compareType?: "eq" | "lte" | "gte" | "lt" | "gt";
+    actions?: ActionType[];
+}
+
 export type SystemRuleAddData = Omit<SystemRuleAddQuery, "actions">;
 
 export interface ActionType {
@@ -22,4 +32,18 @@ export interface ActionAddData {
 
 export interface SystemRuleViewQuery {
     userId: string;
+}
+
+export interface SystemRuleDeleteQuery {
+    userId: string;
+    ruleId: string;
+}
+
+export interface SystemRuleInfoUpdateQuery {
+    userId: string;
+    ruleId: string;
+    isActive?: boolean;
+    compareType?: "gte" | "gt" | "lt" | "lte" | "eq";
+    value?: number;
+    deviceAttrId?: string;
 }

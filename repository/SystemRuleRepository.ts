@@ -1,12 +1,26 @@
-import { FindOptions } from "sequelize";
+import { FindOptions, UpdateOptions } from "sequelize";
 import SystemRule from "../model/SystemRule.model";
-import { SystemRuleAddData } from "../types/system-rule";
+import {
+    SystemRuleAddData,
+    SystemRuleDeleteQuery,
+    SystemRuleInfoUpdateQuery,
+    SystemRuleUpdateQuery,
+} from "../types/system-rule";
 import { generateUUID } from "../utils/idGenerator";
 import Action from "../model/Action.model";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
 
 class SystemRuleRepository {
+    async getRuleById(data: any, transaction = null) {
+        const { ruleId } = data;
+        const queryOption: FindOptions = {};
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        queryOption.where = { id: ruleId };
+        return await SystemRule.findOne(queryOption);
+    }
 
     async getRuleByAttrId(data: any, transaction = null) {
         const { deviceAttrId } = data;
@@ -83,10 +97,30 @@ class SystemRuleRepository {
         if (transaction) {
             queryOption.transaction = transaction;
         }
-        // await SystemRule.create(newRule, queryOption);
+        await SystemRule.create(newRule, queryOption);
     }
 
-    async deleteRule(data: any, transaction = null) {}
+    async deleteRule(data: SystemRuleDeleteQuery, transaction = null) {
+        const { ruleId } = data;
+        const queryOption: FindOptions = {};
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        queryOption.where = { id: ruleId };
+        return await SystemRule.destroy(queryOption);
+    }
+
+    async updateRuleInfo(data: SystemRuleInfoUpdateQuery, transaction = null) {
+        const { ruleId, isActive, compareType, value, deviceAttrId } = data;
+        const updateValues = Object.fromEntries(
+            Object.entries({ isActive, compareType, value, deviceAttrId }).filter(([_, value]) => value !== undefined)
+        );
+        const queryOption: UpdateOptions = { where: { id: ruleId } };
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        return await SystemRule.update(updateValues, queryOption);
+    }
 }
 
 export default SystemRuleRepository;

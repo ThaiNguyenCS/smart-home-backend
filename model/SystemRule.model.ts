@@ -6,7 +6,7 @@ import DeviceAttribute from "./DeviceAttribute.model";
 interface SystemRuleAttrs {
     id: string;
     deviceAttrId: string;
-    value: string;
+    value: number;
     userId: string;
     compareType: string;
     isActive: boolean;
@@ -17,7 +17,7 @@ interface SystemRuleCreationAttrs extends Optional<SystemRuleAttrs, "isActive"> 
 class SystemRule extends Model<SystemRuleAttrs, SystemRuleCreationAttrs> implements SystemRuleAttrs {
     public id!: string;
     public deviceAttrId!: string;
-    public value!: string;
+    public value!: number;
     public userId!: string;
     public compareType!: string;
     public isActive!: boolean;

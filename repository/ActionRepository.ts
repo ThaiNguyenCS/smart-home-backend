@@ -1,3 +1,4 @@
+import { DestroyOptions } from "sequelize";
 import Action from "../model/Action.model";
 import { ActionAddData, ActionType } from "../types/system-rule";
 import { generateUUID } from "../utils/idGenerator";
@@ -18,6 +19,16 @@ class ActionRepository {
             });
         }
         return await Action.bulkCreate(createdActions, queryOption);
+    };
+
+    updateActionsOfRule = async (ruleId: string, actions: ActionAddData[], transaction = null) => {
+        const queryOption: DestroyOptions = {};
+        queryOption.where = { ruleId: ruleId };
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        await Action.destroy(queryOption); // delete all the old ones
+        return this.createActions(actions, transaction); // create the new ones
     };
 }
 
