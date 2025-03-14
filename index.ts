@@ -1,5 +1,7 @@
+import dotenv from "dotenv";
+dotenv.config(); 
 import express from "express";
-import { PORT } from "./config/config";
+import { DB_CONFIG, PORT } from "./config/config";
 import morgan from "morgan";
 import authRouter from "./routes/authenticate.route";
 import deviceRouter from "./routes/device.route";

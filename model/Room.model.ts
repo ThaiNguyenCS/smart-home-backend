@@ -1,38 +1,41 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import Floor from "./Floor.model";
 
-
-interface RoomAttrs {
-    id: string;
+interface RoomAttributes {
+    id: number;
     name: string;
-    floorId: string;
+    floorId: number;
 }
 
-// interface RoomCreationAttrs extends Optional<RoomAttrs, >;
+interface RoomCreationAttributes extends Optional<RoomAttributes, "id"> {}
 
-interface RoomInstance extends Model<RoomAttrs, RoomAttrs>, RoomAttrs {}
+interface RoomInstance
+    extends Model<RoomAttributes, RoomCreationAttributes>,
+        RoomAttributes {}
 
 const Room = sequelize.define<RoomInstance>(
     "Room",
     {
         id: {
+            type: DataTypes.INTEGER,
             primaryKey: true,
-            type: DataTypes.STRING,
+            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         floorId: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
+                model: Floor,
                 key: "id",
-                model: "Floors",
             },
         },
     },
-    { updatedAt: false }
+    {}
 );
-
 
 export default Room;

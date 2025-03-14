@@ -18,8 +18,8 @@ const User = sequelize.define<UserInstance>(
     "User",
     {
         id: {
+            type: DataTypes.STRING, 
             primaryKey: true,
-            type: DataTypes.STRING,
         },
         username: {
             unique: true,
@@ -32,15 +32,22 @@ const User = sequelize.define<UserInstance>(
         displayName: {
             type: DataTypes.STRING,
         },
-        email: {
+        email: { 
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
+            validate: {
+                isEmail: true, 
+            },
         },
         phoneNumber: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true, 
             unique: true,
+            validate: {
+                isNumeric: true,
+                len: [10,11],
+            },
         },
     },
     {}

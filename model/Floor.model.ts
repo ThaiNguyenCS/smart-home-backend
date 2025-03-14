@@ -1,27 +1,25 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import RealEstate from "./Estate.model";
 
-interface FloorAttrs {
-    id: string;
-    num: number;
+interface FloorAttributes {
+    id:string;
     name: string;
     realEstateId: string;
 }
 
-interface FloorCreationAttrs extends Optional<FloorAttrs, "num"> {}
+interface FloorCreationAttributes extends Optional<FloorAttributes, "id"> {}
 
-// have all the attrs from Model + user-defined attrs
-interface FloorInstance extends Model<FloorAttrs, FloorCreationAttrs>, FloorAttrs {}
+interface FloorInstance
+    extends Model<FloorAttributes, FloorCreationAttributes>,
+        FloorAttributes {}
 
 const Floor = sequelize.define<FloorInstance>(
     "Floor",
     {
         id: {
-            primaryKey: true,
             type: DataTypes.STRING,
-        },
-        num: {
-            type: DataTypes.INTEGER,
+            primaryKey: true,
         },
         name: {
             type: DataTypes.STRING,
@@ -29,13 +27,14 @@ const Floor = sequelize.define<FloorInstance>(
         },
         realEstateId: {
             type: DataTypes.STRING,
+            allowNull: false,
             references: {
+                model: RealEstate,
                 key: "id",
-                model: "RealEstates",
             },
         },
     },
-    { updatedAt: false }
+    {}
 );
 
 export default Floor;
