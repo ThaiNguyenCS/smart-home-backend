@@ -72,10 +72,10 @@ class DeviceRepository {
     }
 
     async getDeviceByCondition(data: any) {
-        const { name, feed, options = {} } = data;
+        const { name, feed, options = {}, userId } = data;
 
         const condition = Object.fromEntries(
-            Object.entries({ feed, name }).filter(([_, value]) => value !== undefined)
+            Object.entries({ feed, name, userId }).filter(([_, value]) => value !== undefined)
         );
         const queryOptions: FindOptions = {};
         const includes = [];
@@ -90,7 +90,7 @@ class DeviceRepository {
         }
         if (includes.length > 0) queryOptions.include = includes;
         const devices = await Device.findAll(queryOptions);
-        console.log(devices[0].attributes);
+        // console.log(devices[0].attributes);
         return devices;
     }
 
@@ -127,21 +127,36 @@ class DeviceRepository {
 
     // get all attrs of a device
     async getDeviceAttr(data: any) {
-        const { deviceId } = data;
+        const { deviceId, options = { includeDevice: true } } = data;
         const result = await DeviceAttribute.findAll({ where: { deviceId: deviceId } });
         return result;
     }
 
     // get a specific attr of a device by id
-    async getDeviceAttrById(data: any): Promise<DeviceAttribute | null> {
-        const { attrId } = data;
-        const result = await DeviceAttribute.findByPk(attrId);
+    async getDeviceAttrById(data: any, transaction = null): Promise<DeviceAttribute | null> {
+        const { attrId, options = { includeDevice: true } } = data;
+
+        const queryOptions: FindOptions = {};
+        if (options.includeDevice) {
+            queryOptions.include = [
+                {
+                    model: Device,
+                    as: "device",
+                    foreignKey: "deviceId",
+                },
+            ];
+        }
+        if (transaction) {
+            queryOptions.transaction = transaction;
+        }
+
+        const result = await DeviceAttribute.findByPk(attrId, queryOptions);
         return result;
     }
 
     async updateDeviceAttr(data: UpdateDeviceAttrData) {
         const { attrId, key, valueType } = data;
-        const attr = await this.getDeviceAttrById({ attrId });
+        const attr = await this.getDeviceAttrById({ attrId, options: { includeDevice: false } });
         if (attr) {
             if (valueType && !validValueTypes.includes(valueType)) {
                 throw new InvalidInputError("valueType is not valid");
@@ -154,6 +169,25 @@ class DeviceRepository {
             throw new Error("attr not found");
         }
     }
+
+    async getDeviceAttrs(options: any, transaction = null) {
+        const { includeDevice = false } = options;
+        const queryOptions: FindOptions = {};
+        if (includeDevice) {
+            queryOptions.include = [
+                {
+                    model: Device,
+                    as: "device",
+                    foreignKey: "deviceId",
+                },
+            ];
+        }
+        const result = await DeviceAttribute.findAll(queryOptions);
+        return result;
+    }
 }
 
 export default DeviceRepository;
+
+// where
+// include

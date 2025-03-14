@@ -8,7 +8,7 @@ interface DeviceAttributeAttrs {
     key: string;
     feed: string;
     value: number;
-    isListener: boolean;
+    isPublisher: boolean;
 }
 
 interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value"> {}
@@ -19,7 +19,7 @@ class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> i
     public key!: string;
     public value!: number;
     public feed!: string;
-    public isListener!: boolean;
+    public isPublisher!: boolean;
 
     // Example method for updating an attribute value
     public async updateStatus(newValue: string): Promise<void> {
@@ -63,7 +63,7 @@ DeviceAttribute.init(
         value: {
             type: DataTypes.FLOAT,
         },
-        isListener: {
+        isPublisher: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },

@@ -11,6 +11,8 @@ import SystemRuleRepository from "../repository/SystemRuleRepository";
 import ActionRepository from "../repository/ActionRepository";
 import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
+import DeviceAttribute from "../model/DeviceAttribute.model";
+import Device from "../model/Device.model";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
@@ -96,6 +98,10 @@ class SystemRuleService {
         if (!attr) {
             throw createHttpError(404, `attr ${deviceAttrId} not found`);
         }
+        if (!attr.isPublisher) {
+            // check if this attr can be set as a master of system rule
+            throw createHttpError(403, `attr ${deviceAttrId} cannot be a master attribute`);
+        }
         for (let i = 0; i < actions.length; i++) {
             if (!actions[i].deviceAttrId && !actions[i].value) {
                 throw createHttpError(400, "actions data is invalid");
@@ -152,6 +158,47 @@ class SystemRuleService {
         const authResult = await this._checkIfRuleBelongsToUser(userId, ruleId);
         if (!authResult) throw createHttpError(401, "Unauthorized");
         return await this.systemRuleRepository.deleteRule(data);
+    };
+
+    getAvailablePublishers = async (data: any) => {
+        const { userId } = data;
+        const existingRules = await this.systemRuleRepository.getRules({ userId });
+        const devices = await this.deviceRepository.getDeviceByCondition({ userId, options: { attribute: {} } });
+        let availablePublisherIds: string[] = []; // store all available publisher ids
+        let usedPublisherIds: string[] = []; // store used publisher ids
+        const promises = [];
+        for (let i = 0; i < existingRules.length; i++) {
+            usedPublisherIds.push(existingRules[i].deviceAttrId);
+        }
+        for (let i = 0; i < devices.length; i++) {
+            devices[i].attributes?.forEach((attr) => {
+                if (attr.isPublisher && !usedPublisherIds.find((id) => id === attr.id)) {
+                    availablePublisherIds.push(attr.id);
+                }
+            }); // get all available publisher ids
+        }
+        for (const id of availablePublisherIds) {
+            promises.push(this.deviceRepository.getDeviceAttrById({ attrId: id, options: { includeDevice: true } }));
+        }
+        return await Promise.all(promises);
+    };
+
+    getAvailableSubscribers = async (data: any) => {
+        const { userId } = data;
+        const result = await DeviceAttribute.findAll({
+            where: { isPublisher: false },
+            include: [
+                {
+                    model: Device,
+                    as: "device",
+                    foreignKey: "deviceId",
+                    where: {
+                        userId: userId,
+                    },
+                },
+            ],
+        });
+        return result;
     };
 }
 

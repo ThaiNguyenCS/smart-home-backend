@@ -6,8 +6,11 @@ const router = express.Router();
 router.use(validateToken);
 // router.patch("/:ruleId/status", systemRuleController.updateRuleStatus);
 router.post("/:ruleId/action", systemRuleController.addActionToRule);
+router.get("/publishers", systemRuleController.getPublisherAttrs);
+router.get("/subscribers", systemRuleController.getSubscriberAttrs);
 router.patch("/:ruleId", systemRuleController.updateRuleInfo);
 router.put("/:ruleId", systemRuleController.updateRule);
+
 // delete a rule
 router.delete("/:id", systemRuleController.deleteRule);
 // get all rules

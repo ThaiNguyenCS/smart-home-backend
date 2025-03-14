@@ -91,6 +91,31 @@ class SystemRuleController {
             res.status(status).send({ message: message });
         }
     };
+
+    getPublisherAttrs = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            const result = await this.systemRuleService.getAvailablePublishers({
+                userId: req.user!.id,
+            });
+            res.status(200).send({ data: result, message: "Success" });
+        } catch (error) {
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
+        }
+    };
+
+    getSubscriberAttrs = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            const result = await this.systemRuleService.getAvailableSubscribers({
+                userId: req.user!.id,
+            });
+            // right now a subscriber can appear in multiple rules
+            res.status(200).send({ data: result, message: "Success" });
+        } catch (error) {
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
+        }
+    };
 }
 
 export default SystemRuleController;

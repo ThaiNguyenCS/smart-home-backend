@@ -9,6 +9,7 @@ router.patch("/:id/attribute/:attrId", deviceController.updateDeviceAttr);
 router.delete("/:id/attribute/:attrId", deviceController.deleteDeviceAttr);
 // ADMIN: add device attribute
 router.post("/:id/attribute", deviceController.addDeviceAttr);
+
 // get all devices (for 1 user)
 router.get("/all", validateToken, deviceController.getAllDevices);
 // reload device (for 1 user)
