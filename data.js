@@ -85,3 +85,11 @@ const SystemRules = [
         ]
     }
 ]
+
+const Notification = [
+    {
+        "message": "test message",
+        "title": "test title",
+        "type": "alert"
+    }
+]

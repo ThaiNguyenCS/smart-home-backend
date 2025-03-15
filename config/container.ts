@@ -1,5 +1,4 @@
 // FOR DEPENDENCY INJECTION
-
 import MQTTService from "../service/mqtt.service";
 import DeviceService from "../service/device.service";
 import DeviceController from "../controller/device.controller";
@@ -9,6 +8,9 @@ import SystemRuleService from "../service/system-rule.service";
 import DeviceRepository from "../repository/DeviceRepository";
 import SystemRuleRepository from "../repository/SystemRuleRepository";
 import ActionRepository from "../repository/ActionRepository";
+import NotificationController from "../controller/notification.controller";
+import NotificationRepository from "../repository/NotificationRepository";
+import NotificationService from "../service/notification.service";
 
 const mqttService = MQTTService.getInstance();
 const deviceService = new DeviceService(mqttService);
@@ -22,4 +24,18 @@ const systemRuleRepository = new SystemRuleRepository();
 const actionRepository = new ActionRepository();
 const systemRuleService = new SystemRuleService({ deviceRepository, systemRuleRepository, actionRepository });
 const systemRuleController = new SystemRuleController(systemRuleService);
-export { mqttService, deviceService, deviceController, deviceManager, systemRuleController, systemRuleService };
+
+// Notification
+const notificationRepository = new NotificationRepository();
+const notificationService = new NotificationService(notificationRepository);
+const notificationController = new NotificationController(notificationService);
+
+export {
+    mqttService,
+    deviceService,
+    deviceController,
+    deviceManager,
+    systemRuleController,
+    systemRuleService,
+    notificationController,
+};

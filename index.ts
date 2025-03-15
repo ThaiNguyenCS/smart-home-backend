@@ -9,6 +9,7 @@ import sequelize from "./model/database";
 import "./model/association";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
+import notificationRouter from "./routes/notification.route";
 import { initWebSocket } from "./service/web-socket.service";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
@@ -27,6 +28,7 @@ app.use(morgan("dev")); // logger
 app.use("/auth", authRouter);
 app.use("/devices", deviceRouter);
 app.use("/system-rules", systemRuleRouter);
+app.use("/notifications", notificationRouter);
 
 (async () => {
     try {

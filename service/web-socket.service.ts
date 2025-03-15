@@ -23,5 +23,5 @@ export function initWebSocket(server: any) {
 }
 
 export function sendWebSocketNotification(userId: string, notification: any) {
-    io.to(userId).emit("notification", notification);
+    io.to(userId).emit("notification", JSON.stringify(notification));
 }
