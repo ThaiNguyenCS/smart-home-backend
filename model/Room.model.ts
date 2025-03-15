@@ -18,16 +18,15 @@ const Room = sequelize.define<RoomInstance>(
     "Room",
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
-            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         floorId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: Floor,

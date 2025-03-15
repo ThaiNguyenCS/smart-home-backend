@@ -14,8 +14,10 @@ import { initWebSocket } from "./service/web-socket.service";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
+// import Device from "./model/Device.model";
 // import RealEstate from "./model/RealEstate.model";
 // import DeviceAttribute from "./model/DeviceAttribute.model";
+// Device.sync()
 // DeviceAttribute.sync()
 // RealEstate.sync()
 // Action.sync();
