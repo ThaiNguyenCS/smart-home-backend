@@ -7,6 +7,7 @@ import deviceRouter from "./routes/device.route";
 import sequelize from "./model/database";
 // import "./scheduler";
 import "./model/association";
+import cors from "cors";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
 import notificationRouter from "./routes/notification.route";
@@ -24,6 +25,8 @@ import { initWebSocket } from "./service/web-socket.service";
 // Floor.sync()
 // Room.sync()
 const app = express();
+
+app.use(cors());
 
 app.use(express.json()); // to read json format from request's body
 app.use(morgan("dev")); // logger
