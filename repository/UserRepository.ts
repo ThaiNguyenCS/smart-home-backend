@@ -9,6 +9,10 @@ class UserRepository {
         const user = User.findOne({ where: { email } });
         return user;
     }
+    findUserById(id: number){
+        const user = User.findOne({ where: { id }});
+        return user;
+    }
 }
 
 export default new UserRepository();

@@ -26,22 +26,29 @@ class AuthController {
 
     static async forgotPassword(req: Request, res: Response) {
         try {
-            const response = await authService.handleForgotPassword(req.body.email);
+            const { email } = req.body;
+            const response = await authService.handleForgotPassword(email, req);
             res.status(200).send(response);
         } catch (error: any) {
             res.status(error.status || 500).send({ message: error.message });
         }
     }
     
-    static async resetPassword(req: Request, res: Response){
+    static async resetPassword(req: Request, res: Response): Promise<any> {
         try {
-            const { username, newPassword } = req.body;
-            const result = await authService.handleResetPassword(username, newPassword);
+            const { resetToken, newPassword } = req.body;
+    
+            if (!resetToken) {
+                return res.status(400).send({ message: "Missing reset token" });
+            }
+    
+            const result = await authService.handleResetPassword(resetToken, newPassword, req);
             res.status(200).send(result);
         } catch (error: any) {
             res.status(error.status || 500).send({ message: error.message });
         }
     }
+    
 
     static async updatePassword(req: Request, res: Response): Promise<any> {
         try {

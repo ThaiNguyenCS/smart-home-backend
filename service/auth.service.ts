@@ -8,7 +8,11 @@ import { generateToken } from "../utils/jwt";
 import { comparePassword, hashPassword } from "../utils/validatePassword";
 import { RegisterForm } from "../types/registerForm";
 import { sendResetPasswordEmail } from "./email.service";
-import * as jwt from "jsonwebtoken";
+import { randomBytes } from "crypto";
+import { Request } from "express";
+import Redis from "ioredis";
+
+const redis = new Redis();
 
 class AuthService {
     userRepo = UserRepository;
@@ -46,35 +50,56 @@ class AuthService {
     }
 
     // forget password
-    async handleForgotPassword(email: string) {
+    async handleForgotPassword(email: string, req: Request) {
         const user = await this.userRepo.findUserByEmail(email);
         if (!user) {
             throw createError(404, "User not found");
         }
-        console.log("User found:", user)
-
-        const resetToken = generateToken(user);
+    
+        const resetToken = randomBytes(32).toString("hex");
+        const userAgent = req.get("user-agent") || "unknown";
+        const ip = req.ip;
+    
+        // Lưu token kèm theo User-Agent và IP
+        await redis.set(
+            `resetToken:${resetToken}`,
+            JSON.stringify({ userId: user.id, userAgent, ip }),
+            "EX",
+            900
+        );
+    
         await sendResetPasswordEmail(user.email, resetToken);
-
         return { message: "Reset password email sent" };
     }
+    
 
     //reset password
-    async handleResetPassword(username: string, newPassword: string) {
-        if (!newPassword) {
-            throw createHttpError(400, "Missing new password");
+    async handleResetPassword(resetToken: string, newPassword: string, req: Request) {
+        const storedData = await redis.get(`resetToken:${resetToken}`);
+        if (!storedData) {
+            throw createHttpError(400, "Invalid or expired token");
         }
-
-        const user = await this.userRepo.findUserByUsername(username);
+    
+        const { userId, userAgent, ip } = JSON.parse(storedData);
+    
+        // Kiểm tra IP và User-Agent
+        if (req.headers["user-agent"] !== userAgent || req.ip !== ip) {
+            throw createHttpError(403, "Invalid request source");
+        }
+    
+        const user = await this.userRepo.findUserById(parseInt(userId));
         if (!user) {
             throw createHttpError(404, "User not found");
         }
-
+    
         const hashedPassword = await hashPassword(newPassword);
         await user.update({ password: hashedPassword });
-
+    
+        await redis.del(`resetToken:${resetToken}`);
+    
         return { message: "Password updated successfully" };
     }
+    
 
     //change password
     async updateUserPassword(username: string, oldPassword: string, newPassword: string) {
