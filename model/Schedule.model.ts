@@ -1,4 +1,4 @@
-import { DataTypes, Model, Optional } from "sequelize";
+import { DataTypes, Model, NOW, Optional } from "sequelize";
 import sequelize from "./database";
 import DeviceAttribute from "./DeviceAttribute.model";
 
@@ -9,9 +9,10 @@ interface ScheduleAttrs {
     value: number;
     isActive: boolean;
     repeat: string;
+    lastActiveDate: string;
 }
 
-interface ScheduleCreationAttrs extends Optional<ScheduleAttrs, "isActive"> {}
+interface ScheduleCreationAttrs extends Optional<ScheduleAttrs, "isActive" | "lastActiveDate"> {}
 
 class Schedule extends Model<ScheduleAttrs, ScheduleCreationAttrs> implements ScheduleAttrs {
     public id!: string;
@@ -21,6 +22,7 @@ class Schedule extends Model<ScheduleAttrs, ScheduleCreationAttrs> implements Sc
     public value!: number;
     public isActive!: boolean;
     public deviceAttribute?: DeviceAttribute;
+    public lastActiveDate!: string;
 }
 
 Schedule.init(
@@ -61,9 +63,15 @@ Schedule.init(
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },
+        lastActiveDate: {
+            type: DataTypes.DATE,
+            defaultValue: NOW,
+        },
     },
     {
         sequelize,
+        createdAt: false,
+        updatedAt: false,
     }
 );
 

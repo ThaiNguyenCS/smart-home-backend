@@ -44,5 +44,6 @@ export {
     deviceManager,
     systemRuleController,
     systemRuleService,
+    scheduleService,
     notificationController,
 };

@@ -2,9 +2,12 @@ import createHttpError from "http-errors";
 import DeviceRepository from "../repository/DeviceRepository";
 import ScheduleRepository from "../repository/ScheduleRepository";
 import { generateUUID } from "../utils/idGenerator";
-import { checkIfTimeValid, getTimeOnly } from "../utils/date-time-formatter";
+import { checkIfTimeValid, getDateOnly, getTimeOnly } from "../utils/date-time-formatter";
 import Schedule from "../model/Schedule.model";
-import { Op } from "sequelize";
+import { col, fn, literal, Op, Sequelize } from "sequelize";
+import DeviceAttribute from "../model/DeviceAttribute.model";
+
+const LOCAL_TIME_ZONE = "+07:00";
 
 class ScheduleService {
     private scheduleRepository: ScheduleRepository;
@@ -146,7 +149,7 @@ class ScheduleService {
         if (!device.attributes) {
             throw createHttpError(404, `Device ${deviceId} does not have any attributes`);
         }
-        
+
         // if new deviceAttrId is specified, check whether it belongs this device
         if (deviceAttrId) {
             const attr = device.attributes.find((item) => item.id === deviceAttrId);
@@ -157,6 +160,49 @@ class ScheduleService {
 
         await this._checkIfScheduleBelongsToUser(scheduleId, userId);
         await this.scheduleRepository.updateSchedule(scheduleId, { time, value, repeat, isActive, deviceAttrId });
+    };
+
+    findAllDueSchedules = async () => {
+        const now = new Date(Date.now());
+        const todayIndex = (now.getDay() + 6) % 7; // Convert to 0 = Monday, 6 = Sunday
+        const currentTime = getTimeOnly(now);
+        const today = getDateOnly(now);
+        const todayBitmask = 64 >> todayIndex;
+        const dueSchedules = await Schedule.findAll({
+            where: {
+                isActive: true, // only get active schedule
+                [Op.and]: [
+                    Sequelize.where(
+                        fn("DATE", literal(`"lastActiveDate" AT TIME ZONE 'UTC' AT TIME ZONE '${LOCAL_TIME_ZONE}'`)),
+                        "!=",
+                        today
+                    ), // ignore already active ones
+                    Sequelize.literal(`CAST("repeat" AS INTEGER) & ${todayBitmask} > 0`),
+                ],
+                time: { [Op.lte]: currentTime },
+            },
+            include: [
+                {
+                    model: DeviceAttribute,
+                    attributes: ["id", "feed", "value"],
+                    as: "deviceAttribute",
+                },
+            ],
+        });
+        return dueSchedules;
+    };
+
+    updateLastActiveDate = async (scheduleIds: string[]) => {
+        await Schedule.update(
+            { lastActiveDate: new Date().toISOString() },
+            {
+                where: {
+                    id: {
+                        [Op.in]: scheduleIds,
+                    },
+                },
+            }
+        );
     };
 }
 
