@@ -1,12 +1,70 @@
 import { Request, Response } from "express";
 import DeviceService from "../service/device.service";
+import ScheduleService from "../service/schedule.service";
+import { AuthenticatedRequest } from "../middleware/authenticate.middleware";
 
 class DeviceController {
     deviceService: DeviceService;
-    constructor(deviceService: DeviceService) {
+    scheduleService: ScheduleService;
+    constructor({
+        deviceService,
+        scheduleService,
+    }: {
+        deviceService: DeviceService;
+        scheduleService: ScheduleService;
+    }) {
         this.deviceService = deviceService;
-        // console.log(this.deviceService)
+        this.scheduleService = scheduleService;
     }
+
+    deleteDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            const result = await this.scheduleService.deleteSchedule({
+                userId: req.user!.id,
+                deviceId: req.params.id,
+                scheduleId: req.params.scheduleId,
+            });
+            res.status(200).send({ message: "Delete schedule successfully" });
+        } catch (error: any) {
+            console.log(error);
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    };
+
+    updateDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            await this.scheduleService.updateSchedule({
+                userId: req.user?.id,
+                scheduleId: req.params.scheduleId,
+                deviceId: req.params.id,
+                ...req.body,
+            });
+            res.status(200).send({ message: "Successful" });
+        } catch (error: any) {
+            console.log(error);
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    };
+
+    getDeviceSchedules = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            const result = await this.scheduleService.findSchedules({ userId: req.user!.id, deviceId: req.params.id });
+            res.status(200).send({ message: "Successful", data: result });
+        } catch (error: any) {
+            console.log(error);
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    };
+
+    createDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
+        try {
+            await this.scheduleService.createSchedule({ userId: req.user?.id, deviceId: req.params.id, ...req.body });
+            res.status(201).send({ message: "Create schedule successfully" });
+        } catch (error: any) {
+            console.log(error);
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    };
 
     reloadDevices = async (req: Request, res: Response) => {
         try {
@@ -22,7 +80,7 @@ class DeviceController {
     getAllDevices = async (req: Request, res: Response) => {
         try {
             // const user = req.user; //TODO: check authorization
-            const result = await this.deviceService.getAllDevice({});
+            const result = await this.deviceService.getAllDevice({ options: { attribute: {} } });
             res.status(200).send({ message: "Successfully", data: result });
         } catch (error: any) {
             console.error(error);

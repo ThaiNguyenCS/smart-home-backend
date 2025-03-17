@@ -11,15 +11,22 @@ import ActionRepository from "../repository/ActionRepository";
 import NotificationController from "../controller/notification.controller";
 import NotificationRepository from "../repository/NotificationRepository";
 import NotificationService from "../service/notification.service";
+import ScheduleService from "../service/schedule.service";
+import ScheduleRepository from "../repository/ScheduleRepository";
+
+const deviceRepository = new DeviceRepository();
 
 const mqttService = MQTTService.getInstance();
+// schedule repository
+const scheduleRepository = new ScheduleRepository();
+// schedule service
+const scheduleService = new ScheduleService({ scheduleRepository, deviceRepository });
 const deviceService = new DeviceService(mqttService);
 mqttService.setDeviceService(deviceService);
-const deviceController = new DeviceController(deviceService);
+const deviceController = new DeviceController({ deviceService, scheduleService });
 const deviceManager = DeviceManager.getInstance(); // get singleton instance of device manager
 deviceManager.setDeviceService(deviceService);
 
-const deviceRepository = new DeviceRepository();
 const systemRuleRepository = new SystemRuleRepository();
 const actionRepository = new ActionRepository();
 const systemRuleService = new SystemRuleService({ deviceRepository, systemRuleRepository, actionRepository });

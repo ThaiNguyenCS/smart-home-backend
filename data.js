@@ -1,6 +1,7 @@
 const Devices = [
     {
         "name": "Cảm biến nhiệt độ & độ ẩm",
+        "userId": "",
         "attrs": [{
             "key": "temperature",
             "valueType": "value",
@@ -14,6 +15,7 @@ const Devices = [
     },
     {
         "name": "Cảm biến lửa",
+        "userId": "",
         "attrs": [{
             "key": "fire",
             "valueType": "value",
@@ -22,6 +24,7 @@ const Devices = [
     },
     {
         "name": "Cảm biến chuyển động",
+        "userId": "",
         "attrs": [{
             "key": "move",
             "valueType": "value",
@@ -30,6 +33,7 @@ const Devices = [
     },
     {
         "name": "Đèn",
+        "userId": "",
         "attrs": [{
             "key": "status",
             "valueType": "value",
@@ -37,13 +41,16 @@ const Devices = [
         }]
     },
     {
-        "name": "Quạt"
+        "name": "Quạt",
+        "userId": "",
     },
     {
-        "name": "Relay"
+        "name": "Relay",
+        "userId": "",
     },
     {
         "name": "Động cơ bơm nước",
+        "userId": "",
         "attrs": [{
             "key": "status",
             "valueType": "value",
@@ -51,7 +58,8 @@ const Devices = [
         }]
     },
     {
-        "name": "Cảm biến chất lượng không khí"
+        "name": "Cảm biến chất lượng không khí",
+        "userId": "",
     }
 ]
 
@@ -93,3 +101,20 @@ const Notification = [
         "type": "alert"
     }
 ]
+
+const Schedule = [
+    {
+        "time": "",
+        "deviceAttrId": "",
+        "value": "",
+        "repeat": "",
+    }
+]
+
+const UpdateSchedule = {
+    "time": "",
+    "deviceAttrId": "",
+    "value": 1.0,
+    "repeat": "",
+    "isActive": true
+}

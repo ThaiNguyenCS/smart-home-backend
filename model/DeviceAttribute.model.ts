@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
 import InvalidInputError from "../errors/InvalidInputError";
+import Device from "./Device.model";
 
 interface DeviceAttributeAttrs {
     id: string;
@@ -20,6 +21,7 @@ class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> i
     public value!: number;
     public feed!: string;
     public isPublisher!: boolean;
+    public device? : Device
 
     // Example method for updating an attribute value
     public async updateStatus(newValue: string): Promise<void> {

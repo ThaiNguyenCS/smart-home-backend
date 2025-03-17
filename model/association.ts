@@ -1,6 +1,7 @@
 import Action from "./Action.model";
 import Device from "./Device.model";
 import DeviceAttribute from "./DeviceAttribute.model";
+import Schedule from "./Schedule.model";
 import SystemRule from "./SystemRule.model";
 
 Device.hasMany(DeviceAttribute, {
@@ -28,3 +29,7 @@ Action.belongsTo(DeviceAttribute, {
     as: "deviceAttribute",
 });
 
+Schedule.belongsTo(DeviceAttribute, {
+    foreignKey: "deviceAttrId",
+    as: "deviceAttribute",
+})

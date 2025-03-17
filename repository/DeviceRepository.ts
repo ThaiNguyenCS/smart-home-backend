@@ -54,13 +54,13 @@ class DeviceRepository {
         return device;
     }
 
-    async getDeviceById(data: any) {
+    async getDeviceById(data: { id: string; options: any }) {
         const { id, options } = data;
         console.log(data);
         const queryOptions: any = {};
         const includes = [];
 
-        if (options.attribute) {
+        if (options?.attribute) {
             includes.push({
                 model: DeviceAttribute,
                 as: "attributes",
