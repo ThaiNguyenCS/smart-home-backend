@@ -37,9 +37,6 @@ client.on("close", () => {
 });
 
 // Publish random values every 30 seconds
-setInterval(() => {
-    const value = Math.floor(Math.random() * 100);
-    console.log("Updating:", value);
-    client.publish(`${AIO_USERNAME}/feeds/${AIO_FEED_ID}`, value.toString());
-}, 1000);
+client.publish(`${AIO_USERNAME}/feeds/fan`, "0");
+
 

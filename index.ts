@@ -5,7 +5,7 @@ import morgan from "morgan";
 import authRouter from "./routes/authenticate.route";
 import deviceRouter from "./routes/device.route";
 import sequelize from "./model/database";
-import "./scheduler";
+// import "./scheduler";
 import "./model/association";
 import cors from "cors";
 import { deviceManager } from "./config/container";

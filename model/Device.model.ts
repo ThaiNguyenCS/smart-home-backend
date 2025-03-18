@@ -4,6 +4,8 @@ import DeviceRepository from "../repository/DeviceRepository";
 import DeviceAttribute from "./DeviceAttribute.model";
 import { mqttService, systemRuleService } from "../config/container";
 import { isRuleSatisfied } from "../utils/ruleValidate";
+import SystemRule from "./SystemRule.model";
+import Action from "./Action.model";
 
 interface DeviceAttrs {
     id: string;
@@ -32,19 +34,39 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
 
     public async updateDeviceStatus(data: any) {
         const { feed, value } = data;
-        const attr = this.containsFeed(feed);
-        // console.log(this.name);
-        // console.log(this.attributes);
+        const formattedValue = parseFloat(value);
         try {
+            if (isNaN(formattedValue)) {
+                throw new Error(`${value} is not a valid value`);
+            }
+            const attr = this.containsFeed(feed); // find the targer attribute
+
             if (attr) {
                 await attr.updateStatus(value);
                 //TODO: find system rules that connected to this status
-                const rules = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id });
-                if (rules) {
+                const rule = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id, value: formattedValue });
+                // const rule = await SystemRule.findOne({
+                //     where: {
+                //         deviceAttrId: attr.id,
+                //         value: parseFloat(value),
+                //         isActive: true,
+                //     },
+                //     include: [
+                //         { model: DeviceAttribute, as: "deviceAttribute", required: true },
+                //         {
+                //             model: Action,
+                //             as: "actions",
+                //             required: false,
+                //             include: [{ model: DeviceAttribute, as: "deviceAttribute", required: true }],
+                //         },
+                //     ],
+                // });
+                if (rule) {
                     // console.log("rules", rules);
-                    let actions = rules.actions;
+                    console.log("Found rule" + rule?.toJSON());
+                    let actions = rule.actions;
                     if (actions) {
-                        const isSatisfied = isRuleSatisfied(rules, value);
+                        const isSatisfied = isRuleSatisfied(rule, value);
                         if (isSatisfied) {
                             let promises = [];
                             for (let i = 0; i < actions.length; i++) {

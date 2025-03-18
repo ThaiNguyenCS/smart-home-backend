@@ -1,6 +1,5 @@
 // import Device from "./Device";
 import Device from "../model/Device.model";
-import DeviceAttribute from "../model/DeviceAttribute.model";
 import DeviceService from "../service/device.service";
 class DeviceManager {
     static instance: DeviceManager;
@@ -25,12 +24,22 @@ class DeviceManager {
         this.devices = devices;
     }
 
+    addNewDevice() {
+        console.log("start addNewDevice");
+        console.log("end addNewDevice");
+    }
+
+    removeDevice() {
+        console.log("start removeDevice");
+       
+        console.log("end removeDevice");
+    }
+
     async updateDeviceStatus(feed: string, value: string) {
         const device = this.devices.find((dev) => dev.containsFeed(feed) !== undefined);
         if (!device) {
             throw new Error(`Cannot find device with feed ${feed}`);
         }
-
         await device.updateDeviceStatus({ feed, value });
     }
 }

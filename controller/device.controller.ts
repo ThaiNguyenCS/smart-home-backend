@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import DeviceService from "../service/device.service";
 import ScheduleService from "../service/schedule.service";
 import { AuthenticatedRequest } from "../middleware/authenticate.middleware";
+import { deviceManager } from "../config/container";
+import { handleError } from "../errors/ErrorHandler";
+import { generateUUID } from "../utils/idGenerator";
 
 class DeviceController {
     deviceService: DeviceService;
@@ -27,7 +30,8 @@ class DeviceController {
             res.status(200).send({ message: "Delete schedule successfully" });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -42,7 +46,8 @@ class DeviceController {
             res.status(200).send({ message: "Successful" });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -52,7 +57,8 @@ class DeviceController {
             res.status(200).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -62,7 +68,8 @@ class DeviceController {
             res.status(201).send({ message: "Create schedule successfully" });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -73,7 +80,8 @@ class DeviceController {
             res.status(201).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -85,19 +93,21 @@ class DeviceController {
         } catch (error: any) {
             console.error(error);
             // throw createError()
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
     addDevice = async (req: Request, res: Response) => {
         try {
             // const user = req.user; //TODO: check authorization
-            await this.deviceService.addDevice({ userId: "temp", ...req.body }); //TODO: add userID
+            await this.deviceService.addDevice({ ...req.body }); //TODO: add userID
             res.status(201).send({ message: "Successfully" });
         } catch (error: any) {
             console.error(error);
             // throw createError()
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -113,7 +123,8 @@ class DeviceController {
             }
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -124,7 +135,8 @@ class DeviceController {
             res.status(200).send({ message: "Successfully" });
         } catch (error: any) {
             console.error(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -138,7 +150,8 @@ class DeviceController {
             res.status(200).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -151,7 +164,8 @@ class DeviceController {
             res.status(201).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -166,7 +180,8 @@ class DeviceController {
             res.status(200).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
     };
 
@@ -182,8 +197,19 @@ class DeviceController {
             res.status(201).send({ message: "Successful", data: result });
         } catch (error: any) {
             console.log(error);
-            res.status(error.status || 500).send({ message: error.message });
+            const { status, message } = handleError(error);
+            res.status(status).send({ message: message });
         }
+    };
+
+    test = async (req: Request, res: Response) => {
+        await deviceManager.addNewDevice();
+        res.send("ok");
+    };
+
+    test2 = async (req: Request, res: Response) => {
+        await deviceManager.removeDevice();
+        res.send("ok");
     };
 }
 

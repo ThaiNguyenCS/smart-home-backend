@@ -177,7 +177,7 @@ class ScheduleService {
                         "!=",
                         today
                     ), // ignore already active ones
-                    Sequelize.literal(`CAST("repeat" AS INTEGER) & ${todayBitmask} > 0`),
+                    Sequelize.literal(`CAST("repeat" AS bit(7))::int & ${todayBitmask} > 0`),
                 ],
                 time: { [Op.lte]: currentTime },
             },

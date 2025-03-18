@@ -48,10 +48,12 @@ class DeviceService {
 
         await runTransaction(async (transaction: any) => {
             const newDeviceId = generateUUID();
+            // add device
             const result = await this.deviceRepository.addDevice(
                 { id: newDeviceId, name, roomId, userId },
                 transaction
-            );
+            ); 
+            // add device attrs (if included)
             if (attrs) {
                 if (!Array.isArray(attrs)) throw createHttpError(400, "attrs must be an array of attr");
                 console.log(attrs);
@@ -61,13 +63,15 @@ class DeviceService {
                         this.deviceRepository.createDeviceAttr({ ...attrs[i], deviceId: newDeviceId }, transaction)
                     );
                 }
-                await Promise.all(promises);
+                await Promise.all(promises); 
+                //TODO: notify device manager to load new device
             }
         });
     }
 
     async removeDevice(data: any) {
         const result = await this.deviceRepository.removeDevice(data);
+        //TODO: notify device manager to unload deleted device
         return result;
     }
 
@@ -91,6 +95,7 @@ class DeviceService {
             const result = await this.deviceRepository.createDeviceAttr(data);
             // notify the mqtt client to subscribe to the new feed
             await this.mqttService.subscribeToFeed(data.feed);
+            //TODO: reload this attribute device's in device manager
             return result;
         } catch (error: any) {
             if (error instanceof UserError) {

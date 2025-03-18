@@ -3,6 +3,9 @@ import { deviceController } from "../config/container";
 import { validateToken } from "../middleware/authenticate.middleware";
 const router = express.Router();
 
+router.post("/test-blocking", deviceController.test);
+router.post("/test-blocking2", deviceController.test2);
+
 // ADMIN: update a device attribute
 router.patch("/:id/attribute/:attrId", deviceController.updateDeviceAttr);
 // ADMIN: delete a device attribute

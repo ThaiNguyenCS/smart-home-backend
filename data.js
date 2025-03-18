@@ -4,12 +4,12 @@ const Devices = [
         "userId": "",
         "attrs": [{
             "key": "temperature",
-            "valueType": "value",
+            "isListener": true,
             "feed": "phngngoc/feeds/temp"
         },
         {
             "key": "humidity",
-            "valueType": "value",
+            "isListener": true,
             "feed": "phngngoc/feeds/humidity"
         },]
     },
@@ -18,7 +18,7 @@ const Devices = [
         "userId": "",
         "attrs": [{
             "key": "fire",
-            "valueType": "value",
+            "isListener": true,
             "feed": "phngngoc/feeds/fire"
         },]
     },
@@ -27,7 +27,7 @@ const Devices = [
         "userId": "",
         "attrs": [{
             "key": "move",
-            "valueType": "value",
+            "isListener": true,
             "feed": "phngngoc/feeds/move"
         }]
     },
@@ -36,24 +36,26 @@ const Devices = [
         "userId": "",
         "attrs": [{
             "key": "status",
-            "valueType": "value",
-            "feed": "phngngoc/feeds/rgb"
+            "isListener": false,
+            "feed": "phngngoc/feeds/relay"
         }]
     },
     {
         "name": "Quạt",
         "userId": "",
+        "attrs": [{
+            "key": "status",
+            "isListener": false,
+            "feed": "phngngoc/feeds/fan"
+        }]
     },
-    {
-        "name": "Relay",
-        "userId": "",
-    },
+
     {
         "name": "Động cơ bơm nước",
         "userId": "",
         "attrs": [{
             "key": "status",
-            "valueType": "value",
+            "isListener": false,
             "feed": "phngngoc/feeds/usb"
         }]
     },
@@ -65,8 +67,6 @@ const Devices = [
 
 
 const DeviceAttrs = [
-
-
     {
         "key": "status",
         "valueType": "value",
@@ -77,7 +77,6 @@ const DeviceAttrs = [
         "valueType": "value",
         "feed": "phngngoc/feeds/relay"
     },
-
 ]
 
 const SystemRules = [

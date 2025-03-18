@@ -13,6 +13,7 @@ import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
+import { FindOptions } from "sequelize";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
@@ -90,7 +91,9 @@ class SystemRuleService {
     addRule = async (data: SystemRuleAddQuery) => {
         const { compareType, userId, value, deviceAttrId } = data;
         let { actions } = data;
-        if (!userId || !deviceAttrId || !value || !compareType || !actions) {
+
+        console.log(data);
+        if (!userId || !deviceAttrId || value === undefined || !compareType || !actions) {
             throw createHttpError(400, "Missing required fields");
         }
         const attr = await this.deviceRepository.getDeviceAttrById({ attrId: deviceAttrId });
@@ -126,9 +129,9 @@ class SystemRuleService {
         });
     };
 
-    findRuleOfAttr = async (data: any) => {
-        const { deviceAttrId } = data;
-        return await this.systemRuleRepository.getRuleByAttrId({ deviceAttrId: deviceAttrId });
+    findRuleOfAttr = async (data: { deviceAttrId: string; value: number }) => {
+        const { deviceAttrId, value } = data;
+        return await this.systemRuleRepository.getRuleByAttrId({ deviceAttrId: deviceAttrId, value: value });
     };
 
     addActionToRule = async (data: any) => {

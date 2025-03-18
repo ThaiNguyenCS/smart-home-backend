@@ -102,11 +102,15 @@ class DeviceRepository {
         if (transaction) {
             queryOption.transaction = transaction;
         }
-        const newAttr: any = Object.entries({ id: generateUUID(), deviceId, key, isListener, feed }).filter(
-            ([_, value]) => value !== undefined
+
+        const newAttr: any = Object.fromEntries(
+            Object.entries({ id: generateUUID(), deviceId, key, isListener, feed }).filter(
+                ([_, value]) => value !== undefined
+            )
         );
 
         newAttr.value = 0;
+        console.log(newAttr)
         await DeviceAttribute.create(newAttr, queryOption);
     }
 

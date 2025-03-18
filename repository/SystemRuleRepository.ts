@@ -23,11 +23,18 @@ class SystemRuleRepository {
     }
 
     async getRuleByAttrId(data: any, transaction = null) {
-        const { deviceAttrId } = data;
-        const queryOption: FindOptions = {};
+        const { deviceAttrId, value } = data;
+        const queryOption: FindOptions = { where: {} };
         if (transaction) {
             queryOption.transaction = transaction;
         }
+        if (deviceAttrId) {
+            queryOption.where = { ...queryOption.where, deviceAttrId: deviceAttrId };
+        }
+        if (value !== undefined) {
+            queryOption.where = { ...queryOption.where, value: value };
+        }
+
         queryOption.include = [
             { model: DeviceAttribute, as: "deviceAttribute", required: true },
             {
@@ -37,7 +44,6 @@ class SystemRuleRepository {
                 include: [{ model: DeviceAttribute, as: "deviceAttribute", required: true }],
             },
         ];
-        queryOption.where = { deviceAttrId: deviceAttrId };
         const rule = await SystemRule.findOne(queryOption); // find one here because I'm currently allowing one rule for one attr only
         return rule;
     }
@@ -79,7 +85,9 @@ class SystemRuleRepository {
                 ],
             },
         ];
-        return await SystemRule.findAll(queryOption);
+        const rules = await SystemRule.findAll(queryOption);
+        console.log(rules);
+        return rules;
     }
 
     async createRule(data: SystemRuleAddData, transaction = null) {
