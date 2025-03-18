@@ -10,7 +10,7 @@ import {
 } from "../types/device";
 import UserError from "../errors/UserError";
 import InvalidInputError from "../errors/InvalidInputError";
-import { FindOptions } from "sequelize";
+import { FindOptions, UpdateOptions } from "sequelize";
 
 const validValueTypes = ["value", "status"];
 
@@ -110,7 +110,7 @@ class DeviceRepository {
         );
 
         newAttr.value = 0;
-        console.log(newAttr)
+        console.log(newAttr);
         await DeviceAttribute.create(newAttr, queryOption);
     }
 
@@ -159,19 +159,12 @@ class DeviceRepository {
     }
 
     async updateDeviceAttr(data: UpdateDeviceAttrData) {
-        const { attrId, key, valueType } = data;
-        const attr = await this.getDeviceAttrById({ attrId, options: { includeDevice: false } });
-        if (attr) {
-            if (valueType && !validValueTypes.includes(valueType)) {
-                throw new InvalidInputError("valueType is not valid");
-            }
-            const update = Object.fromEntries(
-                Object.entries({ key, valueType }).filter(([_, value]) => value !== undefined)
-            );
-            await attr.update(update);
-        } else {
-            throw new Error("attr not found");
-        }
+        const { attrId, key, isPublisher, value } = data;
+        const updateOptions: UpdateOptions = { where: { id: attrId } };
+        const update = Object.fromEntries(
+            Object.entries({ key, isPublisher, value }).filter(([_, val]) => val !== undefined)
+        );
+        await DeviceAttribute.update(update, updateOptions);
     }
 
     async getDeviceAttrs(options: any, transaction = null) {

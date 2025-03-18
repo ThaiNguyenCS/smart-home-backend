@@ -7,7 +7,7 @@ router.post("/test-blocking", deviceController.test);
 router.post("/test-blocking2", deviceController.test2);
 
 // ADMIN: update a device attribute
-router.patch("/:id/attribute/:attrId", deviceController.updateDeviceAttr);
+router.patch("/:id/attribute/:attrId", validateToken, deviceController.updateDeviceAttr);
 // ADMIN: delete a device attribute
 router.delete("/:id/attribute/:attrId", deviceController.deleteDeviceAttr);
 

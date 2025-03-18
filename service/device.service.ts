@@ -52,7 +52,7 @@ class DeviceService {
             const result = await this.deviceRepository.addDevice(
                 { id: newDeviceId, name, roomId, userId },
                 transaction
-            ); 
+            );
             // add device attrs (if included)
             if (attrs) {
                 if (!Array.isArray(attrs)) throw createHttpError(400, "attrs must be an array of attr");
@@ -63,7 +63,7 @@ class DeviceService {
                         this.deviceRepository.createDeviceAttr({ ...attrs[i], deviceId: newDeviceId }, transaction)
                     );
                 }
-                await Promise.all(promises); 
+                await Promise.all(promises);
                 //TODO: notify device manager to load new device
             }
         });
@@ -125,14 +125,16 @@ class DeviceService {
     }
 
     async updateDeviceAttr(data: UpdateDeviceAttrQuery) {
-        //TODO: check if user has authorization
+        const { userId } = data;
         let device = await this.deviceRepository.getDeviceById({
             id: data.deviceId,
             options: { attribute: { required: false } },
         });
         if (!device) throw createHttpError(404, `Device ${data.deviceId} not found`);
-        device = device.toJSON();
-        // delete device attribute from database
+        if (device.userId !== userId) {
+            throw createHttpError(401, `Unauthorized`);
+        }
+
         const attr = device.attributes?.find((attr) => attr.id === data.attrId);
         if (attr) {
             try {

@@ -169,13 +169,13 @@ class DeviceController {
         }
     };
 
-    updateDeviceAttr = async (req: Request, res: Response) => {
+    updateDeviceAttr = async (req: AuthenticatedRequest, res: Response) => {
         try {
             const result = await this.deviceService.updateDeviceAttr({
-                userId: "temp",
-                ...req.body,
+                userId: req.user?.id,
                 attrId: req.params.attrId,
                 deviceId: req.params.id,
+                ...req.body,
             });
             res.status(200).send({ message: "Successful", data: result });
         } catch (error: any) {

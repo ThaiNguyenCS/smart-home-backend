@@ -47,7 +47,8 @@ export interface UpdateDeviceAttrQuery {
     deviceId: string;
     attrId: string;
     key?: string;
-    valueType?: "value" | "status";
+    isPublisher?: boolean;
+    value?: number;
 }
 
 export type UpdateDeviceAttrData = Omit<UpdateDeviceAttrQuery, "userId" | "deviceId">;

@@ -66,19 +66,11 @@ const Devices = [
 ]
 
 
-const DeviceAttrs = [
-    {
-        "key": "status",
-        "valueType": "value",
-        "feed": "phngngoc/feeds/notyet"
-    },
-    {
-        "key": "status",
-        "valueType": "value",
-        "feed": "phngngoc/feeds/relay"
-    },
-]
-
+const updateDeviceAttr = {
+    "key": "lightIndex",
+    "value": 1.0,
+    "isPublisher": false
+}
 const SystemRules = [
     {
         "deviceAttrId": "",
