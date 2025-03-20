@@ -103,6 +103,29 @@ class AuthService {
 
         return { message: "Change password successful" };
     }
+
+    // register admin account
+    async registerAdmin(data: RegisterForm) {
+        const { username, password, displayName, email, phoneNumber } = data;
+        if (!username || !password) {
+            throw createError(400, "Missing fields");
+        }
+        const existingUser = await this.userRepo.findUserByUsername(username);
+        if (existingUser) {
+            throw createError(409, "Username already exists");
+        }
+        const hashedPassword = await hashPassword(password);
+        const newUser = await User.create({
+            id: generateUUID(),
+            username,
+            password: hashedPassword,
+            displayName,
+            email,
+            phoneNumber,
+            role: "ADMIN",
+        });
+        return generateToken(newUser);
+    }
 }
 
 export const authService = new AuthService();

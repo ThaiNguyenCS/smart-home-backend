@@ -69,7 +69,7 @@ const Devices = [
 const updateDeviceAttr = {
     "key": "lightIndex",
     "value": 1.0,
-    "isPublisher": false
+    "isPublisher": false,
 }
 const SystemRules = [
     {

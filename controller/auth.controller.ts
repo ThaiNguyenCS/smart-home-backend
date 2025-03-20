@@ -6,11 +6,11 @@ class AuthController {
     authService = authService;
     static async loginByUsernameAndPass(req: Request, res: Response) {
         try {
-            console.log(req.body)
+            console.log(req.body);
             const token = await authService.handleUserAndPassLogin({ ...req.body });
             res.status(200).send({ message: "login successfully", token: token });
         } catch (error: any) {
-            console.log(error)
+            console.log(error);
             res.status(error.status || 500).send({ message: error.message });
         }
     }
@@ -32,8 +32,8 @@ class AuthController {
             res.status(error.status || 500).send({ message: error.message });
         }
     }
-    
-    static async resetPassword(req: Request, res: Response){
+
+    static async resetPassword(req: Request, res: Response) {
         try {
             const { username, newPassword } = req.body;
             const result = await authService.handleResetPassword(username, newPassword);
@@ -46,23 +46,31 @@ class AuthController {
     static async updatePassword(req: Request, res: Response): Promise<any> {
         try {
             const { userId, oldPassword, newPassword } = req.body;
-    
+
             if (!userId || !oldPassword || !newPassword) {
                 return res.status(400).send({ message: "Missing required data" });
             }
-    
+
             const result = await authService.updateUserPassword(userId, oldPassword, newPassword);
-    
+
             if (!result) {
                 return res.status(400).send({ message: "Incorrect old password" });
             }
-    
+
             return res.status(200).send({ message: "Password updated successfully" });
         } catch (error: any) {
             return res.status(error.status || 500).send({ message: error.message });
         }
     }
-    
+
+    static async registerAdmin(req: Request, res: Response): Promise<any> {
+        try {
+            const token = await authService.registerAdmin(req.body);
+            res.status(201).send({ message: "Admin registered successfully", token });
+        } catch (error: any) {
+            res.status(error.status || 500).send({ message: error.message });
+        }
+    }
 }
 
 export default AuthController;

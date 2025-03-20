@@ -10,7 +10,7 @@ import {
 } from "../types/device";
 import UserError from "../errors/UserError";
 import InvalidInputError from "../errors/InvalidInputError";
-import { FindOptions, UpdateOptions } from "sequelize";
+import { DestroyOptions, FindOptions, UpdateOptions } from "sequelize";
 
 const validValueTypes = ["value", "status"];
 
@@ -95,7 +95,7 @@ class DeviceRepository {
     }
 
     async createDeviceAttr(data: AddDeviceAttrData, transaction = null) {
-        const { deviceId, key, feed, isListener } = data;
+        const { deviceId, key, feed, isPublisher } = data;
         const queryOption: any = {};
         if (!deviceId || !key || !feed) throw new UserError("Missing fields");
 
@@ -104,7 +104,7 @@ class DeviceRepository {
         }
 
         const newAttr: any = Object.fromEntries(
-            Object.entries({ id: generateUUID(), deviceId, key, isListener, feed }).filter(
+            Object.entries({ id: generateUUID(), deviceId, key, isPublisher, feed }).filter(
                 ([_, value]) => value !== undefined
             )
         );
@@ -114,14 +114,13 @@ class DeviceRepository {
         await DeviceAttribute.create(newAttr, queryOption);
     }
 
-    async deleteDeviceAttr(data: any) {
-        const { deviceId, key } = data;
-        if (!deviceId && !key) throw new UserError("Missing fields");
-        const queryOption: any = {};
-        if (deviceId) {
-            queryOption.where = { deviceId: deviceId };
+    async deleteDeviceAttr(data: Partial<{ attrId: string; key: string }>) {
+        const { attrId, key } = data;
+        if (!attrId && !key) throw new UserError("Missing fields");
+        const queryOption: DestroyOptions = { where: {} };
+        if (attrId) {
+            queryOption.where = { ...queryOption.where, id: attrId };
         }
-
         if (key) {
             queryOption.where = { ...queryOption.where, key: key };
         }
@@ -137,7 +136,10 @@ class DeviceRepository {
     }
 
     // get a specific attr of a device by id
-    async getDeviceAttrById(data: any, transaction = null): Promise<DeviceAttribute | null> {
+    async getDeviceAttrById(
+        data: { attrId: string; options?: any },
+        transaction = null
+    ): Promise<DeviceAttribute | null> {
         const { attrId, options = { includeDevice: true } } = data;
 
         const queryOptions: FindOptions = {};

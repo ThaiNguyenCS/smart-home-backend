@@ -45,22 +45,6 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                 await attr.updateStatus(value);
                 //TODO: find system rules that connected to this status
                 const rule = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id, value: formattedValue });
-                // const rule = await SystemRule.findOne({
-                //     where: {
-                //         deviceAttrId: attr.id,
-                //         value: parseFloat(value),
-                //         isActive: true,
-                //     },
-                //     include: [
-                //         { model: DeviceAttribute, as: "deviceAttribute", required: true },
-                //         {
-                //             model: Action,
-                //             as: "actions",
-                //             required: false,
-                //             include: [{ model: DeviceAttribute, as: "deviceAttribute", required: true }],
-                //         },
-                //     ],
-                // });
                 if (rule) {
                     // console.log("rules", rules);
                     console.log("Found rule" + rule?.toJSON());

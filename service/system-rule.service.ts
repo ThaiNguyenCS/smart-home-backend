@@ -46,7 +46,7 @@ class SystemRuleService {
                 if (!actions[i].deviceAttrId && !actions[i].value) {
                     throw createHttpError(400, "actions data is invalid");
                 }
-                const attr = await this.deviceRepository.getDeviceAttrById({ attrId: deviceAttrId });
+                const attr = await this.deviceRepository.getDeviceAttrById({ attrId: actions[i].deviceAttrId });
                 // check if all deviceAttrId exists
 
                 if (!attr) {

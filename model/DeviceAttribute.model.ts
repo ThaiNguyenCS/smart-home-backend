@@ -21,7 +21,7 @@ class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> i
     public value!: number;
     public feed!: string;
     public isPublisher!: boolean;
-    public device? : Device
+    public device?: Device;
 
     // Example method for updating an attribute value
     public async updateStatus(newValue: string): Promise<void> {
@@ -72,7 +72,6 @@ DeviceAttribute.init(
     },
     {
         sequelize,
-        modelName: "DeviceAttribute",
         indexes: [{ unique: true, fields: ["deviceId", "key"] }],
     }
 );

@@ -8,17 +8,25 @@ interface UserAttributes {
     email: string;
     phoneNumber: string;
     displayName?: string; // Optional field
+    role: string;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, "password" | "displayName"> {}
+interface UserCreationAttributes extends Optional<UserAttributes, "displayName" | "role"> {}
 
-interface UserInstance extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {}
+class User extends Model<UserAttributes, UserCreationAttributes> {
+    public id!: string;
+    public username!: string;
+    public password!: string;
+    public email!: string;
+    public phoneNumber!: string;
+    public displayName!: string | null; // Optional field
+    public role!: string;
+}
 
-const User = sequelize.define<UserInstance>(
-    "User",
+User.init(
     {
         id: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING,
             primaryKey: true,
         },
         username: {
@@ -32,25 +40,32 @@ const User = sequelize.define<UserInstance>(
         displayName: {
             type: DataTypes.STRING,
         },
-        email: { 
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true, 
+                isEmail: true,
             },
         },
         phoneNumber: {
             type: DataTypes.STRING,
-            allowNull: true, 
+            allowNull: true,
             unique: true,
             validate: {
                 isNumeric: true,
-                len: [10,11],
+                len: [10, 11],
             },
         },
+        role: {
+            type: DataTypes.ENUM("USER", "ADMIN"),
+            allowNull: false,
+            defaultValue: "USER",
+        },
     },
-    {}
+    { sequelize }
 );
+
+// User.sync({ alter: true });
 
 export default User;

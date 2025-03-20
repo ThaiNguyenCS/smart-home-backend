@@ -13,6 +13,9 @@ import DeviceAttribute from "../model/DeviceAttribute.model";
 import InvalidInputError from "../errors/InvalidInputError";
 import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
+import DeviceManager from "../temp_design_pattern/DeviceManager";
+
+const PERMITTED_ATTR_VALUE = [0.0, 1.0];
 
 class DeviceService {
     deviceRepository: DeviceRepository;
@@ -45,9 +48,9 @@ class DeviceService {
 
     async addDevice(data: AddDeviceQuery) {
         const { userId, name, roomId, attrs } = data;
+        const newDeviceId = generateUUID();
 
         await runTransaction(async (transaction: any) => {
-            const newDeviceId = generateUUID();
             // add device
             const result = await this.deviceRepository.addDevice(
                 { id: newDeviceId, name, roomId, userId },
@@ -64,14 +67,39 @@ class DeviceService {
                     );
                 }
                 await Promise.all(promises);
-                //TODO: notify device manager to load new device
             }
         });
+        //notify device manager to load new device
+        const newDevice = await this.getDeviceById({ id: newDeviceId, options: { attribute: { required: true } } });
+        DeviceManager.getInstance().addNewDevice(newDevice);
+
+        // notify mqtt to subscribe to attrs of this new device
+        if (newDevice.attributes) {
+            const promises = [];
+            for (const attr of newDevice.attributes) {
+                promises.push(this.mqttService.subscribeToFeed(attr.feed));
+            }
+            await Promise.all(promises);
+        }
     }
 
-    async removeDevice(data: any) {
-        const result = await this.deviceRepository.removeDevice(data);
-        //TODO: notify device manager to unload deleted device
+    async removeDevice(data: { id: string; userId: string }) {
+        const { id } = data;
+        const device = await this.getDeviceById({ id, options: { attribute: { required: true } } });
+        if (!device) {
+            throw createHttpError(404, `Device ${id} not found`);
+        }
+        const result = await this.deviceRepository.removeDevice({ deviceId: id }); // delete this device
+        if (result !== 0) {
+            DeviceManager.getInstance().removeDevice(id); // REMOVE DELETED FROM DEVICE MANAGER
+            if (device.attributes) {
+                const promises = [];
+                for (const attr of device.attributes) {
+                    promises.push(this.mqttService.unsubscribeFeed(attr.feed));
+                }
+                await Promise.all(promises); // UNSUBSCRIBE ALL DELETED FEEDS
+            }
+        }
         return result;
     }
 
@@ -81,12 +109,8 @@ class DeviceService {
         await this.deviceRepository.updateDevice({ deviceId, name, roomId });
     }
 
-    async getDeviceById(data: any) {
+    async getDeviceById(data: { id: string; options: any }) {
         return await this.deviceRepository.getDeviceById(data);
-    }
-
-    async getDeviceByCondition(data: any) {
-        const { name, feed } = data;
     }
 
     async createDeviceAttr(data: AddDeviceAttrQuery) {
@@ -95,7 +119,9 @@ class DeviceService {
             const result = await this.deviceRepository.createDeviceAttr(data);
             // notify the mqtt client to subscribe to the new feed
             await this.mqttService.subscribeToFeed(data.feed);
-            //TODO: reload this attribute device's in device manager
+            // reload this attribute device's in device manager
+            await DeviceManager.getInstance().reloadDevice(data.deviceId);
+
             return result;
         } catch (error: any) {
             if (error instanceof UserError) {
@@ -119,6 +145,8 @@ class DeviceService {
             const result = await this.deviceRepository.deleteDeviceAttr(data);
             // notify the mqtt client to UNsubscribe to the deleted feed
             await this.mqttService.unsubscribeFeed(deletedAttr.feed);
+            // reload this attribute device's in device manager
+            await DeviceManager.getInstance().reloadDevice(data.deviceId);
         } else {
             throw createHttpError(404, `Device attr ${data.attrId} does not belong to this device`);
         }
@@ -149,6 +177,30 @@ class DeviceService {
         } else {
             throw createHttpError(404, `Device attr ${data.attrId} does not belong to this device`);
         }
+    }
+
+    async controlDeviceAttr(data: { attrId: string; userId: string; deviceId: string; value: number }) {
+        const { attrId, userId, deviceId, value } = data;
+        const attr = await this.deviceRepository.getDeviceAttrById({ attrId: attrId });
+        if (!PERMITTED_ATTR_VALUE.includes(value)) {
+            throw createHttpError(400, `${value} is not a valid value`);
+        }
+        if (!attr) {
+            throw createHttpError(404, `attr ${attrId} not found`);
+        }
+        if (attr.isPublisher) {
+            throw createHttpError(403, `You cannot manipulate this attribute`);
+        }
+        if (!attr.device) {
+            throw createHttpError(404, `Cannot find associated device of attribute ${attrId}`);
+        }
+        if (attr.device.id !== deviceId) {
+            throw createHttpError(404, `attribute ${attrId} does not belong to device ${deviceId}`);
+        }
+        if (attr.device.userId !== userId) {
+            throw createHttpError(403, `You cannot perform this action`);
+        }
+        await this.mqttService.publishMessage(attr.feed, value);
     }
 
     async reloadDevices(data: any) {

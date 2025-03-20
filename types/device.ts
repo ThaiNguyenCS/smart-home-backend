@@ -17,7 +17,6 @@ export interface RemoveDeviceQuery {
 export type RemoveDeviceData = Omit<RemoveDeviceQuery, "userId">;
 
 export interface RemoveDeviceAttrQuery {
-    userId: string;
     attrId: string;
     deviceId: string;
 }
@@ -29,7 +28,7 @@ export interface AddDeviceAttrQuery {
     deviceId: string;
     feed: string;
     key: string;
-    isListener: boolean;
+    isPublisher: boolean;
 }
 
 export type AddDeviceAttrData = Omit<AddDeviceAttrQuery, "userId">;
