@@ -13,6 +13,7 @@ import systemRuleRouter from "./routes/system-rule.route";
 import notificationRouter from "./routes/notification.route";
 import { initWebSocket } from "./service/web-socket.service";
 import logger from "./logger/logger";
+import { globalErrorHandler } from "./errors/ErrorHandler";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -36,19 +37,20 @@ app.use("/devices", deviceRouter);
 app.use("/system-rules", systemRuleRouter);
 app.use("/notifications", notificationRouter);
 
+app.use(globalErrorHandler);
+
 (async () => {
     try {
         await sequelize.authenticate();
         // await sequelize.sync({ alter: true });
-        console.log("Database exists and connection successful");
+        logger.info("Database exists and connection successful");
         await deviceManager.loadDevicesFromDB(); // load devices from DB into RAM
         // const mqttService = MQTTService.getInstance();
         const server = http.createServer(app);
         initWebSocket(server);
 
         server.listen(PORT, () => {
-            // console.log();
-            logger.info(`Server's running at ${PORT}`)
+            logger.info(`Server's running at ${PORT}`);
         });
     } catch (error: any) {
         // console.error(error.message);

@@ -1,7 +1,7 @@
 import cron from "node-cron";
 import { deviceManager, mqttService, scheduleService } from "./config/container";
 import { getInfoFromSchedule } from "./utils/schedule";
-const TIME_PATTERN = "*/10 * * * * *"; // running every 1 min
+const TIME_PATTERN = "*/10 * * * * *"; // running every 10 secs
 
 const scheduler = cron.schedule(TIME_PATTERN, async () => {
     console.log("Checking schedules...");

@@ -13,7 +13,6 @@ import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
-import { FindOptions } from "sequelize";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;

@@ -5,8 +5,8 @@ const consoleLogFormat = winston.format.combine(
     NODE_ENV === "prod"
         ? winston.format.json()
         : winston.format.printf(({ timestamp, level, message }) => {
-              const colorizer = winston.format.colorize().colorize;
-              return colorizer(level, `${timestamp} [${level.toUpperCase()}]: ${message}`);
+              const colorizer = winston.format.colorize();
+              return colorizer.colorize(level, `${timestamp} [${level.toUpperCase()}]: ${message}`);
           })
 );
 

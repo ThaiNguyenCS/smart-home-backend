@@ -11,3 +11,169 @@
 {"level":"info","message":"Device manager has 0 devices","timestamp":"2025-03-21 10:30:20"}
 {"level":"info","message":"Server's running at 5000","timestamp":"2025-03-21 10:30:20"}
 {"level":"info","message":"Device manager has 5 devices","timestamp":"2025-03-21 10:30:30"}
+2025-03-21 11:01:58 [INFO]: Database exists and connection successful
+2025-03-21 11:01:59 [INFO]: Server's running at 5000
+2025-03-21 11:02:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:02:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:02:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:02:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:02:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:02:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:03:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:11 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:04:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:05:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:30 [INFO]: Database exists and connection successful
+2025-03-21 11:06:30 [INFO]: Server's running at 5000
+2025-03-21 11:06:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:36 [ERROR]: Invalid credentials
+2025-03-21 11:06:39 [ERROR]: Invalid credentials
+2025-03-21 11:06:41 [INFO]: Device manager has 5 devices
+2025-03-21 11:06:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:07:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:07:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:07:20 [INFO]: Database exists and connection successful
+2025-03-21 11:07:20 [INFO]: Device manager has 0 devices
+2025-03-21 11:07:20 [INFO]: Server's running at 5000
+2025-03-21 11:07:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:07:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:07:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:31 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:08:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:09:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:09:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:09:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:13:33 [INFO]: Database exists and connection successful
+2025-03-21 11:13:33 [INFO]: Server's running at 5000
+2025-03-21 11:13:43 [INFO]: Database exists and connection successful
+2025-03-21 11:13:43 [INFO]: Server's running at 5000
+2025-03-21 11:13:51 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:30 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:40 [INFO]: Device manager has 5 devices
+2025-03-21 11:14:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:37 [INFO]: Database exists and connection successful
+2025-03-21 11:15:37 [INFO]: Server's running at 5000
+2025-03-21 11:15:40 [ERROR]: Invalid credentials
+2025-03-21 11:15:41 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:50 [INFO]: Device manager has 5 devices
+2025-03-21 11:15:59 [INFO]: Database exists and connection successful
+2025-03-21 11:15:59 [INFO]: Server's running at 5000
+2025-03-21 11:16:00 [INFO]: Device manager has 5 devices
+2025-03-21 11:16:09 [INFO]: Database exists and connection successful
+2025-03-21 11:16:09 [INFO]: Server's running at 5000
+2025-03-21 11:16:10 [INFO]: Device manager has 5 devices
+2025-03-21 11:16:32 [INFO]: Database exists and connection successful
+2025-03-21 11:16:32 [INFO]: Server's running at 5000
+2025-03-21 11:18:16 [INFO]: Database exists and connection successful
+2025-03-21 11:18:16 [INFO]: Server's running at 5000
+2025-03-21 11:18:19 [ERROR]: [POST] /auth/login - Invalid credentials
+2025-03-21 11:18:20 [INFO]: Device manager has 5 devices
+2025-03-21 11:18:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:20:48 [INFO]: Database exists and connection successful
+2025-03-21 15:20:48 [INFO]: Server's running at 5000
+2025-03-21 15:20:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:08 [INFO]: Database exists and connection successful
+2025-03-21 15:21:08 [INFO]: Server's running at 5000
+2025-03-21 15:21:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:31 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:21:51 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:22:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:23:02 [INFO]: Database exists and connection successful
+2025-03-21 15:23:02 [INFO]: Server's running at 5000
+2025-03-21 15:23:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:23:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:23:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:23:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:23:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:31 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:24:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:25:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:26:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:27:51 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:28:47 [INFO]: MQTT client connected successfully...
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-21 15:28:47 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-21 15:28:47 [INFO]: Database exists and connection successful
+2025-03-21 15:28:47 [INFO]: Server's running at 5000
+2025-03-21 15:28:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:00 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:30 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:40 [INFO]: Device manager has 5 devices
+2025-03-21 15:29:50 [INFO]: Device manager has 5 devices
+2025-03-21 15:30:04 [INFO]: MQTT client connected successfully...
+2025-03-21 15:30:04 [INFO]: Database exists and connection successful
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-21 15:30:04 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-21 15:30:05 [INFO]: Server's running at 5000
+2025-03-21 15:30:10 [INFO]: Device manager has 5 devices
+2025-03-21 15:30:20 [INFO]: Device manager has 5 devices
+2025-03-21 15:30:30 [INFO]: Device manager has 5 devices

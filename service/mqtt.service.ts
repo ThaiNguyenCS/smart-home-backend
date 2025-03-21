@@ -3,6 +3,7 @@ import mqtt, { MqttClient } from "mqtt";
 import { AIO_CONFIG } from "../config/config";
 import DeviceService from "../service/device.service";
 import DeviceManager from "../temp_design_pattern/DeviceManager";
+import logger from "../logger/logger";
 const deviceManager = DeviceManager.getInstance();
 
 // Connect to Adafruit IO MQTT broker
@@ -17,23 +18,22 @@ class MQTTService {
         this.subscribedFeeds = [];
         this.client = mqtt.connect(AIO_CONFIG.MQTT_URL);
         this.client.on("connect", async () => {
-            console.log("MQTT client connected successfully...");
+            logger.info("MQTT client connected successfully...");
             await this.subscribeToAllFeeds(); // subscribe to all existing feeds
         });
 
         this.client.on("message", async (topic, message) => {
-            console.log(`Message ${topic} ${message.toString()}`);
-            //TODO: routing logic here
+            logger.info(`Receive message from ${topic}: ${message.toString()}`);
             await deviceManager.updateDeviceStatus(topic, message.toString());
         });
 
         this.client.on("error", (err) => {
-            console.error("Connection error: ", err);
+            logger.error("MQTT Connection error: ", err);
             this.client.end();
         });
 
         this.client.on("close", () => {
-            console.log("Disconnected...");
+            logger.info("MQTT Connection close");
         });
     }
 
@@ -56,19 +56,19 @@ class MQTTService {
                     this.client.subscribe(feed, (err) => {
                         if (!err) {
                             this.subscribedFeeds.push(feed); // add new subcribed feed to list
-                            console.log(`Subscribed to new feed: ${feed}`);
+                            logger.info(`Subscribed to new feed: ${feed}`);
                         } else {
-                            console.error(`Error when subcribing to feed ${feed}`);
+                            logger.error(`Error when subcribing to feed ${feed}`);
                         }
                     });
                 } else {
-                    console.log(`Already subscribed to feed: ${feed}`);
+                    logger.info(`Already subscribed to feed: ${feed}`);
                 }
             } else {
-                console.error("Client hasn't connected yet");
+                logger.error("Client hasn't connected yet");
             }
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     }
 
@@ -80,19 +80,19 @@ class MQTTService {
                     this.client.unsubscribe(feed, (err) => {
                         if (!err) {
                             this.subscribedFeeds = this.subscribedFeeds.filter((f) => f !== feed); // remove unsubcribed feed from list
-                            console.log(`Unsubscribe feed ${feed} successfully`);
+                            logger.info(`Unsubscribe feed ${feed} successfully`);
                         } else {
-                            console.error(`Error when unsubcribing feed ${feed}`);
+                            logger.error(`Error when unsubcribing feed ${feed}`);
                         }
                     });
                 } else {
-                    console.log(`Feed: ${feed} not found`);
+                    logger.info(`Feed: ${feed} not found`);
                 }
             } else {
-                console.error("Client hasn't connected yet");
+                logger.error("Client hasn't connected yet");
             }
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     }
 
@@ -109,31 +109,31 @@ class MQTTService {
                                     if (!err) {
                                         this.subscribedFeeds.push(feed); // add new subcribed feed to list
                                     } else {
-                                        console.error(`Error when subcribing to feed ${feed}`);
+                                        logger.error(`Error when subcribing to feed ${feed}`);
                                     }
                                 });
-                                console.log(`Subscribed to new feed: ${feed}`);
+                                logger.info(`Subscribed to new feed: ${feed}`);
                             } else {
-                                console.log(`Already subscribed to feed: ${feed}`);
+                                logger.warn(`Already subscribed to feed: ${feed}`);
                             }
                         }
                     } else {
-                        console.log("No feeds found");
+                        logger.info("No feeds found");
                     }
                 } else {
-                    console.error("MQTTClient does not have deviceService");
+                    logger.error("MQTTClient does not have deviceService");
                 }
             } else {
-                console.error("Client hasn't connected yet");
+                logger.error("Client hasn't connected yet");
             }
         } catch (error) {
-            console.error("Error fetching feeds from database:", error);
+            logger.error("Error fetching feeds from database:", error);
         }
     }
 
     public async publishMessage(feed: string, value: number) {
         // console.log(typeof value);
-        console.log(`MQTT Client publishes to topic ${feed} with value: ${value}`);
+        logger.info(`MQTT Client publishes to topic ${feed} with value: ${value}`);
         await this.client.publishAsync(feed, value.toString());
     }
 }

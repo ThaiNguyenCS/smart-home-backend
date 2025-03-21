@@ -3,7 +3,7 @@ import AuthController from "../controller/auth.controller";
 
 const router = express.Router();
 
-router.post("/login", (req, res) => AuthController.loginByUsernameAndPass(req, res));
+router.post("/login", (req, res, next) => AuthController.loginByUsernameAndPass(req, res, next));
 router.post("/register", (req, res) => AuthController.register(req, res));
 router.post("/admin/register", (req, res) => AuthController.registerAdmin(req, res));
 router.post("/forgetPassword", (req, res) => AuthController.forgotPassword(req, res));
