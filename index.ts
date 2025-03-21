@@ -12,6 +12,7 @@ import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
 import notificationRouter from "./routes/notification.route";
 import { initWebSocket } from "./service/web-socket.service";
+import logger from "./logger/logger";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -46,10 +47,12 @@ app.use("/notifications", notificationRouter);
         initWebSocket(server);
 
         server.listen(PORT, () => {
-            console.log(`Server's running at ${PORT}`);
+            // console.log();
+            logger.info(`Server's running at ${PORT}`)
         });
     } catch (error: any) {
-        console.error(error.message);
-        process.exit(1)
+        // console.error(error.message);
+        logger.error(error.message);
+        process.exit(1);
     }
 })();

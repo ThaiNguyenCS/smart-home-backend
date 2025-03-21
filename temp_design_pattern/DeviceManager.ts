@@ -1,6 +1,7 @@
 // import Device from "./Device";
 import Device from "../model/Device.model";
 import DeviceService from "../service/device.service";
+import logger from "../logger/logger";
 class DeviceManager {
     static instance: DeviceManager;
     private deviceService!: DeviceService;
@@ -58,7 +59,8 @@ class DeviceManager {
     }
 
     async logging() {
-        console.log(`Device manager has ${this.devices.length} devices`);
+        logger.info(`Device manager has ${this.devices.length} devices`)
+        // console.log(`Device manager has ${this.devices.length} devices`);
     }
 }
 

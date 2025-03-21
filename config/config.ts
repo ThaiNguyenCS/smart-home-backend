@@ -7,6 +7,8 @@ if (process.env.NODE_ENV == "dev") {
     dotenv.config({ path: path.join(__dirname, "../", ".env").toString() });
 }
 
+export const NODE_ENV = process.env.NODE_ENV;
+
 export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 export const PORT = process.env.PORT;
