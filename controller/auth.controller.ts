@@ -6,8 +6,7 @@ class AuthController {
     authService = authService;
     static async loginByUsernameAndPass(req: Request, res: Response, next: NextFunction) {
         try {
-            console.log(req.body);
-            const token = await authService.handleUserAndPassLogin({ ...req.body });
+            logger.info(req.body);            const token = await authService.handleUserAndPassLogin({ ...req.body });
             res.status(200).send({ message: "login successfully", token: token });
         } catch (error: any) {
             next(error);

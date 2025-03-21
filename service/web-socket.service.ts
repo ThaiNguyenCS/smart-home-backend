@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import logger from "../logger/logger";
 
 let io: Server;
 
@@ -10,14 +11,14 @@ export function initWebSocket(server: any) {
     });
 
     io.on("connection", (socket) => {
-        console.log(`User connected: ${socket.id}`);
+        logger.info(`User connected: ${socket.id}`);
 
         socket.on("subscribe", (userId: string) => {
             socket.join(userId);
         });
 
         socket.on("disconnect", () => {
-            console.log(`User disconnected: ${socket.id}`);
+            logger.info(`User disconnected: ${socket.id}`);
         });
     });
 }

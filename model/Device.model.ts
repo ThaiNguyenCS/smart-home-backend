@@ -6,6 +6,7 @@ import { mqttService, systemRuleService } from "../config/container";
 import { isRuleSatisfied } from "../utils/ruleValidate";
 import SystemRule from "./SystemRule.model";
 import Action from "./Action.model";
+import logger from "../logger/logger";
 
 interface DeviceAttrs {
     id: string;
@@ -47,8 +48,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                 const rule = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id, value: formattedValue });
                 if (rule) {
                     // console.log("rules", rules);
-                    console.log("Found rule" + rule?.toJSON());
-                    let actions = rule.actions;
+                    logger.info("Found rule" + rule?.toJSON());                    let actions = rule.actions;
                     if (actions) {
                         const isSatisfied = isRuleSatisfied(rule, value);
                         if (isSatisfied) {
@@ -68,7 +68,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                     }
                 }
             } else {
-                console.log(`Attr with feed ${feed} not found`);
+                logger.warn(`Attr with feed ${feed} not found`);
             }
         } catch (error) {
             console.error(error);

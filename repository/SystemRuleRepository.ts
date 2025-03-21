@@ -86,7 +86,7 @@ class SystemRuleRepository {
             },
         ];
         const rules = await SystemRule.findAll(queryOption);
-        console.log(rules);
+        // console.log(rules);
         return rules;
     }
 

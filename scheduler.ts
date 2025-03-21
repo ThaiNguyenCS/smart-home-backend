@@ -1,14 +1,14 @@
 import cron from "node-cron";
 import { deviceManager, mqttService, scheduleService } from "./config/container";
 import { getInfoFromSchedule } from "./utils/schedule";
+import logger from "./logger/logger";
 const TIME_PATTERN = "*/10 * * * * *"; // running every 10 secs
 
 const scheduler = cron.schedule(TIME_PATTERN, async () => {
-    console.log("Checking schedules...");
-    // find all due schedules
+    // logger.info("Checking schedules..."); // find all due schedules
     const schedules = await scheduleService.findAllDueSchedules();
     // publish action to adafruit
-    console.log(`${schedules.length} schedules are due`);
+    logger.info(`${schedules.length} schedules are due`);
     if (schedules.length > 0) {
         // Publish the schedule to MQTT or perform the activation action
         const promises = [];
