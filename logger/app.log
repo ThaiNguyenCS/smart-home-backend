@@ -325,3 +325,26 @@
 2025-03-21 15:43:30 [INFO]: Device manager has 5 devices
 2025-03-21 15:43:40 [INFO]: 0 schedules are due
 2025-03-21 15:43:40 [INFO]: Device manager has 5 devices
+2025-03-23 11:32:08 [INFO]: MQTT client connected successfully...
+2025-03-23 11:32:12 [INFO]: Database exists and connection successful
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-23 11:32:12 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-23 11:32:12 [INFO]: 0 schedules are due
+2025-03-23 11:32:12 [INFO]: Device manager has 0 devices
+2025-03-23 11:32:12 [INFO]: Server's running at 3000
+2025-03-23 11:32:20 [INFO]: 0 schedules are due
+2025-03-23 11:32:20 [INFO]: Device manager has 5 devices
+2025-03-23 11:32:30 [INFO]: 0 schedules are due
+2025-03-23 11:32:30 [INFO]: Device manager has 5 devices
+2025-03-23 11:32:40 [INFO]: 0 schedules are due
+2025-03-23 11:32:40 [INFO]: Device manager has 5 devices
+2025-03-23 11:32:51 [INFO]: 0 schedules are due
+2025-03-23 11:32:51 [INFO]: Device manager has 5 devices
+2025-03-23 11:33:01 [INFO]: 0 schedules are due
+2025-03-23 11:33:01 [INFO]: Device manager has 5 devices
+2025-03-23 11:33:11 [INFO]: 0 schedules are due
+2025-03-23 11:33:11 [INFO]: Device manager has 5 devices

@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import http from "http";
 import express from "express";
 import { PORT } from "./config/config";
@@ -14,6 +16,10 @@ import notificationRouter from "./routes/notification.route";
 import { initWebSocket } from "./service/web-socket.service";
 import logger from "./logger/logger";
 import { globalErrorHandler } from "./errors/ErrorHandler";
+import deviceLogRouter from "./routes/deviceLog.route";
+import realEstateRouter from "./routes/real-estate.route";
+import floorRouter from "./routes/floor.route";
+import roomRouter from "./routes/room.route";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -36,6 +42,10 @@ app.use("/auth", authRouter);
 app.use("/devices", deviceRouter);
 app.use("/system-rules", systemRuleRouter);
 app.use("/notifications", notificationRouter);
+app.use("/logs",deviceLogRouter);
+app.use("/estates",realEstateRouter);
+app.use("/floors",floorRouter);
+app.use("/rooms",roomRouter);
 
 app.use(globalErrorHandler);
 
