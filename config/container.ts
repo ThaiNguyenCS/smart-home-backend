@@ -13,6 +13,18 @@ import NotificationRepository from "../repository/NotificationRepository";
 import NotificationService from "../service/notification.service";
 import ScheduleService from "../service/schedule.service";
 import ScheduleRepository from "../repository/ScheduleRepository";
+import DeviceLogController from "../controller/deviceLog.controller";
+import DeviceLogRepository from "../repository/DeviceLogRepository";
+import DeviceLogService from "../service/deviceLog.service";
+import RealEstateRepository from "../repository/RealEstateRepository";
+import RealEstateService from "../service/real-estate.service";
+import RealEstateController from "../controller/real-estate.controller";
+import FloorRepository from "../repository/FloorRepository";
+import FloorService from "../service/floor.service";
+import FloorController from "../controller/floor.controller";
+import RoomRepository from "../repository/RoomRepository";
+import RoomService from "../service/room.service";
+import RoomController from "../controller/room.controller";
 
 const deviceRepository = new DeviceRepository();
 
@@ -37,6 +49,27 @@ const notificationRepository = new NotificationRepository();
 const notificationService = new NotificationService(notificationRepository);
 const notificationController = new NotificationController(notificationService);
 
+
+//Log
+const deviceLogRepository = new DeviceLogRepository();
+const deviceLogService = new DeviceLogService(deviceLogRepository);
+const deviceLogController = new DeviceLogController(deviceLogService);
+
+//Estate
+const realEstateRepository = new RealEstateRepository();
+const realEstateService = new RealEstateService(realEstateRepository);
+const realEstateController = new RealEstateController(realEstateService);
+
+//Floor
+const floorRepository = new FloorRepository();
+const floorService = new FloorService(floorRepository);
+const floorController = new FloorController(floorService);
+
+//Room
+const roomRepository = new RoomRepository();
+const roomService = new RoomService(roomRepository);
+const roomController = new RoomController(roomService);
+
 export {
     mqttService,
     deviceService,
@@ -46,4 +79,8 @@ export {
     systemRuleService,
     scheduleService,
     notificationController,
+    deviceLogController,
+    realEstateController,
+    floorController,
+    roomController, 
 };

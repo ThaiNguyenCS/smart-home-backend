@@ -32,9 +32,14 @@ const Floor = sequelize.define<FloorInstance>(
                 model: RealEstate,
                 key: "id",
             },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE", 
         },
     },
-    {}
+    {
+        modelName: "Floor",
+        timestamps: true
+    }
 );
 
 export default Floor;

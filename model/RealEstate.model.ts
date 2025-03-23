@@ -31,6 +31,8 @@ const RealEstate = sequelize.define<RealEstateInstance>(
                 key: "id",
                 model: "Users",
             },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE", 
         },
         description: {
             type: DataTypes.STRING,

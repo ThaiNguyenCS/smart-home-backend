@@ -3,7 +3,7 @@ import sequelize from "./database";
 import Floor from "./Floor.model";
 
 interface RoomAttributes {
-    id: number;
+    id: string;
     name: string;
     floorId: number;
 }
@@ -32,9 +32,14 @@ const Room = sequelize.define<RoomInstance>(
                 model: Floor,
                 key: "id",
             },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE", 
         },
     },
-    {}
+    {
+        modelName: "Room",
+        timestamps: true
+    }
 );
 
 export default Room;
