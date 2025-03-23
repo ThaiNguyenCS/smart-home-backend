@@ -1,12 +1,12 @@
 export interface GetDeviceLogsQuery {
     deviceAttrId?: string;
-    value?: string;
+    value?: number;
     createdAt?: Date;
 }
 
 export interface AddDeviceLogQuery {
     deviceAttrId: string;
-    value: string;
+    value: number;
     createdAt?: Date;
 }
 
@@ -16,7 +16,6 @@ export type AddDeviceLogData = AddDeviceLogQuery & {
 
 export interface UpdateDeviceLogData {
     logId: string;
-    value?: string;
+    value?: number;
     createdAt?: Date;
 }
-

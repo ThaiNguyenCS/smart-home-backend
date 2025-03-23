@@ -4,14 +4,14 @@ import sequelize from "./database";
 interface DeviceLogAttrs {
     id: string;
     deviceAttrId: string;
-    value: string;
+    value: number;
     createdAt: Date;
 }
 
 class DeviceLog extends Model<DeviceLogAttrs> implements DeviceLogAttrs {
     public id!: string;
     public deviceAttrId!: string;
-    public value!: string;
+    public value!: number;
     public createdAt!: Date;
 }
 
@@ -30,7 +30,7 @@ DeviceLog.init(
             },
         },
         value: {
-            type: DataTypes.STRING,
+            type: DataTypes.FLOAT,
             allowNull: false,
         },
         createdAt: {

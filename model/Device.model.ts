@@ -2,11 +2,12 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "./database";
 import DeviceRepository from "../repository/DeviceRepository";
 import DeviceAttribute from "./DeviceAttribute.model";
-import { mqttService, systemRuleService } from "../config/container";
+import { deviceLogService, mqttService, systemRuleService } from "../config/container";
 import { isRuleSatisfied } from "../utils/ruleValidate";
 import SystemRule from "./SystemRule.model";
 import Action from "./Action.model";
 import logger from "../logger/logger";
+import { generateUUID } from "../utils/idGenerator";
 
 interface DeviceAttrs {
     id: string;
@@ -40,32 +41,47 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
             if (isNaN(formattedValue)) {
                 throw new Error(`${value} is not a valid value`);
             }
-            const attr = this.containsFeed(feed); // find the targer attribute
-
+            const attr = this.containsFeed(feed); // find the target attribute
+            // check if the attribute is found
             if (attr) {
-                await attr.updateStatus(value);
-                //TODO: find system rules that connected to this status
-                const rule = await systemRuleService.findRuleOfAttr({ deviceAttrId: attr.id, value: formattedValue });
-                if (rule) {
-                    // console.log("rules", rules);
-                    logger.info("Found rule" + rule?.toJSON());                    let actions = rule.actions;
-                    if (actions) {
-                        const isSatisfied = isRuleSatisfied(rule, value);
-                        if (isSatisfied) {
-                            let promises = [];
-                            for (let i = 0; i < actions.length; i++) {
-                                // console.log(actions[i]);
-                                let deviceAttr = actions[i].deviceAttribute;
+                // check if the value is different or this attribute is a publisher
+                if (attr.isPublisher || attr.value !== formattedValue) {
+                    attr.value = formattedValue; // update the value in memory
+                    await attr.updateStatus(value); // update with new value in database
+                    // create log
+                    await deviceLogService.addDeviceLog({
+                        deviceAttrId: attr.id,
+                        value: formattedValue,
+                    });
+                    // find system rules that connected to this status
+                    const rule = await systemRuleService.findRuleOfAttr({
+                        deviceAttrId: attr.id,
+                        value: formattedValue,
+                    });
+                    if (rule) {
+                        // console.log("rules", rules);
+                        logger.info("Found rule" + rule?.toJSON());
+                        let actions = rule.actions;
+                        if (actions) {
+                            const isSatisfied = isRuleSatisfied(rule, value);
+                            if (isSatisfied) {
+                                let promises = [];
+                                for (let i = 0; i < actions.length; i++) {
+                                    // console.log(actions[i]);
+                                    let deviceAttr = actions[i].deviceAttribute;
 
-                                if (deviceAttr) {
-                                    promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
-                                } else {
-                                    console.error("Action does not have corresponding deviceAttribute");
+                                    if (deviceAttr) {
+                                        promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
+                                    } else {
+                                        console.error("Action does not have corresponding deviceAttribute");
+                                    }
                                 }
+                                await Promise.all(promises);
                             }
-                            await Promise.all(promises);
                         }
                     }
+                } else {
+                    logger.info("Same value, no update to database");
                 }
             } else {
                 logger.warn(`Attr with feed ${feed} not found`);

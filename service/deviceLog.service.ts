@@ -1,6 +1,6 @@
 import createHttpError from "http-errors";
 import DeviceLogRepository from "../repository/DeviceLogRepository";
-import { AddDeviceLogData, GetDeviceLogsQuery, UpdateDeviceLogData } from "../types/deviceLog";
+import { AddDeviceLogData, AddDeviceLogQuery, GetDeviceLogsQuery, UpdateDeviceLogData } from "../types/deviceLog";
 import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
 
@@ -15,15 +15,14 @@ class DeviceLogService {
         return await this.deviceLogRepository.getDeviceLogsByCondition(data);
     }
 
-    async addDeviceLog(data: AddDeviceLogData) {
-        const {deviceAttrId, value, createdAt} = data;
+    async addDeviceLog(data: AddDeviceLogQuery) {
+        const { deviceAttrId, value, createdAt } = data;
         return runTransaction(async (transaction: any) => {
             const newLogId = generateUUID();
-            const newLogData: AddDeviceLogData = {id: newLogId, deviceAttrId, value, createdAt};
+            const newLogData: AddDeviceLogData = { id: newLogId, deviceAttrId, value, createdAt };
             return this.deviceLogRepository.addDeviceLog(newLogData, transaction);
         });
     }
-
 
     async removeDeviceLog(logId: string) {
         const result = await this.deviceLogRepository.removeDeviceLog(logId);
@@ -33,6 +32,9 @@ class DeviceLogService {
         return result;
     }
 
+    async cleanUpDeviceLogs() {
+        await this.deviceLogRepository.cleanDeviceLog();
+    }
 }
 
 export default DeviceLogService;

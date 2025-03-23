@@ -22,6 +22,8 @@ export const AIO_CONFIG = {
     AIO_KEY,
 };
 
+export const LOG_LIFETIME = parseInt(process.env.LOG_LIFETIME!);
+
 export const DB_CONFIG = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,

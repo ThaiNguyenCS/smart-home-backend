@@ -49,7 +49,6 @@ const notificationRepository = new NotificationRepository();
 const notificationService = new NotificationService(notificationRepository);
 const notificationController = new NotificationController(notificationService);
 
-
 //Log
 const deviceLogRepository = new DeviceLogRepository();
 const deviceLogService = new DeviceLogService(deviceLogRepository);
@@ -81,6 +80,7 @@ export {
     notificationController,
     deviceLogController,
     realEstateController,
+    deviceLogService,
     floorController,
-    roomController, 
+    roomController,
 };
