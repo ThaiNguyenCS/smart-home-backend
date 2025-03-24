@@ -1,18 +1,16 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
-import RealEstate from "./Estate.model";
+import RealEstate from "./RealEstate.model";
 
 interface FloorAttributes {
-    id:string;
+    id: string;
     name: string;
     realEstateId: string;
 }
 
 interface FloorCreationAttributes extends Optional<FloorAttributes, "id"> {}
 
-interface FloorInstance
-    extends Model<FloorAttributes, FloorCreationAttributes>,
-        FloorAttributes {}
+interface FloorInstance extends Model<FloorAttributes, FloorCreationAttributes>, FloorAttributes {}
 
 const Floor = sequelize.define<FloorInstance>(
     "Floor",
@@ -33,12 +31,12 @@ const Floor = sequelize.define<FloorInstance>(
                 key: "id",
             },
             onDelete: "CASCADE",
-            onUpdate: "CASCADE", 
+            onUpdate: "CASCADE",
         },
     },
     {
         modelName: "Floor",
-        timestamps: true
+        timestamps: true,
     }
 );
 

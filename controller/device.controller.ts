@@ -19,21 +19,6 @@ class DeviceController {
         this.scheduleService = scheduleService;
     }
 
-    deleteDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
-        try {
-            const result = await this.scheduleService.deleteSchedule({
-                userId: req.user!.id,
-                deviceId: req.params.id,
-                scheduleId: req.params.scheduleId,
-            });
-            res.status(200).send({ message: "Delete schedule successfully" });
-        } catch (error: any) {
-            logger.error(error);
-            const { status, message } = handleError(error);
-            res.status(status).send({ message: message });
-        }
-    };
-
     updateDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
         try {
             await this.scheduleService.updateSchedule({
@@ -61,16 +46,16 @@ class DeviceController {
         }
     };
 
-    createDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
-        try {
-            await this.scheduleService.createSchedule({ userId: req.user?.id, deviceId: req.params.id, ...req.body });
-            res.status(201).send({ message: "Create schedule successfully" });
-        } catch (error: any) {
-            logger.error(error);
-            const { status, message } = handleError(error);
-            res.status(status).send({ message: message });
-        }
-    };
+    // createDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
+    //     try {
+    //         await this.scheduleService.createSchedule({ userId: req.user?.id, deviceId: req.params.id, ...req.body });
+    //         res.status(201).send({ message: "Create schedule successfully" });
+    //     } catch (error: any) {
+    //         logger.error(error);
+    //         const { status, message } = handleError(error);
+    //         res.status(status).send({ message: message });
+    //     }
+    // };
 
     // reloadDevices = async (req: Request, res: Response) => {
     //     try {

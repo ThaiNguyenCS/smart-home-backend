@@ -1,20 +1,22 @@
 import cron from "node-cron";
 import { deviceLogService, deviceManager, mqttService, scheduleService } from "./config/container";
-import { getInfoFromSchedule } from "./utils/schedule";
+import { getInfoFromScheduleV2 } from "./utils/schedule";
 import logger from "./logger/logger";
 const SCHEDULE_TIME_PATTERN = "*/10 * * * * *"; // running every 10 secs
 
 const scheduler = cron.schedule(SCHEDULE_TIME_PATTERN, async () => {
     // logger.info("Checking schedules..."); // find all due schedules
-    const schedules = await scheduleService.findAllDueSchedules();
+    const schedules = await scheduleService.findAllDueSchedulesV2();
     // publish action to adafruit
     logger.info(`${schedules.length} schedules are due`);
     if (schedules.length > 0) {
         // Publish the schedule to MQTT or perform the activation action
         const promises = [];
         for (const sche of schedules) {
-            const { feed, value } = getInfoFromSchedule(sche);
-            promises.push(mqttService.publishMessage(feed, value));
+            const actions = getInfoFromScheduleV2(sche);
+            for (const action of actions) {
+                promises.push(mqttService.publishMessage(action.feed, action.value));
+            }
         }
         // perform action
         await Promise.all(promises);

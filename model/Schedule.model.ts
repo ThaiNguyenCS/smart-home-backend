@@ -4,7 +4,7 @@ import DeviceAttribute from "./DeviceAttribute.model";
 
 interface ScheduleAttrs {
     id: string;
-    deviceAttrId: string;
+    userId: string;
     time: string;
     value: number;
     isActive: boolean;
@@ -16,12 +16,12 @@ interface ScheduleCreationAttrs extends Optional<ScheduleAttrs, "isActive" | "la
 
 class Schedule extends Model<ScheduleAttrs, ScheduleCreationAttrs> implements ScheduleAttrs {
     public id!: string;
-    public deviceAttrId!: string;
     public repeat!: string;
     public time!: string;
     public value!: number;
+    public userId!: string;
     public isActive!: boolean;
-    public deviceAttribute?: DeviceAttribute;
+    public DeviceAttributes?: DeviceAttribute[];
     public lastActiveDate!: string;
 }
 
@@ -31,18 +31,16 @@ Schedule.init(
             primaryKey: true,
             type: DataTypes.STRING,
         },
-        time: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
-        deviceAttrId: {
+        userId: {
             type: DataTypes.STRING,
             references: {
+                model: "Users",
                 key: "id",
-                model: "DeviceAttributes",
             },
-            onDelete: "CASCADE",
-            onUpdate: "CASCADE",
+            allowNull: false,
+        },
+        time: {
+            type: DataTypes.TIME,
             allowNull: false,
         },
         value: {

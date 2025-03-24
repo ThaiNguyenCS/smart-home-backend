@@ -32,7 +32,7 @@ const RealEstate = sequelize.define<RealEstateInstance>(
                 model: "Users",
             },
             onDelete: "CASCADE",
-            onUpdate: "CASCADE", 
+            onUpdate: "CASCADE",
         },
         description: {
             type: DataTypes.STRING,
@@ -44,5 +44,6 @@ const RealEstate = sequelize.define<RealEstateInstance>(
     {}
 );
 
+// RealEstate.sync({alter: true})
 
 export default RealEstate;

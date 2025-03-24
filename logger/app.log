@@ -563,3 +563,1242 @@
 2025-03-23 21:45:01 [INFO]: Receive message from phngngoc/feeds/temp: 45
 2025-03-23 21:45:10 [INFO]: 0 schedules are due
 2025-03-23 21:45:10 [INFO]: Device manager has 5 devices
+2025-03-24 21:33:47 [INFO]: MQTT client connected successfully...
+2025-03-24 21:33:47 [INFO]: Database exists and connection successful
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:33:47 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:33:47 [INFO]: Server's running at 5000
+2025-03-24 21:37:34 [INFO]: MQTT client connected successfully...
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:37:35 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:37:35 [INFO]: Database exists and connection successful
+2025-03-24 21:37:35 [INFO]: Server's running at 5000
+2025-03-24 21:38:46 [INFO]: MQTT client connected successfully...
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:38:46 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:38:49 [ERROR]: column "ownerId" of relation "RealEstates" contains null values
+2025-03-24 21:40:10 [INFO]: MQTT client connected successfully...
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:40:10 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:40:12 [ERROR]: column "ownerId" of relation "RealEstates" contains null values
+2025-03-24 21:40:20 [INFO]: MQTT client connected successfully...
+2025-03-24 21:40:21 [INFO]: Database exists and connection successful
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:40:21 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:40:21 [INFO]: Server's running at 5000
+2025-03-24 21:40:54 [INFO]: MQTT client connected successfully...
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:40:55 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:40:57 [ERROR]: column "ownerId" of relation "RealEstates" contains null values
+2025-03-24 21:42:32 [INFO]: MQTT client connected successfully...
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:42:32 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:42:33 [ERROR]: column "ownerId" of relation "RealEstates" contains null values
+2025-03-24 21:43:01 [INFO]: MQTT client connected successfully...
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:43:02 [ERROR]: column "ownerId" of relation "RealEstates" contains null values
+2025-03-24 21:44:04 [INFO]: MQTT client connected successfully...
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:44:04 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:44:13 [ERROR]: column "value" cannot be cast automatically to type double precision
+2025-03-24 21:45:45 [INFO]: MQTT client connected successfully...
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:45:45 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:45:50 [INFO]: 1 schedules are due
+2025-03-24 21:45:50 [INFO]: Database exists and connection successful
+2025-03-24 21:45:50 [INFO]: Server's running at 5000
+2025-03-24 21:46:00 [INFO]: 1 schedules are due
+2025-03-24 21:46:17 [INFO]: Database exists and connection successful
+2025-03-24 21:46:18 [INFO]: Server's running at 5000
+2025-03-24 21:46:18 [INFO]: MQTT client connected successfully...
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:46:18 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:46:20 [INFO]: 1 schedules are due
+2025-03-24 21:48:19 [INFO]: MQTT client connected successfully...
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:48:19 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:48:19 [INFO]: Database exists and connection successful
+2025-03-24 21:48:19 [INFO]: Server's running at 5000
+2025-03-24 21:48:20 [INFO]: 1 schedules are due
+2025-03-24 21:48:30 [INFO]: 1 schedules are due
+2025-03-24 21:48:41 [INFO]: MQTT client connected successfully...
+2025-03-24 21:48:41 [INFO]: Database exists and connection successful
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:48:41 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:48:41 [INFO]: Server's running at 5000
+2025-03-24 21:48:50 [INFO]: 1 schedules are due
+2025-03-24 21:50:48 [INFO]: Database exists and connection successful
+2025-03-24 21:50:48 [INFO]: MQTT client connected successfully...
+2025-03-24 21:50:48 [INFO]: Server's running at 5000
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:50:48 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:53:04 [INFO]: MQTT client connected successfully...
+2025-03-24 21:53:04 [INFO]: Database exists and connection successful
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:53:04 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:53:04 [INFO]: Server's running at 5000
+2025-03-24 21:53:09 [INFO]: req.user
+2025-03-24 21:55:09 [INFO]: MQTT client connected successfully...
+2025-03-24 21:55:10 [INFO]: Database exists and connection successful
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:55:10 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:55:10 [INFO]: Server's running at 5000
+2025-03-24 21:56:28 [INFO]: Database exists and connection successful
+2025-03-24 21:56:28 [INFO]: Server's running at 5000
+2025-03-24 21:56:29 [ERROR]: MQTT Connection error:  connect ECONNREFUSED 192.168.0.1:8883
+2025-03-24 21:56:29 [ERROR]: MQTT Connection error:  connect ECONNREFUSED 192.168.0.1:8883
+2025-03-24 21:56:29 [INFO]: MQTT Connection close
+2025-03-24 21:56:33 [INFO]: req.user
+2025-03-24 21:56:34 [ERROR]: [POST] /schedules - Device Attribute 2389bbaf-380a-4b23-a5f7-c6d36407b526 does not belong to this user
+2025-03-24 21:57:11 [INFO]: [object Object]
+2025-03-24 21:57:12 [ERROR]: [POST] /auth/login - Invalid credentials
+2025-03-24 21:57:15 [INFO]: [object Object]
+2025-03-24 21:57:22 [INFO]: req.user
+2025-03-24 21:57:22 [ERROR]: [POST] /schedules - Device Attribute 2389bbaf-380a-4b23-a5f7-c6d36407b526 does not belong to this user
+2025-03-24 21:57:23 [INFO]: req.user
+2025-03-24 21:57:23 [ERROR]: [POST] /schedules - Device Attribute 2389bbaf-380a-4b23-a5f7-c6d36407b526 does not belong to this user
+2025-03-24 21:57:24 [INFO]: req.user
+2025-03-24 21:57:24 [ERROR]: [POST] /schedules - Device Attribute 2389bbaf-380a-4b23-a5f7-c6d36407b526 does not belong to this user
+2025-03-24 21:58:27 [INFO]: MQTT client connected successfully...
+2025-03-24 21:58:27 [INFO]: Database exists and connection successful
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:58:27 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:58:27 [INFO]: Server's running at 5000
+2025-03-24 21:58:30 [INFO]: req.user
+2025-03-24 21:58:30 [ERROR]: [POST] /schedules - column "deviceAttrId" does not exist
+2025-03-24 21:58:47 [INFO]: MQTT client connected successfully...
+2025-03-24 21:58:47 [INFO]: Database exists and connection successful
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:58:47 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:58:47 [INFO]: Server's running at 5000
+2025-03-24 21:58:49 [INFO]: req.user
+2025-03-24 21:58:50 [ERROR]: [POST] /schedules - column "deviceAttrId" does not exist
+2025-03-24 21:59:55 [INFO]: Database exists and connection successful
+2025-03-24 21:59:55 [INFO]: Server's running at 5000
+2025-03-24 21:59:55 [INFO]: MQTT client connected successfully...
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 21:59:55 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 21:59:57 [INFO]: req.user
+2025-03-24 21:59:57 [ERROR]: [POST] /schedules - column "deviceAttrId" does not exist
+2025-03-24 22:01:45 [INFO]: MQTT client connected successfully...
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:01:46 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:01:46 [INFO]: Database exists and connection successful
+2025-03-24 22:01:46 [INFO]: Server's running at 5000
+2025-03-24 22:01:51 [INFO]: req.user
+2025-03-24 22:01:51 [ERROR]: [POST] /schedules - column "deviceAttrId" does not exist
+2025-03-24 22:03:16 [INFO]: MQTT client connected successfully...
+2025-03-24 22:03:17 [INFO]: Database exists and connection successful
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:03:17 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:03:17 [INFO]: Server's running at 5000
+2025-03-24 22:03:25 [INFO]: req.user
+2025-03-24 22:03:26 [ERROR]: [POST] /schedules - column "deviceAttrId" does not exist
+2025-03-24 22:04:04 [INFO]: MQTT client connected successfully...
+2025-03-24 22:04:04 [ERROR]: remaining connection slots are reserved for roles with the SUPERUSER attribute
+2025-03-24 22:05:00 [INFO]: MQTT client connected successfully...
+2025-03-24 22:05:00 [INFO]: Database exists and connection successful
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:05:00 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:05:00 [INFO]: Server's running at 5000
+2025-03-24 22:05:04 [INFO]: req.user
+2025-03-24 22:05:04 [ERROR]: [POST] /schedules - column "id" of relation "ScheduleMappings" does not exist
+2025-03-24 22:06:13 [INFO]: MQTT client connected successfully...
+2025-03-24 22:06:14 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:06:30 [INFO]: MQTT client connected successfully...
+2025-03-24 22:06:30 [INFO]: Database exists and connection successful
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:06:30 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:06:30 [INFO]: Server's running at 5000
+2025-03-24 22:06:54 [INFO]: MQTT client connected successfully...
+2025-03-24 22:06:54 [INFO]: Database exists and connection successful
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:06:54 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:06:54 [INFO]: Server's running at 5000
+2025-03-24 22:07:17 [INFO]: req.user
+2025-03-24 22:07:18 [ERROR]: [POST] /schedules - null value in column "scheduleId" of relation "ScheduleMappings" violates not-null constraint
+2025-03-24 22:08:20 [INFO]: MQTT client connected successfully...
+2025-03-24 22:08:20 [INFO]: Database exists and connection successful
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:08:21 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:08:21 [INFO]: Server's running at 5000
+2025-03-24 22:08:30 [INFO]: req.user
+2025-03-24 22:08:30 [ERROR]: [POST] /schedules - null value in column "scheduleId" of relation "ScheduleMappings" violates not-null constraint
+2025-03-24 22:08:31 [INFO]: req.user
+2025-03-24 22:08:31 [ERROR]: [POST] /schedules - null value in column "scheduleId" of relation "ScheduleMappings" violates not-null constraint
+2025-03-24 22:08:32 [INFO]: req.user
+2025-03-24 22:08:33 [ERROR]: [POST] /schedules - null value in column "scheduleId" of relation "ScheduleMappings" violates not-null constraint
+2025-03-24 22:09:27 [INFO]: Database exists and connection successful
+2025-03-24 22:09:27 [INFO]: Server's running at 5000
+2025-03-24 22:09:27 [INFO]: MQTT client connected successfully...
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:09:27 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:09:32 [INFO]: req.user
+2025-03-24 22:09:32 [ERROR]: [POST] /schedules - syntax error at or near ")"
+2025-03-24 22:10:08 [INFO]: MQTT client connected successfully...
+2025-03-24 22:10:08 [INFO]: Database exists and connection successful
+2025-03-24 22:10:08 [INFO]: Server's running at 5000
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:10:08 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:10:42 [INFO]: MQTT client connected successfully...
+2025-03-24 22:10:42 [INFO]: Database exists and connection successful
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:10:43 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:10:43 [INFO]: Server's running at 5000
+2025-03-24 22:10:46 [INFO]: req.user
+2025-03-24 22:12:58 [INFO]: MQTT client connected successfully...
+2025-03-24 22:12:58 [INFO]: Database exists and connection successful
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:12:58 [INFO]: Server's running at 5000
+2025-03-24 22:15:25 [INFO]: MQTT client connected successfully...
+2025-03-24 22:15:25 [INFO]: Database exists and connection successful
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:15:25 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:15:25 [INFO]: Server's running at 5000
+2025-03-24 22:17:27 [INFO]: MQTT client connected successfully...
+2025-03-24 22:17:27 [INFO]: Database exists and connection successful
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:17:27 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:17:27 [INFO]: Server's running at 5000
+2025-03-24 22:17:30 [INFO]: 1 schedules are due
+2025-03-24 22:17:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:21:47 [INFO]: MQTT client connected successfully...
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:21:48 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:21:48 [INFO]: Database exists and connection successful
+2025-03-24 22:21:48 [INFO]: Server's running at 5000
+2025-03-24 22:21:51 [INFO]: 1 schedules are due
+2025-03-24 22:21:51 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-03-24 22:21:51 [INFO]: MQTT Client publishes to topic phngngoc/feeds/rgb with value: 1
+2025-03-24 22:21:51 [INFO]: Device manager has 5 devices
+2025-03-24 22:21:51 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-03-24 22:21:51 [INFO]: Same value, no update to database
+2025-03-24 22:21:51 [INFO]: Receive message from phngngoc/feeds/rgb: 1
+2025-03-24 22:22:00 [INFO]: 0 schedules are due
+2025-03-24 22:22:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:22:10 [INFO]: 0 schedules are due
+2025-03-24 22:22:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:22:20 [INFO]: 0 schedules are due
+2025-03-24 22:22:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:22:30 [INFO]: 0 schedules are due
+2025-03-24 22:22:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:22:40 [INFO]: 0 schedules are due
+2025-03-24 22:22:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:22:50 [INFO]: 0 schedules are due
+2025-03-24 22:22:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:00 [INFO]: 0 schedules are due
+2025-03-24 22:23:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:10 [INFO]: 0 schedules are due
+2025-03-24 22:23:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:20 [INFO]: 0 schedules are due
+2025-03-24 22:23:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:31 [INFO]: 0 schedules are due
+2025-03-24 22:23:31 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:40 [INFO]: 0 schedules are due
+2025-03-24 22:23:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:23:50 [INFO]: 0 schedules are due
+2025-03-24 22:23:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:00 [INFO]: 0 schedules are due
+2025-03-24 22:24:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:10 [INFO]: 0 schedules are due
+2025-03-24 22:24:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:20 [INFO]: 0 schedules are due
+2025-03-24 22:24:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:30 [INFO]: 0 schedules are due
+2025-03-24 22:24:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:40 [INFO]: 0 schedules are due
+2025-03-24 22:24:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:24:50 [INFO]: 0 schedules are due
+2025-03-24 22:24:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:00 [INFO]: 0 schedules are due
+2025-03-24 22:25:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:10 [INFO]: 0 schedules are due
+2025-03-24 22:25:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:20 [INFO]: 0 schedules are due
+2025-03-24 22:25:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:31 [INFO]: 0 schedules are due
+2025-03-24 22:25:31 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:40 [INFO]: 0 schedules are due
+2025-03-24 22:25:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:25:50 [INFO]: 0 schedules are due
+2025-03-24 22:25:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:00 [INFO]: 0 schedules are due
+2025-03-24 22:26:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:10 [INFO]: 0 schedules are due
+2025-03-24 22:26:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:20 [INFO]: 0 schedules are due
+2025-03-24 22:26:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:30 [INFO]: 0 schedules are due
+2025-03-24 22:26:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:40 [INFO]: 0 schedules are due
+2025-03-24 22:26:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:26:50 [INFO]: 0 schedules are due
+2025-03-24 22:26:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:00 [INFO]: 0 schedules are due
+2025-03-24 22:27:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:10 [INFO]: 0 schedules are due
+2025-03-24 22:27:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:21 [INFO]: 0 schedules are due
+2025-03-24 22:27:21 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:30 [INFO]: 0 schedules are due
+2025-03-24 22:27:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:40 [INFO]: 0 schedules are due
+2025-03-24 22:27:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:27:50 [INFO]: 0 schedules are due
+2025-03-24 22:27:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:00 [INFO]: 0 schedules are due
+2025-03-24 22:28:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:10 [INFO]: 0 schedules are due
+2025-03-24 22:28:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:20 [INFO]: 0 schedules are due
+2025-03-24 22:28:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:30 [INFO]: 0 schedules are due
+2025-03-24 22:28:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:40 [INFO]: 0 schedules are due
+2025-03-24 22:28:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:28:50 [INFO]: 0 schedules are due
+2025-03-24 22:28:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:01 [INFO]: 0 schedules are due
+2025-03-24 22:29:01 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:10 [INFO]: 0 schedules are due
+2025-03-24 22:29:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:20 [INFO]: 0 schedules are due
+2025-03-24 22:29:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:30 [INFO]: 0 schedules are due
+2025-03-24 22:29:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:40 [INFO]: 0 schedules are due
+2025-03-24 22:29:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:29:50 [INFO]: 0 schedules are due
+2025-03-24 22:29:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:00 [INFO]: 0 schedules are due
+2025-03-24 22:30:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:10 [INFO]: 0 schedules are due
+2025-03-24 22:30:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:20 [INFO]: 0 schedules are due
+2025-03-24 22:30:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:30 [INFO]: 0 schedules are due
+2025-03-24 22:30:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:40 [INFO]: 0 schedules are due
+2025-03-24 22:30:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:30:50 [INFO]: 0 schedules are due
+2025-03-24 22:30:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:31:00 [INFO]: 0 schedules are due
+2025-03-24 22:31:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:31:10 [INFO]: 0 schedules are due
+2025-03-24 22:31:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:32:57 [INFO]: MQTT client connected successfully...
+2025-03-24 22:32:57 [INFO]: Database exists and connection successful
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:32:57 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:32:57 [INFO]: Server's running at 5000
+2025-03-24 22:33:00 [INFO]: 0 schedules are due
+2025-03-24 22:33:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:33:10 [INFO]: 0 schedules are due
+2025-03-24 22:33:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:33:20 [INFO]: 0 schedules are due
+2025-03-24 22:33:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:33:30 [INFO]: 0 schedules are due
+2025-03-24 22:33:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:33:41 [INFO]: MQTT client connected successfully...
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:33:41 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:33:41 [INFO]: Database exists and connection successful
+2025-03-24 22:33:41 [INFO]: Server's running at 5000
+2025-03-24 22:33:50 [INFO]: 0 schedules are due
+2025-03-24 22:33:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:00 [INFO]: 0 schedules are due
+2025-03-24 22:34:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:10 [INFO]: 0 schedules are due
+2025-03-24 22:34:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:20 [INFO]: 0 schedules are due
+2025-03-24 22:34:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:30 [INFO]: 0 schedules are due
+2025-03-24 22:34:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:40 [INFO]: 0 schedules are due
+2025-03-24 22:34:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:50 [INFO]: 0 schedules are due
+2025-03-24 22:34:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:34:59 [INFO]: MQTT client connected successfully...
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:35:00 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:35:00 [INFO]: Database exists and connection successful
+2025-03-24 22:35:00 [INFO]: Server's running at 5000
+2025-03-24 22:35:00 [INFO]: 0 schedules are due
+2025-03-24 22:35:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:35:10 [INFO]: 0 schedules are due
+2025-03-24 22:35:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:35:20 [INFO]: 0 schedules are due
+2025-03-24 22:35:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:35:30 [INFO]: 0 schedules are due
+2025-03-24 22:35:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:35:40 [INFO]: 0 schedules are due
+2025-03-24 22:35:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:35:50 [INFO]: 0 schedules are due
+2025-03-24 22:35:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:00 [INFO]: 0 schedules are due
+2025-03-24 22:36:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:10 [INFO]: 0 schedules are due
+2025-03-24 22:36:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:20 [INFO]: 0 schedules are due
+2025-03-24 22:36:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:30 [INFO]: 0 schedules are due
+2025-03-24 22:36:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:40 [INFO]: 0 schedules are due
+2025-03-24 22:36:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:36:50 [INFO]: 0 schedules are due
+2025-03-24 22:36:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:00 [INFO]: 0 schedules are due
+2025-03-24 22:37:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:10 [INFO]: 0 schedules are due
+2025-03-24 22:37:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:20 [INFO]: 0 schedules are due
+2025-03-24 22:37:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:30 [INFO]: 0 schedules are due
+2025-03-24 22:37:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:40 [INFO]: 0 schedules are due
+2025-03-24 22:37:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:37:50 [INFO]: 0 schedules are due
+2025-03-24 22:37:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:38:05 [INFO]: Database exists and connection successful
+2025-03-24 22:38:05 [INFO]: Server's running at 5000
+2025-03-24 22:38:05 [INFO]: MQTT client connected successfully...
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:38:05 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:38:10 [INFO]: 0 schedules are due
+2025-03-24 22:38:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:38:20 [INFO]: 0 schedules are due
+2025-03-24 22:38:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:38:30 [INFO]: 0 schedules are due
+2025-03-24 22:38:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:38:40 [INFO]: 0 schedules are due
+2025-03-24 22:38:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:39:52 [INFO]: Database exists and connection successful
+2025-03-24 22:39:52 [INFO]: MQTT client connected successfully...
+2025-03-24 22:39:52 [INFO]: Server's running at 5000
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:39:52 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:40:00 [INFO]: 0 schedules are due
+2025-03-24 22:40:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:40:08 [INFO]: MQTT client connected successfully...
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:40:09 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:40:09 [INFO]: Database exists and connection successful
+2025-03-24 22:40:09 [INFO]: Server's running at 5000
+2025-03-24 22:40:10 [INFO]: 0 schedules are due
+2025-03-24 22:40:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:40:20 [INFO]: 0 schedules are due
+2025-03-24 22:40:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:40:30 [INFO]: 0 schedules are due
+2025-03-24 22:40:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:40:41 [INFO]: 0 schedules are due
+2025-03-24 22:40:41 [INFO]: Device manager has 5 devices
+2025-03-24 22:40:50 [INFO]: 0 schedules are due
+2025-03-24 22:40:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:00 [INFO]: 0 schedules are due
+2025-03-24 22:41:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:10 [INFO]: 0 schedules are due
+2025-03-24 22:41:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:20 [INFO]: 0 schedules are due
+2025-03-24 22:41:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:23 [INFO]: req.user
+2025-03-24 22:41:30 [INFO]: 0 schedules are due
+2025-03-24 22:41:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:40 [INFO]: 0 schedules are due
+2025-03-24 22:41:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:41:50 [INFO]: 0 schedules are due
+2025-03-24 22:41:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:00 [INFO]: 0 schedules are due
+2025-03-24 22:42:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:10 [INFO]: 0 schedules are due
+2025-03-24 22:42:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:20 [INFO]: 0 schedules are due
+2025-03-24 22:42:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:30 [INFO]: 0 schedules are due
+2025-03-24 22:42:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:40 [INFO]: 0 schedules are due
+2025-03-24 22:42:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:42:50 [INFO]: 0 schedules are due
+2025-03-24 22:42:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:00 [INFO]: 0 schedules are due
+2025-03-24 22:43:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:10 [INFO]: 0 schedules are due
+2025-03-24 22:43:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:20 [INFO]: 0 schedules are due
+2025-03-24 22:43:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:30 [INFO]: 0 schedules are due
+2025-03-24 22:43:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:40 [INFO]: 0 schedules are due
+2025-03-24 22:43:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:43:50 [INFO]: 0 schedules are due
+2025-03-24 22:43:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:00 [INFO]: 0 schedules are due
+2025-03-24 22:44:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:10 [INFO]: 0 schedules are due
+2025-03-24 22:44:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:20 [INFO]: 0 schedules are due
+2025-03-24 22:44:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:30 [INFO]: 0 schedules are due
+2025-03-24 22:44:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:40 [INFO]: 0 schedules are due
+2025-03-24 22:44:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:44:50 [INFO]: 0 schedules are due
+2025-03-24 22:44:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:45:00 [INFO]: 0 schedules are due
+2025-03-24 22:45:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:45:10 [INFO]: 0 schedules are due
+2025-03-24 22:45:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:45:22 [INFO]: MQTT client connected successfully...
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:45:22 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:45:22 [INFO]: Database exists and connection successful
+2025-03-24 22:45:22 [INFO]: Server's running at 5000
+2025-03-24 22:45:25 [INFO]: req.user
+2025-03-24 22:45:30 [INFO]: 0 schedules are due
+2025-03-24 22:45:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:45:40 [INFO]: 0 schedules are due
+2025-03-24 22:45:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:45:50 [INFO]: 0 schedules are due
+2025-03-24 22:45:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:01 [INFO]: 0 schedules are due
+2025-03-24 22:46:01 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:10 [INFO]: 0 schedules are due
+2025-03-24 22:46:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:20 [INFO]: 0 schedules are due
+2025-03-24 22:46:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:30 [INFO]: 0 schedules are due
+2025-03-24 22:46:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:40 [INFO]: 0 schedules are due
+2025-03-24 22:46:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:46:50 [INFO]: 0 schedules are due
+2025-03-24 22:46:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:00 [INFO]: 0 schedules are due
+2025-03-24 22:47:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:10 [INFO]: 0 schedules are due
+2025-03-24 22:47:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:20 [INFO]: 0 schedules are due
+2025-03-24 22:47:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:30 [INFO]: 0 schedules are due
+2025-03-24 22:47:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:40 [INFO]: 0 schedules are due
+2025-03-24 22:47:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:47:50 [INFO]: 0 schedules are due
+2025-03-24 22:47:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:48:00 [INFO]: MQTT client connected successfully...
+2025-03-24 22:48:01 [INFO]: 0 schedules are due
+2025-03-24 22:48:01 [INFO]: Device manager has 0 devices
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:48:01 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:48:01 [INFO]: Database exists and connection successful
+2025-03-24 22:48:01 [INFO]: Server's running at 5000
+2025-03-24 22:48:15 [INFO]: MQTT client connected successfully...
+2025-03-24 22:48:15 [INFO]: Database exists and connection successful
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:48:15 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:48:15 [INFO]: Server's running at 5000
+2025-03-24 22:48:20 [INFO]: 0 schedules are due
+2025-03-24 22:48:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:48:30 [INFO]: 0 schedules are due
+2025-03-24 22:48:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:48:40 [INFO]: 0 schedules are due
+2025-03-24 22:48:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:48:50 [INFO]: 0 schedules are due
+2025-03-24 22:48:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:48:59 [INFO]: MQTT client connected successfully...
+2025-03-24 22:49:00 [INFO]: Database exists and connection successful
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:49:00 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:49:00 [INFO]: Server's running at 5000
+2025-03-24 22:49:00 [INFO]: 0 schedules are due
+2025-03-24 22:49:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:10 [INFO]: 0 schedules are due
+2025-03-24 22:49:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:21 [INFO]: 0 schedules are due
+2025-03-24 22:49:21 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:29 [INFO]: Database exists and connection successful
+2025-03-24 22:49:29 [INFO]: Server's running at 5000
+2025-03-24 22:49:29 [INFO]: MQTT client connected successfully...
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:49:29 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:49:30 [INFO]: 0 schedules are due
+2025-03-24 22:49:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:40 [INFO]: 0 schedules are due
+2025-03-24 22:49:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:50 [INFO]: 0 schedules are due
+2025-03-24 22:49:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:49:51 [INFO]: req.user
+2025-03-24 22:50:00 [INFO]: 0 schedules are due
+2025-03-24 22:50:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:50:10 [INFO]: 0 schedules are due
+2025-03-24 22:50:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:50:18 [INFO]: MQTT client connected successfully...
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:50:18 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:50:18 [INFO]: Database exists and connection successful
+2025-03-24 22:50:18 [INFO]: Server's running at 5000
+2025-03-24 22:50:20 [INFO]: 0 schedules are due
+2025-03-24 22:50:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:50:20 [INFO]: req.user
+2025-03-24 22:50:30 [INFO]: 0 schedules are due
+2025-03-24 22:50:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:50:40 [INFO]: 0 schedules are due
+2025-03-24 22:50:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:50:50 [INFO]: 0 schedules are due
+2025-03-24 22:50:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:51:03 [INFO]: MQTT client connected successfully...
+2025-03-24 22:51:04 [INFO]: Database exists and connection successful
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 22:51:04 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 22:51:04 [INFO]: Server's running at 5000
+2025-03-24 22:51:05 [INFO]: req.user
+2025-03-24 22:51:05 [ERROR]: [GET] /schedules/:id - Schedule :id not found
+2025-03-24 22:51:10 [INFO]: 0 schedules are due
+2025-03-24 22:51:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:51:15 [INFO]: req.user
+2025-03-24 22:51:20 [INFO]: 0 schedules are due
+2025-03-24 22:51:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:51:22 [INFO]: req.user
+2025-03-24 22:51:30 [INFO]: 0 schedules are due
+2025-03-24 22:51:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:51:40 [INFO]: 0 schedules are due
+2025-03-24 22:51:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:51:50 [INFO]: 0 schedules are due
+2025-03-24 22:51:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:00 [INFO]: 0 schedules are due
+2025-03-24 22:52:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:10 [INFO]: 0 schedules are due
+2025-03-24 22:52:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:20 [INFO]: 0 schedules are due
+2025-03-24 22:52:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:30 [INFO]: 0 schedules are due
+2025-03-24 22:52:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:40 [INFO]: 0 schedules are due
+2025-03-24 22:52:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:52:50 [INFO]: 0 schedules are due
+2025-03-24 22:52:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:00 [INFO]: 0 schedules are due
+2025-03-24 22:53:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:11 [INFO]: 0 schedules are due
+2025-03-24 22:53:11 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:20 [INFO]: 0 schedules are due
+2025-03-24 22:53:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:30 [INFO]: 0 schedules are due
+2025-03-24 22:53:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:40 [INFO]: 0 schedules are due
+2025-03-24 22:53:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:53:50 [INFO]: 0 schedules are due
+2025-03-24 22:53:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:00 [INFO]: 0 schedules are due
+2025-03-24 22:54:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:10 [INFO]: 0 schedules are due
+2025-03-24 22:54:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:20 [INFO]: 0 schedules are due
+2025-03-24 22:54:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:30 [INFO]: 0 schedules are due
+2025-03-24 22:54:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:40 [INFO]: 0 schedules are due
+2025-03-24 22:54:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:54:51 [INFO]: 0 schedules are due
+2025-03-24 22:54:51 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:00 [INFO]: 0 schedules are due
+2025-03-24 22:55:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:10 [INFO]: 0 schedules are due
+2025-03-24 22:55:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:20 [INFO]: 0 schedules are due
+2025-03-24 22:55:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:30 [INFO]: 0 schedules are due
+2025-03-24 22:55:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:40 [INFO]: 0 schedules are due
+2025-03-24 22:55:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:55:50 [INFO]: 0 schedules are due
+2025-03-24 22:55:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:00 [INFO]: 0 schedules are due
+2025-03-24 22:56:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:10 [INFO]: 0 schedules are due
+2025-03-24 22:56:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:20 [INFO]: 0 schedules are due
+2025-03-24 22:56:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:30 [INFO]: 0 schedules are due
+2025-03-24 22:56:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:41 [INFO]: 0 schedules are due
+2025-03-24 22:56:41 [INFO]: Device manager has 5 devices
+2025-03-24 22:56:50 [INFO]: 0 schedules are due
+2025-03-24 22:56:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:00 [INFO]: 0 schedules are due
+2025-03-24 22:57:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:10 [INFO]: 0 schedules are due
+2025-03-24 22:57:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:20 [INFO]: 0 schedules are due
+2025-03-24 22:57:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:30 [INFO]: 0 schedules are due
+2025-03-24 22:57:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:40 [INFO]: 0 schedules are due
+2025-03-24 22:57:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:57:50 [INFO]: 0 schedules are due
+2025-03-24 22:57:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:00 [INFO]: 0 schedules are due
+2025-03-24 22:58:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:10 [INFO]: 0 schedules are due
+2025-03-24 22:58:10 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:20 [INFO]: 0 schedules are due
+2025-03-24 22:58:20 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:30 [INFO]: 0 schedules are due
+2025-03-24 22:58:30 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:40 [INFO]: 0 schedules are due
+2025-03-24 22:58:40 [INFO]: Device manager has 5 devices
+2025-03-24 22:58:50 [INFO]: 0 schedules are due
+2025-03-24 22:58:50 [INFO]: Device manager has 5 devices
+2025-03-24 22:59:00 [INFO]: 0 schedules are due
+2025-03-24 22:59:00 [INFO]: Device manager has 5 devices
+2025-03-24 22:59:10 [INFO]: 0 schedules are due
+2025-03-24 22:59:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:00:12 [INFO]: MQTT client connected successfully...
+2025-03-24 23:00:13 [INFO]: Database exists and connection successful
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:00:13 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:00:13 [INFO]: Server's running at 5000
+2025-03-24 23:00:21 [INFO]: Database exists and connection successful
+2025-03-24 23:00:21 [INFO]: MQTT client connected successfully...
+2025-03-24 23:00:21 [INFO]: Server's running at 5000
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:00:21 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:00:30 [INFO]: 0 schedules are due
+2025-03-24 23:00:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:00:40 [INFO]: 0 schedules are due
+2025-03-24 23:00:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:00:55 [INFO]: MQTT client connected successfully...
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:00:55 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:00:55 [INFO]: Database exists and connection successful
+2025-03-24 23:00:55 [INFO]: Server's running at 5000
+2025-03-24 23:01:04 [INFO]: MQTT client connected successfully...
+2025-03-24 23:01:04 [INFO]: Database exists and connection successful
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:01:04 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:01:04 [INFO]: Server's running at 5000
+2025-03-24 23:01:10 [INFO]: 0 schedules are due
+2025-03-24 23:01:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:01:15 [INFO]: req.user
+2025-03-24 23:01:15 [ERROR]: [PUT] /schedules/:id - Schedule :id not found
+2025-03-24 23:01:20 [INFO]: 0 schedules are due
+2025-03-24 23:01:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:01:30 [INFO]: 0 schedules are due
+2025-03-24 23:01:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:01:40 [INFO]: 0 schedules are due
+2025-03-24 23:01:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:01:46 [INFO]: req.user
+2025-03-24 23:01:50 [INFO]: 0 schedules are due
+2025-03-24 23:01:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:00 [INFO]: 0 schedules are due
+2025-03-24 23:02:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:03 [INFO]: req.user
+2025-03-24 23:02:06 [INFO]: req.user
+2025-03-24 23:02:10 [INFO]: req.user
+2025-03-24 23:02:10 [INFO]: 0 schedules are due
+2025-03-24 23:02:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:11 [INFO]: req.user
+2025-03-24 23:02:21 [INFO]: 0 schedules are due
+2025-03-24 23:02:21 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:30 [INFO]: 0 schedules are due
+2025-03-24 23:02:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:40 [INFO]: 0 schedules are due
+2025-03-24 23:02:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:02:50 [INFO]: 0 schedules are due
+2025-03-24 23:02:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:03:00 [INFO]: 0 schedules are due
+2025-03-24 23:03:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:03:10 [INFO]: 0 schedules are due
+2025-03-24 23:03:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:03:22 [INFO]: MQTT client connected successfully...
+2025-03-24 23:03:22 [INFO]: Database exists and connection successful
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:03:22 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:03:22 [INFO]: Server's running at 5000
+2025-03-24 23:03:24 [INFO]: req.user
+2025-03-24 23:03:27 [INFO]: req.user
+2025-03-24 23:03:30 [INFO]: 0 schedules are due
+2025-03-24 23:03:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:03:40 [INFO]: 0 schedules are due
+2025-03-24 23:03:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:03:46 [INFO]: req.user
+2025-03-24 23:03:50 [INFO]: 0 schedules are due
+2025-03-24 23:03:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:04:00 [INFO]: 0 schedules are due
+2025-03-24 23:04:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:04:10 [INFO]: 0 schedules are due
+2025-03-24 23:04:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:04:12 [INFO]: req.user
+2025-03-24 23:04:12 [ERROR]: [PUT] /schedules/84e92526-c9fa-4d6b-8188-4d0be306b4db - Device Attribute 287890b9-a1cc-4d84-9e12-b66308d6ee4a not found
+2025-03-24 23:04:26 [INFO]: req.user
+2025-03-24 23:04:30 [INFO]: 0 schedules are due
+2025-03-24 23:04:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:04:30 [INFO]: req.user
+2025-03-24 23:04:40 [INFO]: 0 schedules are due
+2025-03-24 23:04:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:04:50 [INFO]: 0 schedules are due
+2025-03-24 23:04:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:00 [INFO]: 0 schedules are due
+2025-03-24 23:05:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:10 [INFO]: 0 schedules are due
+2025-03-24 23:05:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:20 [INFO]: 0 schedules are due
+2025-03-24 23:05:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:30 [INFO]: 0 schedules are due
+2025-03-24 23:05:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:40 [INFO]: 0 schedules are due
+2025-03-24 23:05:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:50 [INFO]: 0 schedules are due
+2025-03-24 23:05:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:05:58 [INFO]: req.user
+2025-03-24 23:06:00 [INFO]: req.user
+2025-03-24 23:06:01 [INFO]: 0 schedules are due
+2025-03-24 23:06:01 [INFO]: Device manager has 5 devices
+2025-03-24 23:06:06 [INFO]: req.user
+2025-03-24 23:06:07 [INFO]: req.user
+2025-03-24 23:06:10 [INFO]: 0 schedules are due
+2025-03-24 23:06:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:06:20 [INFO]: 0 schedules are due
+2025-03-24 23:06:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:06:30 [INFO]: 0 schedules are due
+2025-03-24 23:06:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:06:40 [INFO]: 0 schedules are due
+2025-03-24 23:06:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:06:50 [INFO]: 0 schedules are due
+2025-03-24 23:06:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:00 [INFO]: 0 schedules are due
+2025-03-24 23:07:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:10 [INFO]: 0 schedules are due
+2025-03-24 23:07:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:20 [INFO]: 0 schedules are due
+2025-03-24 23:07:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:30 [INFO]: 0 schedules are due
+2025-03-24 23:07:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:41 [INFO]: 0 schedules are due
+2025-03-24 23:07:41 [INFO]: Device manager has 5 devices
+2025-03-24 23:07:50 [INFO]: 0 schedules are due
+2025-03-24 23:07:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:00 [INFO]: 0 schedules are due
+2025-03-24 23:08:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:10 [INFO]: 0 schedules are due
+2025-03-24 23:08:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:20 [INFO]: 0 schedules are due
+2025-03-24 23:08:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:30 [INFO]: 0 schedules are due
+2025-03-24 23:08:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:40 [INFO]: 0 schedules are due
+2025-03-24 23:08:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:08:50 [INFO]: 0 schedules are due
+2025-03-24 23:08:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:09:00 [INFO]: 0 schedules are due
+2025-03-24 23:09:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:09:10 [INFO]: 0 schedules are due
+2025-03-24 23:09:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:09:20 [INFO]: 0 schedules are due
+2025-03-24 23:09:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:09:31 [INFO]: 0 schedules are due
+2025-03-24 23:09:31 [INFO]: Device manager has 5 devices
+2025-03-24 23:09:40 [INFO]: 0 schedules are due
+2025-03-24 23:09:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:10:35 [INFO]: MQTT client connected successfully...
+2025-03-24 23:10:36 [INFO]: Database exists and connection successful
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:10:36 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:10:36 [INFO]: Server's running at 5000
+2025-03-24 23:10:40 [INFO]: 0 schedules are due
+2025-03-24 23:10:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:10:48 [INFO]: req.user
+2025-03-24 23:10:51 [INFO]: 0 schedules are due
+2025-03-24 23:10:51 [INFO]: Device manager has 5 devices
+2025-03-24 23:10:52 [INFO]: req.user
+2025-03-24 23:11:00 [INFO]: 0 schedules are due
+2025-03-24 23:11:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:11:10 [INFO]: 0 schedules are due
+2025-03-24 23:11:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:11:10 [INFO]: req.user
+2025-03-24 23:11:12 [INFO]: req.user
+2025-03-24 23:11:20 [INFO]: 0 schedules are due
+2025-03-24 23:11:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:11:25 [INFO]: req.user
+2025-03-24 23:11:25 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:11:30 [INFO]: 0 schedules are due
+2025-03-24 23:11:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:11:40 [INFO]: 0 schedules are due
+2025-03-24 23:11:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:11:50 [INFO]: 0 schedules are due
+2025-03-24 23:11:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:00 [INFO]: 0 schedules are due
+2025-03-24 23:12:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:09 [INFO]: MQTT client connected successfully...
+2025-03-24 23:12:09 [INFO]: Database exists and connection successful
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:12:09 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:12:09 [INFO]: Server's running at 5000
+2025-03-24 23:12:10 [INFO]: 0 schedules are due
+2025-03-24 23:12:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:13 [INFO]: req.user
+2025-03-24 23:12:14 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:12:15 [INFO]: req.user
+2025-03-24 23:12:15 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:12:20 [INFO]: 0 schedules are due
+2025-03-24 23:12:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:30 [INFO]: 0 schedules are due
+2025-03-24 23:12:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:38 [INFO]: MQTT client connected successfully...
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:12:38 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:12:38 [INFO]: Database exists and connection successful
+2025-03-24 23:12:38 [INFO]: Server's running at 5000
+2025-03-24 23:12:40 [INFO]: 0 schedules are due
+2025-03-24 23:12:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:50 [INFO]: 0 schedules are due
+2025-03-24 23:12:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:12:58 [INFO]: MQTT client connected successfully...
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:12:58 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:13:00 [INFO]: 0 schedules are due
+2025-03-24 23:13:00 [INFO]: Device manager has 0 devices
+2025-03-24 23:13:03 [INFO]: Database exists and connection successful
+2025-03-24 23:13:03 [INFO]: Server's running at 5000
+2025-03-24 23:13:14 [INFO]: MQTT client connected successfully...
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:13:15 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:13:15 [INFO]: Database exists and connection successful
+2025-03-24 23:13:15 [INFO]: Server's running at 5000
+2025-03-24 23:13:20 [INFO]: req.user
+2025-03-24 23:13:20 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:13:20 [INFO]: 0 schedules are due
+2025-03-24 23:13:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:13:31 [INFO]: 0 schedules are due
+2025-03-24 23:13:31 [INFO]: Device manager has 5 devices
+2025-03-24 23:13:40 [INFO]: 0 schedules are due
+2025-03-24 23:13:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:13:50 [INFO]: 0 schedules are due
+2025-03-24 23:13:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:13:56 [INFO]: MQTT client connected successfully...
+2025-03-24 23:13:56 [INFO]: Database exists and connection successful
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:13:56 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:13:56 [INFO]: Server's running at 5000
+2025-03-24 23:14:00 [INFO]: 0 schedules are due
+2025-03-24 23:14:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:14:00 [INFO]: req.user
+2025-03-24 23:14:00 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:14:10 [INFO]: 0 schedules are due
+2025-03-24 23:14:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:14:12 [INFO]: req.user
+2025-03-24 23:14:13 [ERROR]: [DELETE] /schedules/cb7a0c69-3eea-464f-9560-72bb6f35b7ae - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:14:20 [INFO]: 0 schedules are due
+2025-03-24 23:14:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:14:35 [INFO]: MQTT client connected successfully...
+2025-03-24 23:14:35 [INFO]: Database exists and connection successful
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:14:35 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:14:35 [INFO]: Server's running at 5000
+2025-03-24 23:14:40 [INFO]: 0 schedules are due
+2025-03-24 23:14:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:14:42 [INFO]: req.user
+2025-03-24 23:14:50 [INFO]: 0 schedules are due
+2025-03-24 23:14:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:00 [INFO]: 0 schedules are due
+2025-03-24 23:15:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:10 [INFO]: 0 schedules are due
+2025-03-24 23:15:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:19 [INFO]: MQTT client connected successfully...
+2025-03-24 23:15:19 [INFO]: Database exists and connection successful
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:15:20 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:15:20 [INFO]: Server's running at 5000
+2025-03-24 23:15:20 [INFO]: 0 schedules are due
+2025-03-24 23:15:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:21 [INFO]: req.user
+2025-03-24 23:15:23 [INFO]: req.user
+2025-03-24 23:15:29 [INFO]: req.user
+2025-03-24 23:15:29 [ERROR]: [DELETE] /schedules/e92ab705-14a7-41b7-b137-54a5e75c44b3 - update or delete on table "Schedules" violates foreign key constraint "ScheduleMappings_scheduleId_fkey" on table "ScheduleMappings"
+2025-03-24 23:15:30 [INFO]: 0 schedules are due
+2025-03-24 23:15:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:40 [INFO]: 0 schedules are due
+2025-03-24 23:15:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:15:50 [INFO]: 0 schedules are due
+2025-03-24 23:15:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:00 [INFO]: 0 schedules are due
+2025-03-24 23:16:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:10 [INFO]: 0 schedules are due
+2025-03-24 23:16:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:20 [INFO]: 0 schedules are due
+2025-03-24 23:16:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:30 [INFO]: 0 schedules are due
+2025-03-24 23:16:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:40 [INFO]: 0 schedules are due
+2025-03-24 23:16:40 [INFO]: Device manager has 5 devices
+2025-03-24 23:16:50 [INFO]: 0 schedules are due
+2025-03-24 23:16:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:17:00 [INFO]: 0 schedules are due
+2025-03-24 23:17:00 [INFO]: Device manager has 5 devices
+2025-03-24 23:17:10 [INFO]: 0 schedules are due
+2025-03-24 23:17:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:17:18 [ERROR]: remaining connection slots are reserved for roles with the SUPERUSER attribute
+2025-03-24 23:17:42 [INFO]: Database exists and connection successful
+2025-03-24 23:17:42 [INFO]: MQTT client connected successfully...
+2025-03-24 23:17:42 [INFO]: Server's running at 5000
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:17:42 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:17:50 [INFO]: 0 schedules are due
+2025-03-24 23:17:50 [INFO]: Device manager has 5 devices
+2025-03-24 23:18:07 [INFO]: MQTT client connected successfully...
+2025-03-24 23:18:08 [INFO]: Database exists and connection successful
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-24 23:18:08 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-24 23:18:08 [INFO]: Server's running at 5000
+2025-03-24 23:18:10 [INFO]: 0 schedules are due
+2025-03-24 23:18:10 [INFO]: Device manager has 5 devices
+2025-03-24 23:18:11 [INFO]: req.user
+2025-03-24 23:18:12 [INFO]: req.user
+2025-03-24 23:18:16 [INFO]: req.user
+2025-03-24 23:18:20 [INFO]: 0 schedules are due
+2025-03-24 23:18:20 [INFO]: Device manager has 5 devices
+2025-03-24 23:18:22 [INFO]: req.user
+2025-03-24 23:18:30 [INFO]: 0 schedules are due
+2025-03-24 23:18:30 [INFO]: Device manager has 5 devices
+2025-03-24 23:18:40 [INFO]: 0 schedules are due
+2025-03-24 23:18:40 [INFO]: Device manager has 5 devices

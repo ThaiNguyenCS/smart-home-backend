@@ -33,12 +33,6 @@ Action.belongsTo(DeviceAttribute, {
     as: "deviceAttribute",
 });
 
-Schedule.belongsTo(DeviceAttribute, {
-    foreignKey: "deviceAttrId",
-    as: "deviceAttribute",
-})
-
-
 User.hasMany(RealEstate, {
     foreignKey: "userId",
     as: "estates",
@@ -48,7 +42,6 @@ RealEstate.belongsTo(User, {
     foreignKey: "userId",
     as: "owner",
 });
-
 
 RealEstate.hasMany(Floor, {
     foreignKey: "realEstateId",
@@ -62,7 +55,6 @@ Floor.belongsTo(RealEstate, {
     onDelete: "CASCADE",
 });
 
-
 Floor.hasMany(Room, {
     foreignKey: "floorId",
     as: "rooms",
@@ -72,5 +64,13 @@ Floor.hasMany(Room, {
 Room.belongsTo(Floor, {
     foreignKey: "floorId",
     as: "floor",
+    onDelete: "CASCADE",
+});
+
+// SCHEDULE
+Schedule.belongsToMany(DeviceAttribute, { through: "ScheduleMappings", foreignKey: "scheduleId", onDelete: "CASCADE" });
+DeviceAttribute.belongsToMany(Schedule, {
+    through: "ScheduleMappings",
+    foreignKey: "deviceAttrId",
     onDelete: "CASCADE",
 });

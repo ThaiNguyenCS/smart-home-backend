@@ -25,14 +25,15 @@ import FloorController from "../controller/floor.controller";
 import RoomRepository from "../repository/RoomRepository";
 import RoomService from "../service/room.service";
 import RoomController from "../controller/room.controller";
+import ScheduleController from "../controller/schedule.controller";
 
 const deviceRepository = new DeviceRepository();
 
 const mqttService = MQTTService.getInstance();
-// schedule repository
+// Schedule
 const scheduleRepository = new ScheduleRepository();
-// schedule service
 const scheduleService = new ScheduleService({ scheduleRepository, deviceRepository });
+const scheduleController = new ScheduleController({ scheduleService });
 const deviceService = new DeviceService(mqttService);
 mqttService.setDeviceService(deviceService);
 const deviceController = new DeviceController({ deviceService, scheduleService });
@@ -82,5 +83,6 @@ export {
     realEstateController,
     deviceLogService,
     floorController,
+    scheduleController,
     roomController,
 };

@@ -15,16 +15,16 @@ router.patch("/:id/attribute/:attrId", validateToken, authorizeRoles("ADMIN"), d
 router.delete("/:id/attribute/:attrId", validateToken, authorizeRoles("ADMIN"), deviceController.deleteDeviceAttr);
 
 // delete a schedule of a device
-router.delete("/:id/schedules/:scheduleId", validateToken, deviceController.deleteDeviceSchedule);
+// router.delete("/:id/schedules/:scheduleId", validateToken, deviceController.deleteDeviceSchedule);
 // update a schedule of a device
-router.patch("/:id/schedules/:scheduleId", validateToken, deviceController.updateDeviceSchedule);
+// router.patch("/:id/schedules/:scheduleId", validateToken, deviceController.updateDeviceSchedule);
 
 // ADMIN: add device attribute
 router.post("/:id/attribute", validateToken, authorizeRoles("ADMIN"), deviceController.addDeviceAttr);
 // get schedules for a device
 router.get("/:id/schedules", validateToken, deviceController.getDeviceSchedules);
 // create a schedule for a device
-router.post("/:id/schedules", validateToken, deviceController.createDeviceSchedule);
+// router.post("/:id/schedules", validateToken, deviceController.createDeviceSchedule);
 
 // get all devices (for 1 user)
 router.get("/all", validateToken, deviceController.getAllDevices);
