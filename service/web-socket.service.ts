@@ -11,19 +11,24 @@ export function initWebSocket(server: any) {
     io = new Server(server, {
         cors: {
             origin: "*",
-            methods: ["GET", "POST"],
         },
     });
 
     io.on("connection", (socket) => {
         logger.info(`User connected: ${socket.id}`);
+        socket.send('Hello from server');
+        socket.on("connect", () => {
+            // console.log("Connected to Socket.IO server");
+            logger.info(`User connect: socketId ${socket.id}`);
+        });
 
         socket.on("subscribe", (userId: string) => {
+            logger.info(`User ${userId} subscribes to socket server`);
             socket.join(userId);
         });
 
         socket.on("disconnect", () => {
-            logger.info(`User disconnected: ${socket.id}`);
+            logger.info(`User disconnected: socketId ${socket.id}`);
         });
     });
 }
