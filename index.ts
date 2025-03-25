@@ -11,7 +11,7 @@ import cors from "cors";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
 import notificationRouter from "./routes/notification.route";
-import { initWebSocket } from "./service/web-socket.service";
+import { initWebSocket, sendWebSocketNotification } from "./service/web-socket.service";
 import logger from "./logger/logger";
 import { globalErrorHandler } from "./errors/ErrorHandler";
 import deviceLogRouter from "./routes/deviceLog.route";
@@ -58,6 +58,9 @@ app.use(globalErrorHandler);
         // const mqttService = MQTTService.getInstance();
         const server = http.createServer(app);
         initWebSocket(server);
+        setInterval(() => {
+            sendWebSocketNotification("test", "fucking socket io");
+        }, 3000);
 
         server.listen(PORT, () => {
             logger.info(`Server's running at ${PORT}`);

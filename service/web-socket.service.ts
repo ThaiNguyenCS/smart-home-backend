@@ -34,5 +34,6 @@ export function initWebSocket(server: any) {
 }
 
 export function sendWebSocketNotification(userId: string, notification: any) {
+    console.log("here")
     io.to(userId).emit("notification", JSON.stringify(notification));
 }
