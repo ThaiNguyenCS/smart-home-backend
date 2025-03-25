@@ -3,6 +3,7 @@ import { NotificationCreationAttrs } from "../model/Notification.model";
 import NotificationRepository from "../repository/NotificationRepository";
 import { NotificationCreateQuery } from "../types/notification";
 import { generateUUID } from "../utils/idGenerator";
+import { sendWebSocketNotification } from "./web-socket.service";
 
 const validUnreadValues = ["true", "false"];
 
@@ -77,7 +78,9 @@ class NotificationService {
         if (!message || !title || !type || !userId) {
             throw createHttpError(400, "Missing fields");
         }
-        return await this.notificationRepo.createNotification({ id: generateUUID(), ...data });
+        const createdNotification = await this.notificationRepo.createNotification({ id: generateUUID(), ...data });
+        console.log("createdNotification", createdNotification.toJSON());
+        sendWebSocketNotification(userId, createdNotification.toJSON());
     };
 }
 

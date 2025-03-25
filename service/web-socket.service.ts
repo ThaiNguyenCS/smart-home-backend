@@ -4,9 +4,14 @@ import logger from "../logger/logger";
 let io: Server;
 
 export function initWebSocket(server: any) {
+    if (!server) {
+        logger.error("No HTTP server provided to WebSocket");
+        return;
+    }
     io = new Server(server, {
         cors: {
             origin: "*",
+            methods: ["GET", "POST"],
         },
     });
 

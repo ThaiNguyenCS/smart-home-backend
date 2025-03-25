@@ -1,17 +1,21 @@
 import dotenv from "dotenv";
 import path from "path";
+import logger from "../logger/logger";
 
 if (process.env.NODE_ENV == "dev") {
-    dotenv.config({ path: path.join(__dirname, "../", ".env.dev").toString() });
+    const result = dotenv.config({ path: path.join(__dirname, "../", ".env.dev").toString() });
 } else {
     dotenv.config({ path: path.join(__dirname, "../", ".env").toString() });
 }
+
+logger.info(`Running application in ${process.env.NODE_ENV} enviroment`);
 
 export const NODE_ENV = process.env.NODE_ENV;
 
 export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 export const PORT = process.env.PORT;
+logger.info(`PORT ${PORT}`);
 
 const AIO_USERNAME = process.env.AIO_USERNAME;
 const AIO_KEY = process.env.AIO_KEY;

@@ -50,7 +50,8 @@ class NotificationRepository {
             userId: userId,
             type: type,
         };
-        await Notification.create(newNotification);
+        const notification = await Notification.create(newNotification);
+        return notification
     };
 }
 

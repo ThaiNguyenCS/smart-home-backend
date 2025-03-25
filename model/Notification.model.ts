@@ -9,6 +9,8 @@ export interface NotificationAttrs {
     title: string;
 }
 
+export const NOTIFICATION_TYPES = { NOTIFY: "notify", ALERT: "alert" };
+
 export interface NotificationCreationAttrs extends Optional<NotificationAttrs, "status"> {}
 class Notification extends Model<NotificationAttrs, NotificationCreationAttrs> implements NotificationAttrs {
     public id!: string;

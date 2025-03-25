@@ -77,6 +77,7 @@ export {
     deviceManager,
     systemRuleController,
     systemRuleService,
+    notificationService,
     scheduleService,
     notificationController,
     deviceLogController,

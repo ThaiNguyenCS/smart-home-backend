@@ -36,12 +36,36 @@ class SystemRuleRepository {
         }
 
         queryOption.include = [
-            { model: DeviceAttribute, as: "deviceAttribute", required: true },
+            {
+                model: DeviceAttribute,
+                as: "deviceAttribute",
+                required: true,
+                include: [
+                    {
+                        model: Device,
+                        as: "device",
+                        attributes: ["name"],
+                    },
+                ],
+            },
             {
                 model: Action,
                 as: "actions",
                 required: false,
-                include: [{ model: DeviceAttribute, as: "deviceAttribute", required: true }],
+                include: [
+                    {
+                        model: DeviceAttribute,
+                        as: "deviceAttribute",
+                        required: true,
+                        include: [
+                            {
+                                model: Device,
+                                as: "device",
+                                attributes: ["name"],
+                            },
+                        ],
+                    },
+                ],
             },
         ];
         const rule = await SystemRule.findOne(queryOption); // find one here because I'm currently allowing one rule for one attr only
@@ -119,9 +143,11 @@ class SystemRuleRepository {
     }
 
     async updateRuleInfo(data: SystemRuleInfoUpdateQuery, transaction = null) {
-        const { ruleId, isActive, compareType, value, deviceAttrId } = data;
+        const { ruleId, isActive, compareType, value, deviceAttrId, receiveNotification } = data;
         const updateValues = Object.fromEntries(
-            Object.entries({ isActive, compareType, value, deviceAttrId }).filter(([_, value]) => value !== undefined)
+            Object.entries({ isActive, compareType, value, deviceAttrId, receiveNotification }).filter(
+                ([_, value]) => value !== undefined
+            )
         );
         const queryOption: UpdateOptions = { where: { id: ruleId } };
         if (transaction) {

@@ -4,12 +4,14 @@ export interface SystemRuleAddQuery {
     value: number;
     id: string;
     compareType: "eq" | "lte" | "gte" | "lt" | "gt";
+    receiveNotification?: boolean;
     actions: ActionType[];
 }
 
 export interface SystemRuleUpdateQuery {
     userId: string;
     ruleId: string;
+    receiveNotification?: boolean;
     deviceAttrId?: string;
     isActive?: boolean;
     value?: number;
@@ -46,4 +48,5 @@ export interface SystemRuleInfoUpdateQuery {
     compareType?: "gte" | "gt" | "lt" | "lte" | "eq";
     value?: number;
     deviceAttrId?: string;
+    receiveNotification?: boolean;
 }

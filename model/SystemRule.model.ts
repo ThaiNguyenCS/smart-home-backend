@@ -10,9 +10,10 @@ interface SystemRuleAttrs {
     userId: string;
     compareType: string;
     isActive: boolean;
+    receiveNotification: boolean;
 }
 
-interface SystemRuleCreationAttrs extends Optional<SystemRuleAttrs, "isActive"> {}
+interface SystemRuleCreationAttrs extends Optional<SystemRuleAttrs, "isActive" | "receiveNotification"> {}
 
 class SystemRule extends Model<SystemRuleAttrs, SystemRuleCreationAttrs> implements SystemRuleAttrs {
     public id!: string;
@@ -20,6 +21,7 @@ class SystemRule extends Model<SystemRuleAttrs, SystemRuleCreationAttrs> impleme
     public value!: number;
     public userId!: string;
     public compareType!: string;
+    public receiveNotification!: boolean;
     public isActive!: boolean;
     public actions?: Action[];
     public deviceAttribute?: DeviceAttribute;
@@ -59,6 +61,10 @@ SystemRule.init(
             allowNull: false,
         },
         isActive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
+        },
+        receiveNotification: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },

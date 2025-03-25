@@ -8,7 +8,7 @@ router.use(validateToken);
 router.get("/:id", scheduleController.getSchedule);
 router.put("/:id", scheduleController.updateSchedule);
 router.delete("/:id", scheduleController.deleteSchedule);
-router.post("/", (req, res, next) => scheduleController.addSchedule(req, res, next));
+router.post("/", scheduleController.addSchedule);
 router.get("/", scheduleController.getAllSchedules);
 
 export default router;

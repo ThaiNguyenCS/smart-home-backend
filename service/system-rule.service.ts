@@ -88,7 +88,7 @@ class SystemRuleService {
     };
 
     addRule = async (data: SystemRuleAddQuery) => {
-        const { compareType, userId, value, deviceAttrId } = data;
+        const { compareType, userId, value, deviceAttrId, receiveNotification } = data;
         let { actions } = data;
 
         console.log(data);
@@ -119,7 +119,7 @@ class SystemRuleService {
             // create rule (transaction)
             const newRuleId = generateUUID();
             await this.systemRuleRepository.createRule(
-                { id: newRuleId, compareType, value, deviceAttrId, userId },
+                { id: newRuleId, compareType, value, deviceAttrId, userId, receiveNotification },
                 transaction
             );
             // create related actions (transaction)

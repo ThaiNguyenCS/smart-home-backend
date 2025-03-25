@@ -2,12 +2,14 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "./database";
 import DeviceRepository from "../repository/DeviceRepository";
 import DeviceAttribute from "./DeviceAttribute.model";
-import { deviceLogService, mqttService, systemRuleService } from "../config/container";
+import { deviceLogService, mqttService, notificationService, systemRuleService } from "../config/container";
 import { isRuleSatisfied } from "../utils/ruleValidate";
 import SystemRule from "./SystemRule.model";
 import Action from "./Action.model";
 import logger from "../logger/logger";
 import { generateUUID } from "../utils/idGenerator";
+import { generateNotificationData } from "../utils/notification-generation";
+import { sendWebSocketNotification } from "../service/web-socket.service";
 
 interface DeviceAttrs {
     id: string;
@@ -63,7 +65,8 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                         logger.info("Found rule" + rule?.toJSON());
                         let actions = rule.actions;
                         if (actions) {
-                            const isSatisfied = isRuleSatisfied(rule, value);
+                            const isSatisfied = isRuleSatisfied(rule, formattedValue);
+                            // logger.info(isSatisfied);
                             if (isSatisfied) {
                                 let promises = [];
                                 for (let i = 0; i < actions.length; i++) {
@@ -75,6 +78,12 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                                     } else {
                                         console.error("Action does not have corresponding deviceAttribute");
                                     }
+                                }
+                                // if user choose to receive notification then send it
+                                if (rule.receiveNotification) {
+                                    await notificationService.createNotification(
+                                        generateNotificationData(rule, actions)
+                                    );
                                 }
                                 await Promise.all(promises);
                             }

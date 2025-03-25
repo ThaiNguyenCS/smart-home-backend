@@ -1,63 +1,62 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import RealEstateService from "../service/real-estate.service";
+import { AuthenticatedRequest } from "../middleware/authenticate.middleware";
 
 class RealEstateController {
     private realEstateService: RealEstateService;
-    
+
     constructor(realEstateService: RealEstateService) {
         this.realEstateService = realEstateService;
     }
 
-    async getAllEstateByUser(req: Request, res: Response): Promise<any> {
-        try {
-            const {id} = req.params;
-            const estates = await this.realEstateService.getAllByUser(id);
-            if(!estates) return {message: "No estates"}
-            res.json(estates);
-        } catch (error: any) {
-            res.status(500).json({ message: error.message });
-        }
-    }
-
-    async getAllRoom(req: Request, res: Response): Promise<any> {
+    getAllEstateByUser = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
         try {
             const { id } = req.params;
-            const estate = await this.realEstateService.getAllRoom(id);
-            if (!estate) return res.status(404).json({ message: "Real estate not found" });
-            res.json(estate);
+            const estates = await this.realEstateService.getAllByUser(req.user!.id);
+            res.status(200).send({ message: "Get estates successfully", data: estates });
         } catch (error: any) {
-            res.status(500).json({ message: error.message });
+            next(error);
         }
-    }
+    };
 
-    async createEstate(req: Request, res: Response): Promise<any> {
+    getAllRoom = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<any> => {
         try {
-            const estate = await this.realEstateService.createEstate(req.body);
+            const { id } = req.params;
+            const estate = await this.realEstateService.getAllRoom(id, { userId: req.user!.id });
+            res.json({ message: "Successful", data: estate });
+        } catch (error: any) {
+            next(error);
+        }
+    };
+
+    createEstate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const estate = await this.realEstateService.createEstate({ ...req.body, userId: req.user!.id });
             res.status(201).json(estate);
         } catch (error: any) {
-            res.status(500).json({ message: error.message });
+            next(error);
         }
-    }
+    };
 
-    async updateEstate(req: Request, res: Response): Promise<any> {
+    updateEstate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<any> => {
         try {
             const { id } = req.params;
-            await this.realEstateService.updateEstate(id, req.body);
+            await this.realEstateService.updateEstate(id, { ...req.body, userId: req.user!.id });
             res.json({ message: "Updated successfully" });
         } catch (error: any) {
-            res.status(500).json({ message: error.message });
+            next(error);
         }
-    }
+    };
 
-    async deleteEstate(req: Request, res: Response): Promise<any> {
+    deleteEstate = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<any> => {
         try {
             const { id } = req.params;
-            await this.realEstateService.deleteEstate(id);
+            await this.realEstateService.deleteEstate({ id, userId: req.user!.id });
             res.json({ message: "Deleted successfully" });
         } catch (error: any) {
-            res.status(500).json({ message: error.message });
+            next(error);
         }
-    }
+    };
 }
 
 export default RealEstateController;

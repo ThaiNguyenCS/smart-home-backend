@@ -10,16 +10,22 @@ class RealEstateRepository {
         return ob;
     }
 
+    async getRealEstate(data: { realEstateId: string }) {
+        const { realEstateId } = data;
+        const ob = await RealEstate.findOne({ where: { id: realEstateId } });
+        return ob;
+    }
+
     async getAllRoom(id: string) {
         const rooms = await RealEstate.findByPk(id, {
             include: [
                 {
                     model: Floor,
-                    as: 'floors',
+                    as: "floors",
                     include: [
                         {
                             model: Room,
-                            as: 'rooms',
+                            as: "rooms",
                         },
                     ],
                 },
@@ -29,15 +35,15 @@ class RealEstateRepository {
         if (!rooms) {
             throw new Error("Real estate not found");
         }
-        return rooms
+        return rooms;
     }
 
     async createEstate(id: string, data: any) {
-        if(!data.userId){
+        if (!data.userId) {
             throw new UserError("Missing field");
         }
-        const user = await User.findOne({where: {id: data.userId}})
-        if(!user){
+        const user = await User.findOne({ where: { id: data.userId } });
+        if (!user) {
             throw new Error("User not found");
         }
         const estate = {
@@ -45,24 +51,28 @@ class RealEstateRepository {
             name: data.name,
             userId: data.userId,
             description: data.description,
-            address: data.address
-        }
+            address: data.address,
+        };
         const createOb = await RealEstate.create(estate);
         return createOb;
     }
 
-    async updateEstate(id:string, data: any) {
-        const { name, userId, description, address } = data;
+    async updateEstate(id: string, data: Partial<{ name: string; description: string; address: string }>) {
+        const { name, description, address } = data;
         if (!id) {
             throw new Error("Missing field");
         }
-        const updateOb = Object.fromEntries(Object.entries({ name: name, userId: userId, description: description, address: address }).filter(([_, value]) => value !== undefined));
+        const updateOb = Object.fromEntries(
+            Object.entries({ name: name, description: description, address: address }).filter(
+                ([_, value]) => value !== undefined
+            )
+        );
         const ob = await RealEstate.update(updateOb, { where: { id: id } });
         return ob;
     }
 
     async deleteEstate(id: string) {
-        if(!id){
+        if (!id) {
             throw new UserError("Missing field");
         }
         const removeOb = await RealEstate.destroy({ where: { id } });
