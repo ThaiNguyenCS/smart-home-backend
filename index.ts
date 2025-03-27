@@ -58,9 +58,9 @@ app.use(globalErrorHandler);
         // const mqttService = MQTTService.getInstance();
         const server = http.createServer(app);
         initWebSocket(server);
-        setInterval(() => {
-            sendWebSocketNotification("test", "fucking socket io");
-        }, 3000);
+        // setInterval(() => {
+        //     sendWebSocketNotification("test", "fucking socket io");
+        // }, 3000);
 
         server.listen(PORT, () => {
             logger.info(`Server's running at ${PORT}`);

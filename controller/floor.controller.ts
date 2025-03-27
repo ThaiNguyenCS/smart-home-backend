@@ -3,7 +3,7 @@ import FloorService from "../service/floor.service";
 
 class FloorController {
     private floorService: FloorService;
-    
+
     constructor(floorService: FloorService) {
         this.floorService = floorService;
     }
@@ -11,13 +11,12 @@ class FloorController {
     async getAllFloorByEstate(req: Request, res: Response): Promise<any> {
         try {
             const { id } = req.params;
-            const floors = await this.floorService.getAllFloorByEstate(id);
+            const floors = await this.floorService.getAllFloorByEstate(id, { ...req.query });
             res.json(floors);
         } catch (error: any) {
             res.status(500).json({ message: error.message });
         }
     }
-
 
     async addFloor(req: Request, res: Response): Promise<any> {
         try {

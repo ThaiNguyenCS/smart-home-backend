@@ -16,7 +16,7 @@ export function initWebSocket(server: any) {
 
     io.on("connection", (socket) => {
         logger.info(`User connected: ${socket.id}`);
-        socket.send('Hello from server');
+        socket.send("Hello from server");
         socket.on("connect", () => {
             // console.log("Connected to Socket.IO server");
             logger.info(`User connect: socketId ${socket.id}`);
@@ -34,6 +34,5 @@ export function initWebSocket(server: any) {
 }
 
 export function sendWebSocketNotification(userId: string, notification: any) {
-    console.log("here")
     io.to(userId).emit("notification", JSON.stringify(notification));
 }

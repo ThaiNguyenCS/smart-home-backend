@@ -1,19 +1,26 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
 import RealEstate from "./RealEstate.model";
+import Room from "./Room.model";
 
 interface FloorAttributes {
     id: string;
     name: string;
     realEstateId: string;
+    deviceCount?: number;
 }
 
 interface FloorCreationAttributes extends Optional<FloorAttributes, "id"> {}
 
-interface FloorInstance extends Model<FloorAttributes, FloorCreationAttributes>, FloorAttributes {}
+class Floor extends Model<FloorAttributes, FloorCreationAttributes> implements FloorAttributes {
+    public id!: string;
+    public name!: string;
+    public realEstateId!: string;
+    public rooms?: Room[];
+    public deviceCount!: number;
+}
 
-const Floor = sequelize.define<FloorInstance>(
-    "Floor",
+Floor.init(
     {
         id: {
             type: DataTypes.STRING,
@@ -35,6 +42,7 @@ const Floor = sequelize.define<FloorInstance>(
         },
     },
     {
+        sequelize,
         modelName: "Floor",
         timestamps: true,
     }

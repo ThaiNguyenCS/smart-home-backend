@@ -67,6 +67,14 @@ Room.belongsTo(Floor, {
     onDelete: "CASCADE",
 });
 
+Room.hasMany(Device, { foreignKey: "roomId", as: "devices" });
+
+Device.belongsTo(Room, {
+    foreignKey: "roomId",
+    as: "room",
+    onDelete: "SET NULL",
+});
+
 // SCHEDULE
 Schedule.belongsToMany(DeviceAttribute, { through: "ScheduleMappings", foreignKey: "scheduleId", onDelete: "CASCADE" });
 DeviceAttribute.belongsToMany(Schedule, {

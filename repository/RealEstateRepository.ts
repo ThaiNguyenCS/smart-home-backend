@@ -3,6 +3,8 @@ import RealEstate from "../model/RealEstate.model";
 import User from "../model/User.model";
 import Floor from "../model/Floor.model";
 import Room from "../model/Room.model";
+import Device from "../model/Device.model";
+import { col, fn, literal } from "sequelize";
 
 class RealEstateRepository {
     async getAllEstateByUser(userId: string) {
@@ -17,25 +19,52 @@ class RealEstateRepository {
     }
 
     async getAllRoom(id: string) {
-        const rooms = await RealEstate.findByPk(id, {
+        const detail = await RealEstate.findByPk(id, {
             include: [
                 {
                     model: Floor,
                     as: "floors",
+                    required: false,
                     include: [
                         {
                             model: Room,
                             as: "rooms",
+                            attributes: {
+                                include: [
+                                    [
+                                        literal(`(
+                                            SELECT CAST(COUNT(*) AS INTEGER )
+                                            FROM "Devices" AS "devices"
+                                            WHERE "devices"."roomId" = "floors->rooms"."id"
+                                        )`),
+                                        "deviceCount",
+                                    ],
+                                ],
+                            },
+                            include: [
+                                {
+                                    model: Device,
+                                    as: "devices",
+                                    attributes: [],
+                                },
+                            ],
                         },
                     ],
                 },
             ],
         });
 
-        if (!rooms) {
+        if (!detail) {
             throw new Error("Real estate not found");
         }
-        return rooms;
+        detail.floors?.forEach((floor) => {
+            let totalDeviceCount = 0;
+            floor.rooms?.forEach((room) => {
+                totalDeviceCount += room.getDataValue("deviceCount") || 0;
+            });
+            floor.setDataValue("deviceCount", totalDeviceCount);
+        });
+        return detail;
     }
 
     async createEstate(id: string, data: any) {

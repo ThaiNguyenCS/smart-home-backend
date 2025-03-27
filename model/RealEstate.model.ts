@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
+import Floor from "./Floor.model";
 
 interface RealEstateAttrs {
     id: string;
@@ -12,10 +13,16 @@ interface RealEstateAttrs {
 interface RealEstateCreationAttrs extends Optional<RealEstateAttrs, "description" | "address"> {}
 
 // have all the attrs from Model + user-defined attrs
-interface RealEstateInstance extends Model<RealEstateAttrs, RealEstateCreationAttrs>, RealEstateAttrs {}
+class RealEstate extends Model<RealEstateAttrs, RealEstateCreationAttrs> implements RealEstateAttrs {
+    public floors?: Floor[];
+    public id!: string;
+    public name!: string;
+    public userId!: string;
+    public description!: string;
+    public address!: string;
+}
 
-const RealEstate = sequelize.define<RealEstateInstance>(
-    "RealEstate",
+RealEstate.init(
     {
         id: {
             primaryKey: true,
@@ -41,7 +48,7 @@ const RealEstate = sequelize.define<RealEstateInstance>(
             type: DataTypes.STRING,
         },
     },
-    {}
+    { sequelize }
 );
 
 // RealEstate.sync({alter: true})

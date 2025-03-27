@@ -9,7 +9,7 @@ router.use(validateToken);
 router.get("/all", realEstateController.getAllEstateByUser);
 
 //get all rooms of estate
-router.get("/rooms/:id", realEstateController.getAllRoom);
+router.get("/:id", realEstateController.getAllRoom);
 
 // delete a real estate (with limitation)
 router.delete("/:id", realEstateController.deleteEstate);

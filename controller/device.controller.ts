@@ -69,11 +69,11 @@ class DeviceController {
     //     }
     // };
 
-    getAllDevices = async (req: Request, res: Response) => {
+    getAllDevices = async (req: AuthenticatedRequest, res: Response) => {
         try {
             // const user = req.user; //TODO: check authorization
-            const result = await this.deviceService.getAllDevice({ options: { attribute: {} } });
-            res.status(200).send({ message: "Successfully", data: result });
+            const result = await this.deviceService.getAllDevicesForUser({ ...req.query, userId: req.user!.id });
+            res.status(200).send({ message: "Successful", data: result.rows, total: result.count });
         } catch (error: any) {
             logger.error(error);
             // throw createError()
@@ -85,7 +85,7 @@ class DeviceController {
     addDevice = async (req: Request, res: Response) => {
         try {
             await this.deviceService.addDevice({ ...req.body });
-            res.status(201).send({ message: "Successfully" });
+            res.status(201).send({ message: "Successful" });
         } catch (error: any) {
             logger.error(error);
             // throw createError()

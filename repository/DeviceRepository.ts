@@ -54,7 +54,7 @@ class DeviceRepository {
         return device;
     }
 
-    async getDeviceById(data: { id: string; options: any }) {
+    async getDeviceById(data: { id: string; options?: any }) {
         const { id, options } = data;
         console.log(data);
         const queryOptions: any = {};
@@ -69,6 +69,31 @@ class DeviceRepository {
         }
         if (includes.length > 0) queryOptions.include = includes;
         return await Device.findByPk(id, queryOptions);
+    }
+
+    async getDevices(filters: {
+        userId?: string;
+        floorId?: string;
+        roomId?: string;
+        estateId?: string;
+    }): Promise<{ rows: Device[]; count: number }> {
+        const { userId, floorId, roomId, estateId } = filters;
+        const queryOptions: FindOptions = { where: {} };
+        if (userId) {
+            queryOptions.where = { ...queryOptions.where, userId: userId };
+        }
+        if (roomId) {
+            queryOptions.where = { ...queryOptions.where, roomId: roomId };
+        }
+        queryOptions.include = [
+            {
+                model: DeviceAttribute,
+                as: "attributes",
+                required: false,
+            },
+        ];
+
+        return await Device.findAndCountAll(queryOptions);
     }
 
     async getDeviceByCondition(data: any) {

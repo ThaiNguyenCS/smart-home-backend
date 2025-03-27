@@ -1,21 +1,26 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
 import Floor from "./Floor.model";
+import Device from "./Device.model";
 
 interface RoomAttributes {
     id: string;
     name: string;
     floorId: number;
+    deviceCount?: number;
 }
 
 interface RoomCreationAttributes extends Optional<RoomAttributes, "id"> {}
 
-interface RoomInstance
-    extends Model<RoomAttributes, RoomCreationAttributes>,
-        RoomAttributes {}
+class Room extends Model<RoomAttributes, RoomCreationAttributes> implements RoomAttributes {
+    public id!: string;
+    public name!: string;
+    public floorId!: number;
+    public devices!: Device[];
+    public deviceCount!: number;
+}
 
-const Room = sequelize.define<RoomInstance>(
-    "Room",
+Room.init(
     {
         id: {
             type: DataTypes.STRING,
@@ -33,13 +38,15 @@ const Room = sequelize.define<RoomInstance>(
                 key: "id",
             },
             onDelete: "CASCADE",
-            onUpdate: "CASCADE", 
+            onUpdate: "CASCADE",
         },
     },
     {
-        modelName: "Room",
-        timestamps: true
+        sequelize,
+        timestamps: true,
     }
 );
+
+// Room.sync({ alter: true });
 
 export default Room;

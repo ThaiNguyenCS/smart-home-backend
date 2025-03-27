@@ -7,8 +7,11 @@ class FloorService {
         this.floorRepo = floorRepo;
     }
 
-    async getAllFloorByEstate(estateId: string) {
-        const ob = await this.floorRepo.getAllFloorByEstate(estateId);
+    async getAllFloorByEstate(estateId: string, filter: Partial<{ includeRoom: any }>) {
+        if (filter.includeRoom) {
+            filter.includeRoom = filter.includeRoom.toLowerCase() === "true" ? true : false;
+        }
+        const ob = await this.floorRepo.getAllFloorByEstate(estateId, filter);
         return ob;
     }
 

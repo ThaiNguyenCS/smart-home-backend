@@ -46,6 +46,11 @@ class DeviceService {
         return result;
     }
 
+    async getAllDevicesForUser(data: { userId: string; roomId?: string; floorId?: string; estateId?: string }) {
+        console.log(data)
+        return await this.deviceRepository.getDevices(data);
+    }
+
     async addDevice(data: AddDeviceQuery) {
         const { userId, name, roomId, attrs } = data;
         const newDeviceId = generateUUID();
@@ -106,6 +111,14 @@ class DeviceService {
     async updateDevice(data: UpdateDeviceQuery) {
         const { deviceId, name, userId, roomId } = data;
         //TODO: Check if this device belongs to this user
+        const device = await this.deviceRepository.getDeviceById({ id: deviceId });
+        if (!device) {
+            throw createHttpError(404, `Device ${deviceId} not found`);
+        }
+        if (device.userId !== userId) {
+            throw createHttpError(403, `This device does not belong to this user`);
+        }
+
         await this.deviceRepository.updateDevice({ deviceId, name, roomId });
     }
 
