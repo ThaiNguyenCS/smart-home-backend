@@ -9373,3 +9373,67 @@ Turned on Đèn
 2025-03-30 11:39:59 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
 2025-03-30 11:39:59 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
 2025-03-30 11:39:59 [INFO]: Server's running at 5000
+2025-03-30 11:47:34 [INFO]: Running application in dev enviroment
+2025-03-30 11:47:37 [INFO]: Database exists and connection successful
+2025-03-30 11:47:37 [INFO]: MQTT client connected successfully...
+2025-03-30 11:47:37 [INFO]: Server's running at 5000
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-03-30 11:47:37 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-03-30 11:47:40 [INFO]: 0 schedules are due
+2025-03-30 11:47:40 [INFO]: Device manager has 5 devices
+2025-03-30 11:47:42 [INFO]: req.user
+2025-03-30 11:47:42 [INFO]: Starting Python speech recognition...
+2025-03-30 11:47:42 [INFO]: Recognized Text: [object Object]
+2025-03-30 11:47:42 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-03-30 11:47:43 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-03-30 11:47:43 [INFO]: Same value, no update to database
+2025-03-30 11:47:50 [INFO]: 0 schedules are due
+2025-03-30 11:47:50 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:00 [INFO]: 0 schedules are due
+2025-03-30 11:48:00 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:10 [INFO]: 0 schedules are due
+2025-03-30 11:48:10 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:20 [INFO]: 0 schedules are due
+2025-03-30 11:48:20 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:30 [INFO]: 0 schedules are due
+2025-03-30 11:48:30 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:40 [INFO]: 0 schedules are due
+2025-03-30 11:48:40 [INFO]: Device manager has 5 devices
+2025-03-30 11:48:50 [INFO]: 0 schedules are due
+2025-03-30 11:48:50 [INFO]: Device manager has 5 devices
+2025-03-30 11:49:00 [INFO]: 0 schedules are due
+2025-03-30 11:49:00 [INFO]: Device manager has 5 devices
+2025-03-30 11:49:10 [INFO]: 0 schedules are due
+2025-03-30 11:49:10 [INFO]: Device manager has 5 devices
+2025-03-30 11:49:20 [INFO]: 0 schedules are due
+2025-03-30 11:49:20 [INFO]: Device manager has 5 devices
+2025-03-30 11:49:30 [INFO]: 0 schedules are due
+2025-03-30 11:49:30 [INFO]: Device manager has 5 devices
+2025-03-30 11:49:40 [INFO]: 0 schedules are due
+2025-03-30 11:49:40 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:00 [INFO]: 0 schedules are due
+2025-03-30 11:50:00 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:10 [INFO]: 0 schedules are due
+2025-03-30 11:50:10 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:20 [INFO]: 0 schedules are due
+2025-03-30 11:50:20 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:30 [INFO]: 0 schedules are due
+2025-03-30 11:50:30 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:40 [INFO]: 0 schedules are due
+2025-03-30 11:50:40 [INFO]: Device manager has 5 devices
+2025-03-30 11:50:50 [INFO]: 0 schedules are due
+2025-03-30 11:50:50 [INFO]: Device manager has 5 devices
+2025-03-30 11:51:00 [INFO]: 0 schedules are due
+2025-03-30 11:51:00 [INFO]: Device manager has 5 devices
+2025-03-30 11:51:10 [INFO]: 0 schedules are due
+2025-03-30 11:51:10 [INFO]: Device manager has 5 devices
+2025-03-30 11:51:20 [INFO]: 0 schedules are due
+2025-03-30 11:51:20 [INFO]: Device manager has 5 devices
+2025-03-30 11:51:31 [INFO]: 0 schedules are due
+2025-03-30 11:51:31 [INFO]: Device manager has 5 devices
+2025-03-30 11:51:40 [INFO]: 0 schedules are due
+2025-03-30 11:51:40 [INFO]: Device manager has 5 devices
