@@ -16,6 +16,7 @@ interface DeviceAttrs {
     userId: string;
     roomId?: string | null;
     name: string;
+    type: string;
     attributes?: DeviceAttribute[];
 }
 
@@ -25,6 +26,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public name!: string;
     public attributes?: DeviceAttribute[];
     public userId!: string;
+    public type!: string;
 
     // public async loadDeviceAttrs() {
     //     const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
@@ -125,6 +127,16 @@ Device.init(
                 key: "id",
                 model: "Users",
             },
+        },
+        type: {
+            type: DataTypes.ENUM("light", "fan", "other"),
+            validate: {
+                isIn: {
+                    args: [["light", "fan", "other"]],
+                    msg: "Type must be light, fan or other",
+                },
+            },
+            defaultValue: "other",
         },
     },
     {

@@ -47,18 +47,18 @@ class DeviceService {
     }
 
     async getAllDevicesForUser(data: { userId: string; roomId?: string; floorId?: string; estateId?: string }) {
-        console.log(data)
+        console.log(data);
         return await this.deviceRepository.getDevices(data);
     }
 
     async addDevice(data: AddDeviceQuery) {
-        const { userId, name, roomId, attrs } = data;
+        const { userId, name, roomId, attrs, type } = data;
         const newDeviceId = generateUUID();
 
         await runTransaction(async (transaction: any) => {
             // add device
             const result = await this.deviceRepository.addDevice(
-                { id: newDeviceId, name, roomId, userId },
+                { id: newDeviceId, name, roomId, userId, type },
                 transaction
             );
             // add device attrs (if included)

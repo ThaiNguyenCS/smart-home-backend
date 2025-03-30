@@ -3,6 +3,7 @@ export interface AddDeviceQuery {
     name: string;
     roomId?: string;
     attrs?: AddDeviceAttrData[];
+    type: string;
 }
 
 export type AddDeviceData = AddDeviceQuery & {

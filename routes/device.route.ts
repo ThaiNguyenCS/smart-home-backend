@@ -1,13 +1,26 @@
-import express from "express";
+import express, { NextFunction, Request } from "express";
 import { deviceController } from "../config/container";
 import { validateToken } from "../middleware/authenticate.middleware";
 import { authorizeRoles } from "../middleware/role.middleware";
+import multer from "multer";
+import createHttpError from "http-errors";
 const router = express.Router();
 
-// router.post("/test-blocking", deviceController.test);
-// router.post("/test-blocking2", deviceController.test2);
+const fileFilter = (req: Request, file: Express.Multer.File, cb: any) => {
+    if (file.mimetype === "audio/wav" || file.originalname.toLowerCase().endsWith(".wav")) {
+        cb(null, true); // Accept the file
+    } else {
+        cb(createHttpError(400, "Only WAV files are allowed"), false);
+    }
+};
+const upload = multer({ storage: multer.memoryStorage(), fileFilter: fileFilter });
 
-router.post("/:id/attribute/:attrId/control", validateToken, authorizeRoles("USER"), deviceController.controlDeviceAttr);
+router.post(
+    "/:id/attribute/:attrId/control",
+    validateToken,
+    authorizeRoles("USER"),
+    deviceController.controlDeviceAttr
+);
 
 // ADMIN: update a device attribute
 router.patch("/:id/attribute/:attrId", validateToken, authorizeRoles("ADMIN"), deviceController.updateDeviceAttr);
@@ -25,6 +38,14 @@ router.post("/:id/attribute", validateToken, authorizeRoles("ADMIN"), deviceCont
 router.get("/:id/schedules", validateToken, deviceController.getDeviceSchedules);
 // create a schedule for a device
 // router.post("/:id/schedules", validateToken, deviceController.createDeviceSchedule);
+
+router.post(
+    "/voice-control",
+    validateToken,
+    authorizeRoles("USER"),
+    upload.single("file"),
+    deviceController.voiceControlDevice
+);
 
 // get all devices (for 1 user)
 router.get("/all", validateToken, deviceController.getAllDevices);

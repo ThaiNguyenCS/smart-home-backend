@@ -11,7 +11,7 @@ import cors from "cors";
 import { deviceManager } from "./config/container";
 import systemRuleRouter from "./routes/system-rule.route";
 import notificationRouter from "./routes/notification.route";
-import { initWebSocket, sendWebSocketNotification } from "./service/web-socket.service";
+import { initWebSocket } from "./service/web-socket.service";
 import logger from "./logger/logger";
 import { globalErrorHandler } from "./errors/ErrorHandler";
 import deviceLogRouter from "./routes/deviceLog.route";
@@ -19,6 +19,8 @@ import realEstateRouter from "./routes/real-estate.route";
 import floorRouter from "./routes/floor.route";
 import roomRouter from "./routes/room.route";
 import scheduleRouter from "./routes/schedule.route";
+import { spawn } from "child_process";
+import { convertVoiceCommandToAction } from "./utils/speech-action";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -29,8 +31,10 @@ import scheduleRouter from "./routes/schedule.route";
 // DeviceAttribute.sync()
 // RealEstate.sync()
 // Action.sync();
+
 // Floor.sync()
 // Room.sync()
+
 const app = express();
 
 app.use(cors());
@@ -46,6 +50,26 @@ app.use("/estates", realEstateRouter);
 app.use("/floors", floorRouter);
 app.use("/rooms", roomRouter);
 app.use("/schedules", scheduleRouter);
+
+
+//TODO: for testing only
+app.get("/recognize", async (req, res) => {
+    console.log("Starting Python speech recognition...");
+
+    const pythonProcess = spawn("python", ["speech.py"]);
+
+    pythonProcess.stdout.on("data", async (data) => {
+        console.log("data:", data);
+        const result = JSON.parse(data.toString().trim());
+        console.log("Recognized Text:", result);
+        try {
+            await convertVoiceCommandToAction(result);
+            res.status(200).send({ message: "Success" });
+        } catch (error) {
+            res.status(400).send({ message: "Unknown command" });
+        }
+    });
+});
 
 app.use(globalErrorHandler);
 

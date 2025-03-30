@@ -24,7 +24,7 @@ export const globalErrorHandler = (err: Error, req: Request, res: Response, next
         status = 409;
         message = err.original.message;
     } else {
-        status = 500;
+        status = (err as any).status || 500;
         message = err.message;
     }
     logger.error(`[${req.method}] ${req.url} - ${message}`); // binding to winston logging. Change this

@@ -1,9 +1,11 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import DeviceService from "../service/device.service";
 import ScheduleService from "../service/schedule.service";
 import { AuthenticatedRequest } from "../middleware/authenticate.middleware";
 import { handleError } from "../errors/ErrorHandler";
 import logger from "../logger/logger";
+import { convertVoiceCommandToAction } from "../utils/speech-action";
+import { spawn } from "child_process";
 
 class DeviceController {
     deviceService: DeviceService;
@@ -46,17 +48,6 @@ class DeviceController {
         }
     };
 
-    // createDeviceSchedule = async (req: AuthenticatedRequest, res: Response) => {
-    //     try {
-    //         await this.scheduleService.createSchedule({ userId: req.user?.id, deviceId: req.params.id, ...req.body });
-    //         res.status(201).send({ message: "Create schedule successfully" });
-    //     } catch (error: any) {
-    //         logger.error(error);
-    //         const { status, message } = handleError(error);
-    //         res.status(status).send({ message: message });
-    //     }
-    // };
-
     // reloadDevices = async (req: Request, res: Response) => {
     //     try {
     //         // const user = req.user
@@ -68,6 +59,31 @@ class DeviceController {
     //         res.status(status).send({ message: message });
     //     }
     // };
+
+    voiceControlDevice = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+        // console.log(req.file);
+        if (!req.file) {
+            res.status(400).send({ message: "No file uploaded" });
+        } else {
+            logger.info("Starting Python speech recognition...");
+            const pythonProcess = spawn("python", ["speech-input-pipe.py"], {
+                stdio: ["pipe", "pipe", "pipe"], // enable stdin and stdout
+            });
+
+            pythonProcess.stdin.write(req.file.buffer); // write buffer
+            pythonProcess.stdin.end(); // Close the stdin after writing
+            pythonProcess.stdout.on("data", async (data) => {
+                const result = JSON.parse(data.toString().trim());
+                logger.info(`Recognized Text: ${result}`);
+                try {
+                    await convertVoiceCommandToAction(result);
+                    res.status(200).send({ message: "Success" });
+                } catch (error) {
+                    res.status(400).send({ message: "Unknown command" });
+                }
+            });
+        }
+    };
 
     getAllDevices = async (req: AuthenticatedRequest, res: Response) => {
         try {

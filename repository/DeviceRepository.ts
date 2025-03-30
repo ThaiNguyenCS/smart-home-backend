@@ -16,7 +16,7 @@ const validValueTypes = ["value", "status"];
 
 class DeviceRepository {
     async addDevice(data: AddDeviceData, transaction = null) {
-        const { id, name, roomId = null, userId } = data;
+        const { id, name, roomId = null, userId, type } = data;
         const queryOption: any = {};
         if (transaction) {
             queryOption.transaction = transaction;
@@ -27,6 +27,7 @@ class DeviceRepository {
                 name: name,
                 roomId,
                 userId,
+                type,
             },
             queryOption
         );
