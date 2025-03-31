@@ -5,6 +5,7 @@ import Device from "../model/Device.model";
 import sequelize from "../model/database";
 import { runTransaction } from "../model/transactionManager";
 import ScheduleMapping from "../model/ScheduleMapping.model";
+import Room from "../model/Room.model";
 
 class ScheduleRepository {
     // Create a new schedule
@@ -122,7 +123,15 @@ class ScheduleRepository {
                     attributes: ["id", "feed", "key", "deviceId", "value"],
                     required: false,
                     through: { attributes: [] },
-                    include: [{ model: Device, as: "device", required: true }],
+                    include: [
+                        {
+                            model: Device,
+                            as: "device",
+                            required: true,
+                            attributes: ["id", "name", "type", "userId"],
+                            include: [{ model: Room, as: "room", required: false, attributes: ["id", "name"] }],
+                        },
+                    ],
                 },
             ];
         }
