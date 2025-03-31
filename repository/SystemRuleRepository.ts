@@ -10,6 +10,7 @@ import { generateUUID } from "../utils/idGenerator";
 import Action from "../model/Action.model";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
+import Room from "../model/Room.model";
 
 class SystemRuleRepository {
     async getRuleById(data: any, transaction = null) {
@@ -86,6 +87,14 @@ class SystemRuleRepository {
                         model: Device,
                         as: "device",
                         required: true,
+                        attributes: ["id", "name", "type", "userId"],
+                        include: [
+                            {
+                                model: Room,
+                                as: "room",
+                                required: false,
+                            },
+                        ],
                     },
                 ],
             },
@@ -103,6 +112,14 @@ class SystemRuleRepository {
                                 model: Device,
                                 as: "device",
                                 required: true,
+                                attributes: ["id", "name", "type", "userId"],
+                                include: [
+                                    {
+                                        model: Room,
+                                        as: "room",
+                                        required: false,
+                                    },
+                                ],
                             },
                         ],
                     },
