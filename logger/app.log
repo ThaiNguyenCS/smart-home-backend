@@ -9633,3 +9633,37 @@ Turned on Đèn
 2025-03-31 19:49:15 [INFO]: req.user
 2025-03-31 19:49:20 [INFO]: 0 schedules are due
 2025-03-31 19:49:20 [INFO]: Device manager has 5 devices
+2025-04-04 15:06:35 [INFO]: Running application in dev enviroment
+2025-04-04 15:06:49 [INFO]: MQTT client connected successfully...
+2025-04-04 15:06:51 [INFO]: Database exists and connection successful
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-04 15:06:51 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-04 15:06:51 [INFO]: 0 schedules are due
+2025-04-04 15:06:51 [INFO]: Device manager has 0 devices
+2025-04-04 15:06:51 [INFO]: Server's running at 5000
+2025-04-04 15:07:01 [INFO]: 0 schedules are due
+2025-04-04 15:07:01 [INFO]: Device manager has 5 devices
+2025-04-04 15:07:10 [INFO]: 0 schedules are due
+2025-04-04 15:07:10 [INFO]: Device manager has 5 devices
+2025-04-04 15:07:10 [INFO]: req.user
+2025-04-04 15:07:20 [INFO]: 0 schedules are due
+2025-04-04 15:07:20 [INFO]: Device manager has 5 devices
+2025-04-04 15:07:30 [INFO]: 0 schedules are due
+2025-04-04 15:07:30 [INFO]: Device manager has 5 devices
+2025-04-04 15:07:34 [INFO]: Running application in dev enviroment
+2025-04-04 15:07:38 [INFO]: Database exists and connection successful
+2025-04-04 15:07:38 [INFO]: Server's running at 5000
+2025-04-04 15:07:38 [INFO]: MQTT client connected successfully...
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-04 15:07:38 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-04 15:07:38 [INFO]: req.user
+2025-04-04 15:07:40 [INFO]: 0 schedules are due
+2025-04-04 15:07:40 [INFO]: Device manager has 5 devices

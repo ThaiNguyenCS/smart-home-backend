@@ -13,6 +13,7 @@ import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
+import Room from "../model/Room.model";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
@@ -197,6 +198,14 @@ class SystemRuleService {
                     where: {
                         userId: userId,
                     },
+                    include: [
+                        {
+                            model: Room,
+                            as: "room",
+                            required: false,
+                            attributes: ["id", "name", "floorId"],
+                        },
+                    ],
                 },
             ],
         });
