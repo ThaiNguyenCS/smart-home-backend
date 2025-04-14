@@ -73,13 +73,14 @@ class NotificationService {
         await this.notificationRepo.deleteNotification({ id: id });
     };
 
-    createNotification = async (data: NotificationCreateQuery) => {
+    createNotification = async (data: any) => {
         const { message, title, type, userId } = data;
         if (!message || !title || !type || !userId) {
             throw createHttpError(400, "Missing fields");
         }
         const createdNotification = await this.notificationRepo.createNotification({ id: generateUUID(), ...data });
         console.log("createdNotification", createdNotification.toJSON());
+        // send notification via websocket
         sendWebSocketNotification(userId, createdNotification.toJSON());
     };
 }

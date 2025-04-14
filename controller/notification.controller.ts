@@ -1,7 +1,8 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import { AuthenticatedRequest } from "../middleware/authenticate.middleware";
 import { handleError } from "../errors/ErrorHandler";
 import NotificationService from "../service/notification.service";
+import { NotificationCreateQuery } from "../types/notification";
 
 class NotificationController {
     private notificationService: NotificationService;
@@ -9,9 +10,9 @@ class NotificationController {
         this.notificationService = notificationService;
     }
 
-    createNotification = async (req: AuthenticatedRequest, res: Response) => {
+    createNotification = async (req: Request, res: Response) => {
         try {
-            await this.notificationService.createNotification({ userId: req.user?.id, ...req.body });
+            await this.notificationService.createNotification({ ...req.body });
             res.status(201).send({ message: "create notification successfully" });
         } catch (error) {
             const { message, status } = handleError(error);

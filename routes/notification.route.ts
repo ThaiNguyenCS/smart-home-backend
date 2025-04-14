@@ -3,11 +3,12 @@ import { notificationController } from "../config/container";
 import { validateToken } from "../middleware/authenticate.middleware";
 
 const router = express.Router();
-router.use(validateToken)
+// TESTING PURPOSE ONLY
 
+router.post("/", notificationController.createNotification);
+router.use(validateToken)
 router.delete("/:id", notificationController.deleteNotification);
 router.patch("/:id", notificationController.acknowledgeNotification);
-router.post("/", notificationController.createNotification);
 router.get("/", notificationController.getAllNotification);
 
 export default router;
