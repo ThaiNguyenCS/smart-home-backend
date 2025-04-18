@@ -73,13 +73,17 @@ class DeviceController {
             pythonProcess.stdin.write(req.file.buffer); // write buffer
             pythonProcess.stdin.end(); // Close the stdin after writing
             pythonProcess.stdout.on("data", async (data) => {
-                const result = JSON.parse(data.toString().trim());
-                logger.info(`Recognized Text: ${result}`);
                 try {
+                    const result = JSON.parse(data.toString().trim());
+                    logger.info(`Recognized Text: ${result}`);
                     await convertVoiceCommandToAction(result);
                     res.status(200).send({ message: "Success" });
-                } catch (error) {
+
+                } catch (error: any) {
+                    console.log(typeof error)
+                    // res.status(500).send({ message: error.message });                
                     res.status(400).send({ message: "Unknown command" });
+
                 }
             });
         }

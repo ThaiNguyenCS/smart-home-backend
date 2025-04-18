@@ -10017,3 +10017,410 @@ Turned on Đèn
 2025-04-14 10:07:21 [INFO]: Device manager has 5 devices
 2025-04-14 10:07:30 [INFO]: 0 schedules are due
 2025-04-14 10:07:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:26:32 [INFO]: Running application in dev enviroment
+2025-04-18 09:26:44 [INFO]: Database exists and connection successful
+2025-04-18 09:26:44 [INFO]: MQTT client connected successfully...
+2025-04-18 09:26:45 [INFO]: Server's running at 5000
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:26:45 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:27:00 [INFO]: 2 schedules are due
+2025-04-18 09:27:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-04-18 09:27:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-04-18 09:27:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/rgb with value: 1
+2025-04-18 09:27:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:27:00 [INFO]: Receive message from phngngoc/feeds/rgb: 1
+2025-04-18 09:27:00 [INFO]: Same value, no update to database
+2025-04-18 09:27:00 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-04-18 09:27:00 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-04-18 09:27:00 [INFO]: Same value, no update to database
+2025-04-18 09:27:10 [INFO]: 0 schedules are due
+2025-04-18 09:27:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:27:18 [INFO]: Running application in dev enviroment
+2025-04-18 09:27:21 [INFO]: Database exists and connection successful
+2025-04-18 09:27:21 [INFO]: 0 schedules are due
+2025-04-18 09:27:21 [INFO]: Device manager has 0 devices
+2025-04-18 09:27:21 [INFO]: Server's running at 5000
+2025-04-18 09:27:21 [INFO]: MQTT client connected successfully...
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:27:21 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:27:30 [INFO]: 0 schedules are due
+2025-04-18 09:27:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:27:40 [INFO]: 0 schedules are due
+2025-04-18 09:27:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:27:50 [INFO]: 0 schedules are due
+2025-04-18 09:27:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:00 [INFO]: 0 schedules are due
+2025-04-18 09:28:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:10 [INFO]: 0 schedules are due
+2025-04-18 09:28:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:20 [INFO]: 0 schedules are due
+2025-04-18 09:28:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:30 [INFO]: 0 schedules are due
+2025-04-18 09:28:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:41 [INFO]: 0 schedules are due
+2025-04-18 09:28:41 [INFO]: Device manager has 5 devices
+2025-04-18 09:28:50 [INFO]: 0 schedules are due
+2025-04-18 09:28:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:00 [INFO]: 0 schedules are due
+2025-04-18 09:29:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:10 [INFO]: 0 schedules are due
+2025-04-18 09:29:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:20 [INFO]: 0 schedules are due
+2025-04-18 09:29:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:30 [INFO]: 0 schedules are due
+2025-04-18 09:29:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:40 [INFO]: 0 schedules are due
+2025-04-18 09:29:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:50 [INFO]: 0 schedules are due
+2025-04-18 09:29:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:29:56 [INFO]: req.user
+2025-04-18 09:29:56 [INFO]: Starting Python speech recognition...
+2025-04-18 09:30:00 [INFO]: 0 schedules are due
+2025-04-18 09:30:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:30:10 [INFO]: 0 schedules are due
+2025-04-18 09:30:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:30:20 [INFO]: 0 schedules are due
+2025-04-18 09:30:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:30:40 [INFO]: 0 schedules are due
+2025-04-18 09:30:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:30:53 [INFO]: Running application in dev enviroment
+2025-04-18 09:30:56 [INFO]: MQTT client connected successfully...
+2025-04-18 09:30:56 [INFO]: Database exists and connection successful
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:30:56 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:30:56 [INFO]: Server's running at 5000
+2025-04-18 09:30:57 [INFO]: req.user
+2025-04-18 09:30:57 [INFO]: Starting Python speech recognition...
+2025-04-18 09:31:14 [INFO]: Running application in dev enviroment
+2025-04-18 09:31:16 [INFO]: MQTT client connected successfully...
+2025-04-18 09:31:17 [INFO]: Database exists and connection successful
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:31:17 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:31:17 [INFO]: Server's running at 5000
+2025-04-18 09:31:18 [INFO]: req.user
+2025-04-18 09:31:18 [INFO]: Starting Python speech recognition...
+2025-04-18 09:31:20 [INFO]: 0 schedules are due
+2025-04-18 09:31:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:31:30 [INFO]: 0 schedules are due
+2025-04-18 09:31:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:31:40 [INFO]: 0 schedules are due
+2025-04-18 09:31:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:31:50 [INFO]: 0 schedules are due
+2025-04-18 09:31:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:33:46 [INFO]: Running application in dev enviroment
+2025-04-18 09:33:49 [INFO]: MQTT client connected successfully...
+2025-04-18 09:33:49 [INFO]: Database exists and connection successful
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:33:49 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:33:49 [INFO]: Server's running at 5000
+2025-04-18 09:33:50 [INFO]: req.user
+2025-04-18 09:33:50 [INFO]: Starting Python speech recognition...
+2025-04-18 09:33:50 [INFO]: 0 schedules are due
+2025-04-18 09:33:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:34:00 [INFO]: 0 schedules are due
+2025-04-18 09:34:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:34:10 [INFO]: 0 schedules are due
+2025-04-18 09:34:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:34:20 [INFO]: 0 schedules are due
+2025-04-18 09:34:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:34:30 [INFO]: 0 schedules are due
+2025-04-18 09:34:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:34:36 [INFO]: Running application in dev enviroment
+2025-04-18 09:34:39 [INFO]: MQTT client connected successfully...
+2025-04-18 09:34:40 [INFO]: Database exists and connection successful
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:34:40 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:34:40 [INFO]: 0 schedules are due
+2025-04-18 09:34:40 [INFO]: Device manager has 0 devices
+2025-04-18 09:34:40 [INFO]: Server's running at 5000
+2025-04-18 09:34:50 [INFO]: 0 schedules are due
+2025-04-18 09:34:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:35:00 [INFO]: 0 schedules are due
+2025-04-18 09:35:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:35:01 [INFO]: req.user
+2025-04-18 09:35:01 [INFO]: Starting Python speech recognition...
+2025-04-18 09:35:33 [INFO]: Running application in dev enviroment
+2025-04-18 09:35:37 [INFO]: MQTT client connected successfully...
+2025-04-18 09:35:37 [INFO]: Database exists and connection successful
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:35:37 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:35:37 [INFO]: Server's running at 5000
+2025-04-18 09:35:38 [INFO]: req.user
+2025-04-18 09:35:38 [INFO]: Starting Python speech recognition...
+2025-04-18 09:35:38 [INFO]: Recognized Text: Audio recorded successfully
+2025-04-18 09:35:40 [INFO]: 0 schedules are due
+2025-04-18 09:35:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:35:50 [INFO]: 0 schedules are due
+2025-04-18 09:35:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:36:03 [INFO]: Running application in dev enviroment
+2025-04-18 09:36:06 [INFO]: MQTT client connected successfully...
+2025-04-18 09:36:06 [INFO]: Database exists and connection successful
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:36:06 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:36:06 [INFO]: Server's running at 5000
+2025-04-18 09:36:10 [INFO]: req.user
+2025-04-18 09:36:10 [INFO]: Starting Python speech recognition...
+2025-04-18 09:37:09 [INFO]: Running application in dev enviroment
+2025-04-18 09:37:12 [INFO]: Database exists and connection successful
+2025-04-18 09:37:12 [INFO]: MQTT client connected successfully...
+2025-04-18 09:37:12 [INFO]: Server's running at 5000
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:37:12 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:37:14 [INFO]: req.user
+2025-04-18 09:37:14 [INFO]: Starting Python speech recognition...
+2025-04-18 09:37:14 [INFO]: Recognized Text: Audio recorded successfully
+2025-04-18 09:37:20 [INFO]: 0 schedules are due
+2025-04-18 09:37:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:37:31 [INFO]: 0 schedules are due
+2025-04-18 09:37:31 [INFO]: Device manager has 5 devices
+2025-04-18 09:37:40 [INFO]: 0 schedules are due
+2025-04-18 09:37:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:37:50 [INFO]: 0 schedules are due
+2025-04-18 09:37:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:38:00 [INFO]: 0 schedules are due
+2025-04-18 09:38:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:38:10 [INFO]: 0 schedules are due
+2025-04-18 09:38:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:38:20 [INFO]: 0 schedules are due
+2025-04-18 09:38:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:38:30 [INFO]: 0 schedules are due
+2025-04-18 09:38:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:38:39 [INFO]: Running application in dev enviroment
+2025-04-18 09:38:42 [INFO]: Database exists and connection successful
+2025-04-18 09:38:42 [INFO]: MQTT client connected successfully...
+2025-04-18 09:38:43 [INFO]: Server's running at 5000
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:38:43 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:38:44 [INFO]: req.user
+2025-04-18 09:38:44 [INFO]: Starting Python speech recognition...
+2025-04-18 09:38:44 [INFO]: Recognized Text: Audio recorded successfully
+2025-04-18 09:38:51 [INFO]: 0 schedules are due
+2025-04-18 09:38:51 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:00 [INFO]: 0 schedules are due
+2025-04-18 09:39:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:10 [INFO]: 0 schedules are due
+2025-04-18 09:39:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:20 [INFO]: 0 schedules are due
+2025-04-18 09:39:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:30 [INFO]: 0 schedules are due
+2025-04-18 09:39:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:40 [INFO]: 0 schedules are due
+2025-04-18 09:39:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:39:50 [INFO]: 0 schedules are due
+2025-04-18 09:39:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:40:00 [INFO]: 0 schedules are due
+2025-04-18 09:40:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:40:10 [INFO]: 0 schedules are due
+2025-04-18 09:40:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:41:18 [INFO]: Running application in dev enviroment
+2025-04-18 09:41:21 [INFO]: MQTT client connected successfully...
+2025-04-18 09:41:21 [INFO]: Database exists and connection successful
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:41:21 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:41:21 [INFO]: Server's running at 5000
+2025-04-18 09:41:23 [INFO]: req.user
+2025-04-18 09:41:23 [INFO]: Starting Python speech recognition...
+2025-04-18 09:41:30 [INFO]: 0 schedules are due
+2025-04-18 09:41:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:42:24 [INFO]: Running application in dev enviroment
+2025-04-18 09:42:28 [INFO]: MQTT client connected successfully...
+2025-04-18 09:42:28 [INFO]: Database exists and connection successful
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:42:28 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:42:28 [INFO]: Server's running at 5000
+2025-04-18 09:42:30 [INFO]: 0 schedules are due
+2025-04-18 09:42:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:42:40 [INFO]: 0 schedules are due
+2025-04-18 09:42:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:42:50 [INFO]: 0 schedules are due
+2025-04-18 09:42:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:42:58 [INFO]: Running application in dev enviroment
+2025-04-18 09:43:01 [INFO]: MQTT client connected successfully...
+2025-04-18 09:43:01 [INFO]: Database exists and connection successful
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:43:01 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:43:01 [INFO]: Server's running at 5000
+2025-04-18 09:43:02 [INFO]: req.user
+2025-04-18 09:43:02 [INFO]: Starting Python speech recognition...
+2025-04-18 09:43:09 [INFO]: Recognized Text: [object Object]
+2025-04-18 09:43:10 [INFO]: 0 schedules are due
+2025-04-18 09:43:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:43:20 [INFO]: 0 schedules are due
+2025-04-18 09:43:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:43:30 [INFO]: 0 schedules are due
+2025-04-18 09:43:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:43:40 [INFO]: 0 schedules are due
+2025-04-18 09:43:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:43:50 [INFO]: 0 schedules are due
+2025-04-18 09:43:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:44:01 [INFO]: 0 schedules are due
+2025-04-18 09:44:01 [INFO]: Device manager has 5 devices
+2025-04-18 09:44:10 [INFO]: 0 schedules are due
+2025-04-18 09:44:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:44:20 [INFO]: 0 schedules are due
+2025-04-18 09:44:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:44:27 [INFO]: Running application in dev enviroment
+2025-04-18 09:44:30 [INFO]: MQTT client connected successfully...
+2025-04-18 09:44:30 [INFO]: Database exists and connection successful
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:44:30 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:44:30 [INFO]: 0 schedules are due
+2025-04-18 09:44:30 [INFO]: Device manager has 0 devices
+2025-04-18 09:44:30 [INFO]: Server's running at 5000
+2025-04-18 09:44:31 [INFO]: req.user
+2025-04-18 09:44:31 [INFO]: Starting Python speech recognition...
+2025-04-18 09:44:38 [INFO]: Recognized Text: [object Object]
+2025-04-18 09:44:40 [INFO]: 0 schedules are due
+2025-04-18 09:44:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:44:50 [INFO]: 0 schedules are due
+2025-04-18 09:44:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:00 [INFO]: 0 schedules are due
+2025-04-18 09:45:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:02 [INFO]: req.user
+2025-04-18 09:45:02 [INFO]: Starting Python speech recognition...
+2025-04-18 09:45:09 [INFO]: Recognized Text: [object Object]
+2025-04-18 09:45:10 [INFO]: 0 schedules are due
+2025-04-18 09:45:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:20 [INFO]: 0 schedules are due
+2025-04-18 09:45:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:21 [INFO]: req.user
+2025-04-18 09:45:21 [INFO]: Starting Python speech recognition...
+2025-04-18 09:45:22 [INFO]: Recognized Text: [object Object]
+2025-04-18 09:45:22 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-04-18 09:45:22 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-04-18 09:45:22 [INFO]: Same value, no update to database
+2025-04-18 09:45:31 [INFO]: 0 schedules are due
+2025-04-18 09:45:31 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:35 [INFO]: req.user
+2025-04-18 09:45:35 [INFO]: Starting Python speech recognition...
+2025-04-18 09:45:36 [INFO]: Recognized Text: [object Object]
+2025-04-18 09:45:36 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 0
+2025-04-18 09:45:36 [INFO]: Receive message from phngngoc/feeds/fan: 0
+2025-04-18 09:45:40 [INFO]: 0 schedules are due
+2025-04-18 09:45:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:45:50 [INFO]: 0 schedules are due
+2025-04-18 09:45:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:00 [INFO]: 0 schedules are due
+2025-04-18 09:46:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:10 [INFO]: 0 schedules are due
+2025-04-18 09:46:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:20 [INFO]: 0 schedules are due
+2025-04-18 09:46:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:30 [INFO]: 0 schedules are due
+2025-04-18 09:46:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:36 [INFO]: Running application in dev enviroment
+2025-04-18 09:46:39 [INFO]: MQTT client connected successfully...
+2025-04-18 09:46:39 [INFO]: Database exists and connection successful
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:46:39 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:46:39 [INFO]: Server's running at 5000
+2025-04-18 09:46:42 [INFO]: Running application in dev enviroment
+2025-04-18 09:46:45 [INFO]: MQTT client connected successfully...
+2025-04-18 09:46:45 [INFO]: Database exists and connection successful
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-18 09:46:45 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-18 09:46:45 [INFO]: Server's running at 5000
+2025-04-18 09:46:50 [INFO]: 0 schedules are due
+2025-04-18 09:46:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:46:59 [INFO]: req.user
+2025-04-18 09:46:59 [INFO]: Starting Python speech recognition...
+2025-04-18 09:47:00 [INFO]: 0 schedules are due
+2025-04-18 09:47:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:47:10 [INFO]: 0 schedules are due
+2025-04-18 09:47:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:47:20 [INFO]: 0 schedules are due
+2025-04-18 09:47:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:47:30 [INFO]: 0 schedules are due
+2025-04-18 09:47:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:47:40 [INFO]: 0 schedules are due
+2025-04-18 09:47:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:47:50 [INFO]: 0 schedules are due
+2025-04-18 09:47:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:00 [INFO]: 0 schedules are due
+2025-04-18 09:48:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:10 [INFO]: 0 schedules are due
+2025-04-18 09:48:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:20 [INFO]: 0 schedules are due
+2025-04-18 09:48:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:30 [INFO]: 0 schedules are due
+2025-04-18 09:48:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:40 [INFO]: 0 schedules are due
+2025-04-18 09:48:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:48:50 [INFO]: 0 schedules are due
+2025-04-18 09:48:50 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:00 [INFO]: 0 schedules are due
+2025-04-18 09:49:00 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:10 [INFO]: 0 schedules are due
+2025-04-18 09:49:10 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:20 [INFO]: 0 schedules are due
+2025-04-18 09:49:20 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:30 [INFO]: 0 schedules are due
+2025-04-18 09:49:30 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:40 [INFO]: 0 schedules are due
+2025-04-18 09:49:40 [INFO]: Device manager has 5 devices
+2025-04-18 09:49:50 [INFO]: 0 schedules are due
+2025-04-18 09:49:50 [INFO]: Device manager has 5 devices

@@ -68,5 +68,5 @@ def recognize_speech_from_file(audio_path):
 
 
 if __name__ == "__main__":
-    result = recognize_speech_from_file("./test-audio/turn-light-on.wav")
+    result = recognize_speech_from_file("./test-audio/a.wav")
     print(json.dumps(result))

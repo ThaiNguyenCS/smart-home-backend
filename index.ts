@@ -53,23 +53,23 @@ app.use("/schedules", scheduleRouter);
 
 
 //TODO: for testing only
-app.get("/recognize", async (req, res) => {
-    console.log("Starting Python speech recognition...");
+// app.get("/recognize", async (req, res) => {
+//     console.log("Starting Python speech recognition...");
 
-    const pythonProcess = spawn("python", ["speech.py"]);
+//     const pythonProcess = spawn("python", ["speech.py"]);
 
-    pythonProcess.stdout.on("data", async (data) => {
-        console.log("data:", data);
-        const result = JSON.parse(data.toString().trim());
-        console.log("Recognized Text:", result);
-        try {
-            await convertVoiceCommandToAction(result);
-            res.status(200).send({ message: "Success" });
-        } catch (error) {
-            res.status(400).send({ message: "Unknown command" });
-        }
-    });
-});
+//     pythonProcess.stdout.on("data", async (data) => {
+//         console.log("data:", data);
+//         const result = JSON.parse(data.toString().trim());
+//         console.log("Recognized Text:", result);
+//         try {
+//             await convertVoiceCommandToAction(result);
+//             res.status(200).send({ message: "Success" });
+//         } catch (error) {
+//             res.status(400).send({ message: "Unknown command" });
+//         }
+//     });
+// });
 
 app.use(globalErrorHandler);
 

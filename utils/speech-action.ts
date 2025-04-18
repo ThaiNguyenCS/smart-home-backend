@@ -1,6 +1,7 @@
 import Device from "../model/Device.model";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import { mqttService } from "../config/container";
+
 const PERMITTED_DEVICES: string[] = ["light", "fan"];
 const PERMITTED_ACTIONS: Record<string, number> = { on: 1.0, off: 0 };
 
