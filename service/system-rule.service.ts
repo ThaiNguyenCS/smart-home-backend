@@ -170,9 +170,9 @@ class SystemRuleService {
         let availablePublisherIds: string[] = []; // store all available publisher ids
         let usedPublisherIds: string[] = []; // store used publisher ids
         const promises = [];
-        for (let i = 0; i < existingRules.length; i++) {
-            usedPublisherIds.push(existingRules[i].deviceAttrId);
-        }
+        // for (let i = 0; i < existingRules.length; i++) {
+        //     usedPublisherIds.push(existingRules[i].deviceAttrId);
+        // }
         for (let i = 0; i < devices.length; i++) {
             devices[i].attributes?.forEach((attr) => {
                 if (attr.isPublisher && !usedPublisherIds.find((id) => id === attr.id)) {
