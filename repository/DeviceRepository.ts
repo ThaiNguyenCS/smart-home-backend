@@ -11,6 +11,7 @@ import {
 import UserError from "../errors/UserError";
 import InvalidInputError from "../errors/InvalidInputError";
 import { DestroyOptions, FindOptions, UpdateOptions } from "sequelize";
+import Room from "../model/Room.model";
 
 const validValueTypes = ["value", "status"];
 
@@ -92,6 +93,12 @@ class DeviceRepository {
                 as: "attributes",
                 required: false,
             },
+            {
+                model: Room,
+                as: "room",
+                attributes: ["id", "name", "floorId"],
+                required: false
+            }
         ];
 
         return await Device.findAndCountAll(queryOptions);

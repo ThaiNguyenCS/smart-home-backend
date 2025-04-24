@@ -10424,3 +10424,163 @@ Turned on Đèn
 2025-04-18 09:49:40 [INFO]: Device manager has 5 devices
 2025-04-18 09:49:50 [INFO]: 0 schedules are due
 2025-04-18 09:49:50 [INFO]: Device manager has 5 devices
+2025-04-24 14:39:25 [INFO]: Running application in dev enviroment
+2025-04-24 14:39:53 [INFO]: MQTT client connected successfully...
+2025-04-24 14:39:54 [INFO]: Database exists and connection successful
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/light_2
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/light_3
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/fan_2
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-24 14:39:54 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-24 14:39:54 [INFO]: Server's running at 5000
+2025-04-24 14:40:00 [INFO]: 2 schedules are due
+2025-04-24 14:40:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-04-24 14:40:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/rgb with value: 1
+2025-04-24 14:40:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/move with value: 1
+2025-04-24 14:40:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/fan with value: 1
+2025-04-24 14:40:00 [INFO]: MQTT Client publishes to topic phngngoc/feeds/rgb with value: 1
+2025-04-24 14:40:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:40:00 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-04-24 14:40:00 [INFO]: Same value, no update to database
+2025-04-24 14:40:00 [INFO]: Receive message from phngngoc/feeds/rgb: 1
+2025-04-24 14:40:00 [INFO]: Same value, no update to database
+2025-04-24 14:40:00 [INFO]: Receive message from phngngoc/feeds/rgb: 1
+2025-04-24 14:40:00 [INFO]: Same value, no update to database
+2025-04-24 14:40:00 [INFO]: Receive message from phngngoc/feeds/fan: 1
+2025-04-24 14:40:00 [INFO]: Same value, no update to database
+2025-04-24 14:40:00 [INFO]: Receive message from phngngoc/feeds/move: 1
+2025-04-24 14:40:10 [INFO]: 0 schedules are due
+2025-04-24 14:40:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:40:21 [INFO]: 0 schedules are due
+2025-04-24 14:40:21 [INFO]: Device manager has 8 devices
+2025-04-24 14:40:31 [INFO]: 0 schedules are due
+2025-04-24 14:40:31 [INFO]: Device manager has 8 devices
+2025-04-24 14:40:41 [INFO]: 0 schedules are due
+2025-04-24 14:40:41 [INFO]: Device manager has 8 devices
+2025-04-24 14:40:51 [INFO]: 0 schedules are due
+2025-04-24 14:40:51 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:01 [INFO]: 0 schedules are due
+2025-04-24 14:41:01 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:12 [INFO]: 0 schedules are due
+2025-04-24 14:41:12 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:21 [INFO]: 0 schedules are due
+2025-04-24 14:41:21 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:22 [INFO]: [object Object]
+2025-04-24 14:41:30 [INFO]: 0 schedules are due
+2025-04-24 14:41:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:40 [INFO]: 0 schedules are due
+2025-04-24 14:41:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:41:50 [INFO]: 0 schedules are due
+2025-04-24 14:41:50 [INFO]: Device manager has 8 devices
+2025-04-24 14:42:00 [INFO]: 0 schedules are due
+2025-04-24 14:42:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:42:10 [INFO]: 0 schedules are due
+2025-04-24 14:42:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:42:20 [INFO]: 0 schedules are due
+2025-04-24 14:42:20 [INFO]: Device manager has 8 devices
+2025-04-24 14:42:30 [INFO]: 0 schedules are due
+2025-04-24 14:42:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:42:48 [INFO]: 0 schedules are due
+2025-04-24 14:42:48 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:11 [INFO]: 0 schedules are due
+2025-04-24 14:43:11 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:16 [INFO]: 0 schedules are due
+2025-04-24 14:43:16 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:20 [INFO]: 0 schedules are due
+2025-04-24 14:43:20 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:30 [INFO]: 0 schedules are due
+2025-04-24 14:43:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:40 [INFO]: 0 schedules are due
+2025-04-24 14:43:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:43:53 [INFO]: 0 schedules are due
+2025-04-24 14:43:53 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:00 [INFO]: 0 schedules are due
+2025-04-24 14:44:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:12 [INFO]: 0 schedules are due
+2025-04-24 14:44:12 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:27 [INFO]: 0 schedules are due
+2025-04-24 14:44:27 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:39 [INFO]: 0 schedules are due
+2025-04-24 14:44:39 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:40 [INFO]: 0 schedules are due
+2025-04-24 14:44:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:44:43 [ERROR]: MQTT Connection error:  read ECONNRESET
+2025-04-24 14:44:43 [INFO]: MQTT Connection close
+2025-04-24 14:44:51 [INFO]: 0 schedules are due
+2025-04-24 14:44:51 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:01 [INFO]: 0 schedules are due
+2025-04-24 14:45:01 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:10 [INFO]: 0 schedules are due
+2025-04-24 14:45:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:20 [INFO]: 0 schedules are due
+2025-04-24 14:45:20 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:30 [INFO]: 0 schedules are due
+2025-04-24 14:45:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:40 [INFO]: 0 schedules are due
+2025-04-24 14:45:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:45:50 [INFO]: 0 schedules are due
+2025-04-24 14:45:50 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:00 [INFO]: 0 schedules are due
+2025-04-24 14:46:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:10 [INFO]: 0 schedules are due
+2025-04-24 14:46:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:20 [INFO]: 0 schedules are due
+2025-04-24 14:46:20 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:30 [INFO]: 0 schedules are due
+2025-04-24 14:46:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:41 [INFO]: 0 schedules are due
+2025-04-24 14:46:41 [INFO]: Device manager has 8 devices
+2025-04-24 14:46:50 [INFO]: 0 schedules are due
+2025-04-24 14:46:50 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:00 [INFO]: 0 schedules are due
+2025-04-24 14:47:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:02 [INFO]: [object Object]
+2025-04-24 14:47:10 [INFO]: 0 schedules are due
+2025-04-24 14:47:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:14 [INFO]: req.user
+2025-04-24 14:47:20 [INFO]: 0 schedules are due
+2025-04-24 14:47:20 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:30 [INFO]: 0 schedules are due
+2025-04-24 14:47:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:40 [INFO]: 0 schedules are due
+2025-04-24 14:47:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:47:50 [INFO]: 0 schedules are due
+2025-04-24 14:47:50 [INFO]: Device manager has 8 devices
+2025-04-24 14:48:00 [INFO]: 0 schedules are due
+2025-04-24 14:48:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:48:11 [INFO]: 0 schedules are due
+2025-04-24 14:48:11 [INFO]: Device manager has 8 devices
+2025-04-24 14:48:20 [INFO]: Running application in dev enviroment
+2025-04-24 14:48:24 [INFO]: MQTT client connected successfully...
+2025-04-24 14:48:25 [INFO]: Database exists and connection successful
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/usb
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/light_2
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/light_3
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/fan_2
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/humidity
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/temp
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/fan
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/rgb
+2025-04-24 14:48:25 [INFO]: Subscribed to new feed: phngngoc/feeds/move
+2025-04-24 14:48:25 [INFO]: Server's running at 5000
+2025-04-24 14:48:30 [INFO]: 0 schedules are due
+2025-04-24 14:48:30 [INFO]: Device manager has 8 devices
+2025-04-24 14:48:40 [INFO]: 0 schedules are due
+2025-04-24 14:48:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:48:50 [INFO]: 0 schedules are due
+2025-04-24 14:48:50 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:00 [INFO]: 0 schedules are due
+2025-04-24 14:49:00 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:10 [INFO]: 0 schedules are due
+2025-04-24 14:49:10 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:21 [INFO]: 0 schedules are due
+2025-04-24 14:49:21 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:31 [INFO]: 0 schedules are due
+2025-04-24 14:49:31 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:40 [INFO]: 0 schedules are due
+2025-04-24 14:49:40 [INFO]: Device manager has 8 devices
+2025-04-24 14:49:42 [INFO]: req.user
