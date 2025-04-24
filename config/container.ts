@@ -26,6 +26,8 @@ import RoomRepository from "../repository/RoomRepository";
 import RoomService from "../service/room.service";
 import RoomController from "../controller/room.controller";
 import ScheduleController from "../controller/schedule.controller";
+import StatService from "../service/stat.service";
+import StatisticController from "../controller/stat.controller";
 
 const deviceRepository = new DeviceRepository();
 
@@ -69,6 +71,10 @@ const floorController = new FloorController(floorService);
 const roomRepository = new RoomRepository();
 const roomService = new RoomService(roomRepository);
 const roomController = new RoomController(roomService);
+
+// Stat
+export const statService = new StatService({ deviceLogRepository, realEstateRepo: realEstateRepository })
+export const statController = new StatisticController({ statService })
 
 export {
     mqttService,

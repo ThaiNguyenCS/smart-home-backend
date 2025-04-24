@@ -21,6 +21,7 @@ import roomRouter from "./routes/room.route";
 import scheduleRouter from "./routes/schedule.route";
 import { spawn } from "child_process";
 import { convertVoiceCommandToAction } from "./utils/speech-action";
+import statRouter from "./routes/statistics.route";
 // import Action from "./model/Action.model";
 // import Room from "./model/Room.model";
 // import Floor from "./model/Floor.model";
@@ -50,6 +51,7 @@ app.use("/estates", realEstateRouter);
 app.use("/floors", floorRouter);
 app.use("/rooms", roomRouter);
 app.use("/schedules", scheduleRouter);
+app.use("/stats", statRouter);
 
 
 //TODO: for testing only

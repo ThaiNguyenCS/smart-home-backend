@@ -1,9 +1,8 @@
 import express from "express";
-import Device from "../temp_design_pattern/Device";
+import { validateToken } from "../middleware/authenticate.middleware";
+import { statController } from "../config/container";
 const router = express.Router();
 
-router.get("/stats", async (req, res) => {});
-
-
+router.get("/", validateToken, statController.getStats);
 
 export default router;

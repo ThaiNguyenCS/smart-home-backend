@@ -2,6 +2,7 @@ import { Error, UniqueConstraintError } from "sequelize";
 import InvalidInputError from "./InvalidInputError";
 import { NextFunction, Request, Response } from "express";
 import logger from "../logger/logger";
+import AppError from "./AppError";
 
 export const handleError = (error: any) => {
     if (error instanceof InvalidInputError) {
@@ -23,7 +24,16 @@ export const globalErrorHandler = (err: Error, req: Request, res: Response, next
     } else if (err instanceof UniqueConstraintError) {
         status = 409;
         message = err.original.message;
-    } else {
+    }
+    else if (err instanceof AppError) {
+        status = err.statusCode;
+        message = err.message;
+    }
+    else if ((err as any).isJoi) {
+        status = 400;
+        message = err.message
+    }
+    else {
         status = (err as any).status || 500;
         message = err.message;
     }

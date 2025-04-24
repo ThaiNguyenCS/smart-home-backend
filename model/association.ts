@@ -7,6 +7,7 @@ import User from "./User.model";
 import RealEstate from "./RealEstate.model";
 import Floor from "./Floor.model";
 import Room from "./Room.model";
+import DeviceLog from "./DeviceLog.model";
 
 Device.hasMany(DeviceAttribute, {
     foreignKey: "deviceId",
@@ -81,4 +82,15 @@ DeviceAttribute.belongsToMany(Schedule, {
     through: "ScheduleMappings",
     foreignKey: "deviceAttrId",
     onDelete: "CASCADE",
+});
+
+DeviceLog.belongsTo(DeviceAttribute, {
+    foreignKey: "deviceAttrId",
+    as: "deviceAttribute",
+});
+
+
+DeviceAttribute.hasMany(DeviceLog, {
+    foreignKey: "deviceAttrId",
+    as: "logs",
 });
