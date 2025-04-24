@@ -100,6 +100,7 @@ class DeviceRepository {
                 required: false
             }
         ];
+        queryOptions.order = [["name", "ASC"]];
 
         return await Device.findAndCountAll(queryOptions);
     }

@@ -46,7 +46,7 @@ class DeviceLogRepository {
 
     async getDeviceLogsByCondition(data: GetDeviceLogsQuery) {
         const condition = Object.fromEntries(Object.entries(data).filter(([_, value]) => value !== undefined));
-        return await DeviceLog.findAll({ where: condition });
+        return await DeviceLog.findAll({ where: condition, order: [["createdAt", "DESC"]] });
     }
 
     async getAllDeviceLog(data: any) {
