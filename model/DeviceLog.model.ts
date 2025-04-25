@@ -28,6 +28,8 @@ DeviceLog.init(
                 model: "DeviceAttributes",
                 key: "id",
             },
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE",
         },
         value: {
             type: DataTypes.FLOAT,

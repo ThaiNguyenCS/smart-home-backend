@@ -172,9 +172,9 @@ class DeviceService {
             options: { attribute: { required: false } },
         });
         if (!device) throw createHttpError(404, `Device ${data.deviceId} not found`);
-        if (device.userId !== userId) {
-            throw createHttpError(401, `Unauthorized`);
-        }
+        // if (device.userId !== userId) {
+        //     throw createHttpError(401, `Unauthorized`);
+        // }
 
         const attr = device.attributes?.find((attr) => attr.id === data.attrId);
         if (attr) {

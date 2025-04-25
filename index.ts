@@ -77,7 +77,7 @@ app.use(globalErrorHandler);
 
 (async () => {
     try {
-        await sequelize.authenticate();
+        await sequelize.authenticate(); 
         // await sequelize.sync({ alter: true });
         logger.info("Database exists and connection successful");
         await deviceManager.loadDevicesFromDB(); // load devices from DB into RAM

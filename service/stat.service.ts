@@ -12,6 +12,7 @@ import AppError from "../errors/AppError"
 class StatService {
     private deviceLogRepository: DeviceLogRepository
     private realEstateRepo: RealEstateRepository
+    DEFAULT_START_DATE = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
     constructor({ deviceLogRepository, realEstateRepo }: { deviceLogRepository: DeviceLogRepository, realEstateRepo: RealEstateRepository }) {
         this.deviceLogRepository = deviceLogRepository
         this.realEstateRepo = realEstateRepo
@@ -24,7 +25,7 @@ class StatService {
         // endDate default: today
         // startDate default: today -1
         const {
-            startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+            startDate = this.DEFAULT_START_DATE,
             endDate = new Date(),
             realEstateId } = query
 
@@ -38,7 +39,6 @@ class StatService {
         }
 
         // tim cac device attr cua userId này và lọc theo cái cần lấy log
-        let deviceAttrIds: string[] = []
 
         const logsByAttr = await DeviceAttribute.findAll({
             include: [
