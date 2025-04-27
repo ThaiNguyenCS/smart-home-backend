@@ -2,6 +2,7 @@ import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "./database";
 import InvalidInputError from "../errors/InvalidInputError";
 import Device from "./Device.model";
+import DeviceLog from "./DeviceLog.model";
 
 interface DeviceAttributeAttrs {
     id: string;
@@ -10,9 +11,10 @@ interface DeviceAttributeAttrs {
     feed: string;
     value: number;
     isPublisher: boolean;
+    logs?: DeviceLog[];
 }
 
-interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value"> {}
+interface DeviceCreationAttrs extends Optional<DeviceAttributeAttrs, "value"> { }
 
 class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> implements DeviceAttributeAttrs {
     public id!: string;
@@ -22,6 +24,7 @@ class DeviceAttribute extends Model<DeviceAttributeAttrs, DeviceCreationAttrs> i
     public feed!: string;
     public isPublisher!: boolean;
     public device?: Device;
+    public logs!: DeviceLog[];
 
     // Example method for updating an attribute value
     public async updateStatus(newValue: string): Promise<void> {

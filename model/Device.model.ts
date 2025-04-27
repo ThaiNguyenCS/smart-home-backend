@@ -4,12 +4,10 @@ import DeviceRepository from "../repository/DeviceRepository";
 import DeviceAttribute from "./DeviceAttribute.model";
 import { deviceLogService, mqttService, notificationService, systemRuleService } from "../config/container";
 import { isRuleSatisfied } from "../utils/ruleValidate";
-import SystemRule from "./SystemRule.model";
-import Action from "./Action.model";
 import logger from "../logger/logger";
-import { generateUUID } from "../utils/idGenerator";
 import { generateNotificationData } from "../utils/notification-generation";
 import { sendWebSocketNotification, sendWebSocketRefresh } from "../service/web-socket.service";
+import Room from "./Room.model";
 
 interface DeviceAttrs {
     id: string;
@@ -17,7 +15,9 @@ interface DeviceAttrs {
     roomId?: string | null;
     name: string;
     type: string;
+    power?: number;
     attributes?: DeviceAttribute[];
+    room?: Room;
 }
 
 class Device extends Model<DeviceAttrs> implements DeviceAttrs {
@@ -27,6 +27,8 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
     public attributes?: DeviceAttribute[];
     public userId!: string;
     public type!: string;
+    public power!: number;
+    public room!: Room;
 
     // public async loadDeviceAttrs() {
     //     const attrs = await this.deviceRepository.getDeviceAttr({ deviceId: this.id });
@@ -138,6 +140,14 @@ Device.init(
                 },
             },
             defaultValue: "other",
+        },
+        power: {
+
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+            validate: {
+                min: 0
+            }
         },
     },
     {

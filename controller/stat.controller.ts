@@ -23,6 +23,21 @@ class StatisticController {
             next(error)
         }
     }
+
+    getPowerStats = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+        try {
+            const data = {
+                realEstateId: req.query.realEstateId as string,
+                startDate: req.query.startDate as string,
+                endDate: req.query.endDate as string,
+            }
+            await getStatSchema.validateAsync(data)
+            const result = await this.statService.getPowerStats(req.user!.id, data)
+            res.status(200).json({ message: "Get power statistics successfully", data: result })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
 export default StatisticController

@@ -4,6 +4,7 @@ export interface AddDeviceQuery {
     roomId?: string;
     attrs?: AddDeviceAttrData[];
     type: string;
+    power?: number,
 }
 
 export type AddDeviceData = AddDeviceQuery & {
@@ -38,6 +39,7 @@ export interface UpdateDeviceQuery {
     userId: string;
     deviceId: string;
     name?: string;
+    power?: number
     roomId?: string;
     [otherProp: string]: any;
 }

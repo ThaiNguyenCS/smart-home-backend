@@ -17,7 +17,7 @@ const validValueTypes = ["value", "status"];
 
 class DeviceRepository {
     async addDevice(data: AddDeviceData, transaction = null) {
-        const { id, name, roomId = null, userId, type } = data;
+        const { id, name, roomId = null, userId, type, power } = data;
         const queryOption: any = {};
         if (transaction) {
             queryOption.transaction = transaction;
@@ -29,6 +29,7 @@ class DeviceRepository {
                 roomId,
                 userId,
                 type,
+                power
             },
             queryOption
         );
@@ -47,11 +48,11 @@ class DeviceRepository {
     }
 
     async updateDevice(data: UpdateDeviceData) {
-        const { deviceId, name, roomId } = data;
+        const { deviceId, name, roomId, power } = data;
         if (!deviceId) {
             throw new Error("Device ID is required for updating.");
         }
-        const update = Object.fromEntries(Object.entries({ name, roomId }).filter(([_, value]) => value !== undefined));
+        const update = Object.fromEntries(Object.entries({ name, roomId, power }).filter(([_, value]) => value !== undefined));
         const device = await Device.update(update, { where: { id: deviceId } });
         return device;
     }
