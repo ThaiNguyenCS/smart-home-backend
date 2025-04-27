@@ -14,6 +14,7 @@ import InvalidInputError from "../errors/InvalidInputError";
 import { runTransaction } from "../model/transactionManager";
 import { generateUUID } from "../utils/idGenerator";
 import DeviceManager from "../temp_design_pattern/DeviceManager";
+import { sendWebSocketRefresh } from "./web-socket.service";
 
 const PERMITTED_ATTR_VALUE = [0.0, 1.0];
 
@@ -115,11 +116,11 @@ class DeviceService {
         if (!device) {
             throw createHttpError(404, `Device ${deviceId} not found`);
         }
-        if (device.userId !== userId) {
-            throw createHttpError(403, `This device does not belong to this user`);
-        }
-
+        // if (device.userId !== userId) {
+        //     throw createHttpError(403, `This device does not belong to this user`);
+        // }
         await this.deviceRepository.updateDevice({ deviceId, name, roomId });
+        sendWebSocketRefresh(userId)
     }
 
     async getDeviceById(data: { id: string; options: any }) {

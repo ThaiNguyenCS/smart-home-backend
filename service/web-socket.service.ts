@@ -49,6 +49,10 @@ export function sendWebSocketNotification(userId: string, notification: any) {
     io.to(userId).emit("notification", JSON.stringify(notification));
 }
 
+export function sendWebSocketRefresh(userId: string) {
+    io.to(userId).emit("refresh", JSON.stringify({ action: "refresh" }));
+}
+
 function registerDisconnectHandler(socket: any, userId: string) {
     socket.on("disconnect", () => {
         logger.info(`User disconnected: socketId ${socket.id}`);

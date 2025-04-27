@@ -9,7 +9,7 @@ import Action from "./Action.model";
 import logger from "../logger/logger";
 import { generateUUID } from "../utils/idGenerator";
 import { generateNotificationData } from "../utils/notification-generation";
-import { sendWebSocketNotification } from "../service/web-socket.service";
+import { sendWebSocketNotification, sendWebSocketRefresh } from "../service/web-socket.service";
 
 interface DeviceAttrs {
     id: string;
@@ -91,6 +91,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                             }
                         }
                     }
+                    sendWebSocketRefresh(this.userId)
                 } else {
                     logger.info("Same value, no update to database");
                 }
