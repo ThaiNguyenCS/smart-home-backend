@@ -1,11 +1,8 @@
-export const getTimeOnly = (date: Date) => {
-    return (
-        date.getHours().toString().padStart(2, "0") +
-        ":" +
-        date.getMinutes().toString().padStart(2, "0") +
-        ":" +
-        date.getSeconds().toString().padStart(2, "0")
-    );
+export const getTimeOnly = (date: Date, timezone = "Asia/Bangkok") => {
+    return new Date(date.toLocaleString('en-US', { timeZone: timezone }))
+        .toTimeString()
+        .split(' ')[0]; // "HH:MM:SS"
+    
 };
 
 export const getDateOnly = (date: Date) => {
