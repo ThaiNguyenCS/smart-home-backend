@@ -33,7 +33,7 @@ class StatisticController {
             }
             await getStatSchema.validateAsync(data)
             const result = await this.statService.getPowerStats(req.user!.id, data)
-            res.status(200).json({ message: "Get power statistics successfully", data: result })
+            res.status(200).json({ message: "Get power statistics successfully", ...result })
         } catch (error) {
             next(error)
         }

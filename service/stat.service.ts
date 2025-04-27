@@ -176,7 +176,7 @@ class StatService {
                 ob.push({ device: toDeviceDTO(device), power: powerConsumption })
             }
         }
-        return ob
+        return { startDate, endDate, data: ob }
 
     }
 }
