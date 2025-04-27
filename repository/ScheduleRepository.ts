@@ -174,6 +174,7 @@ class ScheduleRepository {
         const updateObject = Object.fromEntries(
             Object.entries({ time, value, repeat, isActive }).filter(([_, value]) => value !== undefined)
         );
+        updateObject.lastActiveDate = new Date(Date.now() - 24*60*60*1000).toISOString();
         runTransaction(async (transaction: any) => {
             await Schedule.update(updateObject, {
                 where: { id: scheduleId },
