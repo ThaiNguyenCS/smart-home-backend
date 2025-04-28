@@ -40,6 +40,7 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
         if (this.attributes) return this.attributes.find((attr) => attr.feed === feed);
     }
 
+    //TODO: need refactor
     public async updateDeviceStatus(data: any) {
         const { feed, value } = data;
         const formattedValue = parseFloat(value);
@@ -60,39 +61,44 @@ class Device extends Model<DeviceAttrs> implements DeviceAttrs {
                         value: formattedValue,
                     });
                     // find system rules that connected to this status
-                    const rule = await systemRuleService.findRuleOfAttr({
+                    await systemRuleService.activateRules({
                         deviceAttrId: attr.id,
                         value: formattedValue,
-                    });
-                    if (rule) {
-                        // console.log("rules", rules);
-                        logger.info("Found rule" + rule?.toJSON());
-                        let actions = rule.actions;
-                        if (actions) {
-                            const isSatisfied = isRuleSatisfied(rule, formattedValue);
-                            // logger.info(isSatisfied);
-                            if (isSatisfied) {
-                                let promises = [];
-                                for (let i = 0; i < actions.length; i++) {
-                                    // console.log(actions[i]);
-                                    let deviceAttr = actions[i].deviceAttribute;
+                    })
+                    // const rules = await systemRuleService.findSatisfiedRules({
+                    //     deviceAttrId: attr.id,
+                    //     value: formattedValue,
+                    // });
+                    // if (rules.length > 0) {
+                    //     const rule = rules[0]
+                    //     // console.log("rules", rules);
+                    //     logger.info("Found rule" + rule?.toJSON());
+                    //     let actions = rule.actions;
+                    //     if (actions) {
+                    //         const isSatisfied = isRuleSatisfied(rule, formattedValue);
+                    //         // logger.info(isSatisfied);
+                    //         if (isSatisfied) {
+                    //             let promises = [];
+                    //             for (let i = 0; i < actions.length; i++) {
+                    //                 // console.log(actions[i]);
+                    //                 let deviceAttr = actions[i].deviceAttribute;
 
-                                    if (deviceAttr) {
-                                        promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
-                                    } else {
-                                        console.error("Action does not have corresponding deviceAttribute");
-                                    }
-                                }
-                                // if user choose to receive notification then send it
-                                if (rule.receiveNotification) {
-                                    await notificationService.createNotification(
-                                        generateNotificationData(rule, actions)
-                                    );
-                                }
-                                await Promise.all(promises);
-                            }
-                        }
-                    }
+                    //                 if (deviceAttr) {
+                    //                     promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
+                    //                 } else {
+                    //                     console.error("Action does not have corresponding deviceAttribute");
+                    //                 }
+                    //             }
+                    //             // if user choose to receive notification then send it
+                    //             if (rule.receiveNotification) {
+                    //                 await notificationService.createNotification(
+                    //                     generateNotificationData(rule, actions)
+                    //                 );
+                    //             }
+                    //             await Promise.all(promises);
+                    //         }
+                    //     }
+                    // }
                     sendWebSocketRefresh(this.userId)
                 } else {
                     logger.info("Same value, no update to database");

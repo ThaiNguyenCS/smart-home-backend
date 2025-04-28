@@ -14,6 +14,12 @@ import { generateUUID } from "../utils/idGenerator";
 import DeviceAttribute from "../model/DeviceAttribute.model";
 import Device from "../model/Device.model";
 import Room from "../model/Room.model";
+import SystemRule from "../model/SystemRule.model";
+import logger from "../logger/logger";
+import { isRuleSatisfied } from "../utils/ruleValidate";
+import { mqttService, notificationService } from "../config/container";
+import { generateNotificationData } from "../utils/notification-generation";
+import { sendWebSocketRefresh } from "./web-socket.service";
 class SystemRuleService {
     private deviceRepository: DeviceRepository;
     private systemRuleRepository: SystemRuleRepository;
@@ -129,10 +135,33 @@ class SystemRuleService {
         });
     };
 
-    findRuleOfAttr = async (data: { deviceAttrId: string; value: number }) => {
-        const { deviceAttrId, value } = data;
-        return await this.systemRuleRepository.getRuleByAttrId({ deviceAttrId: deviceAttrId, value: value });
+    getRuleDetail = async (data: { ruleId: string }) => {
+        const { ruleId } = data;
+        const rule = await this.systemRuleRepository.getRuleByAttrId({ ruleId: ruleId });
+        return rule
     };
+
+    findSatisfiedRules = async (data: {
+        value: number,
+        deviceAttrId: string
+    }) => {
+        const { value, deviceAttrId } = data
+
+        const rules = await this.systemRuleRepository.getRulesByAttrId({ deviceAttrId: deviceAttrId });
+        const satisfiedRules = rules.filter(r => {
+            if (!r.isActive)
+                return false
+            switch (r.compareType) {
+                case 'gte': return value >= r.value;
+                case 'gt': return value > r.value;
+                case 'lte': return value <= r.value;
+                case 'lt': return value < r.value;
+                case 'eq': return value === r.value;
+                default: return false;
+            }
+        })
+        return satisfiedRules
+    }
 
     addActionToRule = async (data: any) => {
         //TODO: auth
@@ -211,6 +240,46 @@ class SystemRuleService {
         });
         return result;
     };
+
+    activateRules = async (data: { deviceAttrId: string, value: number }) => {
+        const { deviceAttrId, value } = data
+        const rules = await this.findSatisfiedRules({
+            deviceAttrId,
+            value,
+        });
+        if (rules.length > 0) {
+            const rule = await this.getRuleDetail({ ruleId: rules[0].id })
+            if (rule) {
+                logger.info("Found rule" + rule?.toJSON());
+                let actions = rule.actions;
+                if (actions) {
+                    // logger.info(isSatisfied);
+                    let promises = [];
+                    for (let i = 0; i < actions.length; i++) {
+                        // console.log(actions[i]);
+                        let deviceAttr = actions[i].deviceAttribute;
+
+                        if (deviceAttr) {
+                            promises.push(mqttService.publishMessage(deviceAttr.feed, actions[i].value));
+                        } else {
+                            console.error("Action does not have corresponding deviceAttribute");
+                        }
+                    }
+                    // if user choose to receive notification then send it
+                    if (rule.receiveNotification) {
+                        await notificationService.createNotification(
+                            generateNotificationData(rule, actions)
+                        );
+                    }
+                    await Promise.all(promises);
+                }
+            }
+            else
+            {
+                logger.info("Not found rule");
+            }
+        }
+    }
 }
 
 export default SystemRuleService;

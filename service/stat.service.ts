@@ -124,11 +124,10 @@ class StatService {
                     {
                         model: DeviceLog,
                         as: "logs",
-                        attributes: ["createdAt", "value"],
+                        attributes: ["createdAt", "value", "deviceAttrId"],
                         where: {
                             createdAt: { [Op.and]: { [Op.gte]: new Date(startDate), [Op.lte]: new Date(endDate) } }
                         },
-                        order: [["createdAt", "ASC"]],
                     },
 
                 ],
@@ -152,7 +151,9 @@ class StatService {
                         }
                     }]
                 }]
-            },]
+            },],
+            order: [[{ model: DeviceAttribute, as: "attributes" }, { model: DeviceLog, as: "logs" }, "createdAt", "ASC"]]
+
         })
 
         const ob: any = [];
@@ -162,6 +163,7 @@ class StatService {
             let lastOnTime: Date | null = null;
             if (device.attributes && device.attributes.length > 0) {
                 for (const log of device.attributes[0].logs) {
+                    // console.log("log " + log.deviceAttrId + " value" + log.value + " at " + new Date(log.createdAt).toLocaleString())
                     if (log.value == 1) {
                         lastOnTime = log.createdAt;
                     } else if (log.value == 0 && lastOnTime) {

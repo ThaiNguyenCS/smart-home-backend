@@ -23,7 +23,6 @@ class SystemRuleController {
 
     getAllRules = async (req: AuthenticatedRequest, res: Response) => {
         try {
-            //TODO: userId
             const result = await this.systemRuleService.getAllRules({ userId: req.user!.id });
             res.status(200).send({ data: result, message: "successful" });
         } catch (error: any) {
@@ -33,7 +32,6 @@ class SystemRuleController {
     };
     addRule = async (req: AuthenticatedRequest, res: Response) => {
         try {
-            //TODO: userId
             await this.systemRuleService.addRule({ userId: req.user!.id, ...req.body });
             res.status(201).send({ message: "create rule successfully" });
         } catch (error: any) {

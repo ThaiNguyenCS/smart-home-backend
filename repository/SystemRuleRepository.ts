@@ -23,8 +23,8 @@ class SystemRuleRepository {
         return await SystemRule.findOne(queryOption);
     }
 
-    async getRuleByAttrId(data: any, transaction = null) {
-        const { deviceAttrId, value } = data;
+    async getRulesByAttrId(data: any, transaction = null) {
+        const { deviceAttrId } = data;
         const queryOption: FindOptions = { where: {} };
         if (transaction) {
             queryOption.transaction = transaction;
@@ -32,8 +32,18 @@ class SystemRuleRepository {
         if (deviceAttrId) {
             queryOption.where = { ...queryOption.where, deviceAttrId: deviceAttrId };
         }
-        if (value !== undefined) {
-            queryOption.where = { ...queryOption.where, value: value };
+        const rules = await SystemRule.findAll(queryOption);
+        return rules;
+    }
+
+    async getRuleByAttrId(data: { ruleId: string }, transaction = null) {
+        const { ruleId } = data;
+        const queryOption: FindOptions = { where: {} };
+        if (transaction) {
+            queryOption.transaction = transaction;
+        }
+        if (ruleId) {
+            queryOption.where = { ...queryOption.where, id: ruleId };
         }
 
         queryOption.include = [
